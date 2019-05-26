@@ -47,6 +47,7 @@ Things you may want to cover:
 - has_many :products
 - has_many :trade_messages
 - has_many :trades
+- has_many :evaluations
 
 ## productsテーブル
 
@@ -88,7 +89,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foreign_key: true|
-|category|string|null: false|
+|category|string|null: false, index: true|
 
 ### Association
 - belongs_to :product
@@ -144,12 +145,13 @@ Things you may want to cover:
 |review|text|
 
 ### Association
+- belongs_to :user
 
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foerign_key: true|
-|size|string|null: false|
+|size|string|null: false, index: true|
 
 ### Association
 
@@ -157,6 +159,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foerign_key: true|
-|bland|string|null: false|
+|bland|string|null: false, index: true|
+
+### Association
+
+## credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|uid|string|
+|provider|string|
 
 ### Association
