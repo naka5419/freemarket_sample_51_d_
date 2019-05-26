@@ -51,6 +51,7 @@ Things you may want to cover:
 - has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
 - has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
 - has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
+- has_many :credentials
 
 ## productsテーブル
 
@@ -71,12 +72,15 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
-- has_many :categories, through: :products-categories
+- has_many :categories, through: :product-categories
 - has_many :trade_messages
 - has_many :likes
 - belongs_to :bland
 - belongs_to :buyer, class_name: "User"
 - belongs_to :seller, class_name: "User"
+- has_many :images
+- belongs_to :sizey
+- has_many :evaluations
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -85,6 +89,7 @@ Things you may want to cover:
 |image|string|null: false|
 
 ### Association
+- belongs_to :product
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -92,9 +97,9 @@ Things you may want to cover:
 |category|string|null: false, index: true|
 
 ### Association
-- has_many :products, through: :products-categories
+- has_many :products, through: :product-categories
 
-## products_categoriesテーブル
+## product_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foreign_key: true|
@@ -136,7 +141,9 @@ Things you may want to cover:
 |review|text|
 
 ### Association
-- belongs_to :user
+- belongs_to :buyer_id, class_name: "Product"
+- belongs_to :seller_id, class_name: "Product"
+- belongs_to :product
 
 ## sizesテーブル
 |Column|Type|Options|
@@ -145,6 +152,7 @@ Things you may want to cover:
 |size|string|null: false|
 
 ### Association
+- has_many :products
 
 ## blandsテーブル
 |Column|Type|Options|
@@ -161,6 +169,7 @@ Things you may want to cover:
 |provider|string|
 
 ### Association
+- belongs_to :user
 
 ## likesテーブル
 |Column|Type|Options|
