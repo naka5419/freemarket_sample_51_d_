@@ -48,6 +48,7 @@ Things you may want to cover:
 - has_many :trade_messages
 - has_many :trades
 - has_many :evaluations
+- has_many :likes
 
 ## productsテーブル
 
@@ -55,6 +56,7 @@ Things you may want to cover:
 |------|----|-------|
 |product_name|string|null: false|
 |description|text|null: false|
+|brand_id|integer|foreign_key: true, index: true|
 |condition|string|null: false|
 |shipping_cost|string|null: false|
 |shipping_method|string|null: false|
@@ -64,9 +66,11 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
-- has_many :categorys
+- has_many :categorys, through: :products-categorys
 - belongs_to :user
 - has_many :trade_messages
+- has_many :likes
+- belongs_to :bland
 
 ## product_statusテーブル
 
@@ -88,11 +92,20 @@ Things you may want to cover:
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foreign_key: true|
 |category|string|null: false, index: true|
 
 ### Association
+- has_many :products, through: :products-categorys
+
+## products-categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer|foreign_key: true|
+|category_id|integer|foreign_key: true|
+
+### Association
 - belongs_to :product
+- belongs_to :category
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -109,7 +122,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |buyer_id|integer|foreign_key: true|
-|seller_id|intefer|foreign_key: true|
+|seller_id|integer|foreign_key: true|
 |product_id|integer|foreign_key: true|
 
 ### Association
@@ -140,7 +153,7 @@ Things you may want to cover:
 |------|----|-------|
 |rate|integer|null: false|
 |buyer_id|integer|foreign_key: true|
-|seller_id|intefer|foreign_key: true|
+|seller_id|integer|foreign_key: true|
 |product_id|integer|foerign_key: true|
 |review|text|
 
@@ -151,17 +164,17 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foerign_key: true|
-|size|string|null: false, index: true|
+|size|string|null: false|
 
 ### Association
 
 ## blandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foerign_key: true|
-|bland|string|null: false, index: true|
+|bland|string|null: false|
 
 ### Association
+- has_many :products
 
 ## credentialsテーブル
 |Column|Type|Options|
@@ -170,3 +183,13 @@ Things you may want to cover:
 |provider|string|
 
 ### Association
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|foreign_key: true|
+|product_id|integer|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :product
