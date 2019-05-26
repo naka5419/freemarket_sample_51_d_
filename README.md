@@ -46,9 +46,11 @@ Things you may want to cover:
 - has_many :comments
 - has_many :products
 - has_many :trade_messages
-- has_many :trades
 - has_many :evaluations
 - has_many :likes
+- has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
+- has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
+- has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
 
 ## productsテーブル
 
@@ -64,14 +66,17 @@ Things you may want to cover:
 |shipping_days|string|null: false|
 |price|integer|null: false|
 |status|integer|null: false, default: 0, limit: 1|
+|buyer_id|integer|foreign_key: true|
+|seller_id|integer|foreign_key: true|
 
 ### Association
 - has_many :comments
 - has_many :categories, through: :products-categories
-- belongs_to :user
 - has_many :trade_messages
 - has_many :likes
 - belongs_to :bland
+- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -110,16 +115,6 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-## tradesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|buyer_id|integer|foreign_key: true|
-|seller_id|integer|foreign_key: true|
-|product_id|integer|foreign_key: true|
-
-### Association
-- belongs_to :user
-
 ## trade_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -130,15 +125,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
-
-## profitsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|foreign_key: true|
-|profit|integer|
-|point|integer|
-
-### Association
 
 ## evaluationsテーブル
 |Column|Type|Options|
