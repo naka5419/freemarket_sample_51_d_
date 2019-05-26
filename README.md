@@ -34,8 +34,8 @@ Things you may want to cover:
 |lastname_kana|string|null: false|
 |birthday|integer|null: false|
 |postalcode|integer|null: false|
-|address_pref|string|null: false|
-|address_city|string|null: false|
+|prefecture|string|null: false|
+|city_name|string|null: false|
 |address_number|string|null: false|
 |building_name|string|
 |phone_number|integer|unique: true, null: false|
@@ -54,15 +54,16 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|product_name|string|null: false|
+|name|string|null: false|
 |description|text|null: false|
 |brand_id|integer|foreign_key: true, index: true|
-|condition|string|null: false|
+|condition|integer|null: false, default: 0, limit: 1|
 |shipping_cost|string|null: false|
 |shipping_method|string|null: false|
 |source_area|string|null: false|
 |shipping_days|string|null: false|
 |price|integer|null: false|
+|status|integer|null: false, default: 0, limit: 1|
 
 ### Association
 - has_many :comments
@@ -71,15 +72,6 @@ Things you may want to cover:
 - has_many :trade_messages
 - has_many :likes
 - belongs_to :bland
-
-## product_statusテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|foreign_key: true|
-|status|integer|null: false|
-
-### Association
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -97,7 +89,7 @@ Things you may want to cover:
 ### Association
 - has_many :products, through: :products-categories
 
-## products-categorテーブル
+## products_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foreign_key: true|
@@ -171,7 +163,7 @@ Things you may want to cover:
 ## blandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|bland|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :products
