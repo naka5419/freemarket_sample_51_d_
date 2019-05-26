@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## Usersテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -66,7 +66,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
-- has_many :categorys, through: :products-categorys
+- has_many :categories, through: :products-categories
 - belongs_to :user
 - has_many :trade_messages
 - has_many :likes
@@ -89,15 +89,15 @@ Things you may want to cover:
 
 ### Association
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, index: true|
 
 ### Association
-- has_many :products, through: :products-categorys
+- has_many :products, through: :products-categories
 
-## products-categorysテーブル
+## products-categorテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|foreign_key: true|
@@ -139,7 +139,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product
 
-## merpaysテーブル
+## profitsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|foreign_key: true|
