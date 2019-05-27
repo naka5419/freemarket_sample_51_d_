@@ -72,6 +72,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
+- has_many :product_categories
 - has_many :categories, through: :product-categories
 - has_many :trade_messages
 - has_many :likes
@@ -86,9 +87,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, index: true|
+|parent_id|integer|
 
 ### Association
+- has_many :product_categories
 - has_many :products, through: :product-categories
+- belongs_to :parent, class_name: :Category, foreign_key: :parent_id
+- has_many :children, class_name: :Category, foreign_key: :parent_id
+
 
 ## product_categoriesテーブル
 |Column|Type|Options|
