@@ -80,6 +80,7 @@ Things you may want to cover:
 - belongs_to :seller, class_name: "User"
 - belongs_to :sizey
 - has_many :evaluations
+- has_many_attached :images
 
 ## categoriesテーブル
 |Column|Type|Options|
