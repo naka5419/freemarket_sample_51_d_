@@ -72,32 +72,29 @@ Things you may want to cover:
 
 ### Association
 - has_many :comments
+- has_many :product_categories
 - has_many :categories, through: :product-categories
 - has_many :trade_messages
 - has_many :likes
 - belongs_to :bland
 - belongs_to :buyer, class_name: "User"
 - belongs_to :seller, class_name: "User"
-- has_many :images
-- belongs_to :sizey
+- belongs_to :size
 - has_many :evaluations
-
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|foreign_key: true|
-|image|string|null: false|
-
-### Association
-- belongs_to :product
+- has_many_attached :images
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, index: true|
+|parent_id|integer|
 
 ### Association
-- has_many :products, through: :product-categories
+- has_many :product_categories
+- has_many :products, through: :product_categories
+- belongs_to :parent, class_name: :Category, foreign_key: :parent_id
+- has_many :children, class_name: :Category, foreign_key: :parent_id
+
 
 ## product_categoriesテーブル
 |Column|Type|Options|
