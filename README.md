@@ -79,7 +79,7 @@ Things you may want to cover:
 - belongs_to :bland
 - belongs_to :buyer, class_name: "User"
 - belongs_to :seller, class_name: "User"
-- belongs_to :sizey
+- belongs_to :size
 - has_many :evaluations
 - has_many_attached :images
 
