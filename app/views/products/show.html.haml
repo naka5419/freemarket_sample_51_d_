@@ -1,0 +1,57 @@
+%body
+.wrapper-products-show
+  .contents-products-detail
+    %h1*ここに商品名を表示
+    .product-main-content
+      .product-main-content__photos
+        *ここに写真を表示
+      %table.product-main-content__detail
+        %tr
+          %th 出品者
+          %td *
+        %tr
+          %th カテゴリー
+          %td *
+        %tr
+          %th ブランド
+          %td *
+        %tr
+          %th 商品の状態
+          %td *
+        %tr
+          %th 配送料の負担
+          %td *
+        %tr
+          %th 配送の方法
+          %td *
+        %tr
+          %th 配送元地域
+          %td *
+        %tr
+          %th 発送日の目安
+          %td *
+    .product-price-box
+      .price-box
+        .product-price
+          ¥1,000円
+        .product-tax
+          (税込)
+        .product-shipping-fee
+          送料込み
+    .product-buy-button
+      購入画面に進む
+    .product-buy-button__sold
+      売り切れました
+    .product-description
+      .product-description-inner
+        ＊ここに説明文を表示
+    .product-button-left
+      %button.product-button-like  
+        %i.far.fa-heart いいね! ０
+      %button.product-button-report
+        %i.far.fa-flag  不適切な商品の報告
+    .product-button-right
+      %a{:href => "#"}
+        %i.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
+
