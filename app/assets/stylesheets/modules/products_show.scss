@@ -134,6 +134,48 @@ body {
         top: 70px;
         left: 60px;
       }
+      .message-form {
+        clear: both;
+        padding-top: 50px;
+        .alert {
+          padding: 8px;
+          font-size: 14px;
+          background: #fff6de;
+          display: inline-block;
+          text-align: left;
+        }
+        .message-submit {
+          border: 1px solid #888;
+          background: #888;
+          color: #fff;
+          width: 100%;
+          margin: 8px 0 0;
+          padding: 15px 0;
+          font-size: 13px;
+          text-align: center;
+        }
+      }
+    }
+    .contents-products-media {
+      width: 620px;
+      height: 7vh;
+      margin: 40px auto 0;
+      background-color: white;
+      padding: 40px 40px;
+      padding-bottom: 40px;
+      position: relative;
+      padding-top: 80px;
+      a {text-decoration: none;}
+      a:hover { opacity: 0.5 ; }
+      .facebook {
+        color: #385185;
+      }
+      .twitter {
+        color: #5D9DC9;
+      }
+      .pinterest {
+        color: #AA2629;
+      }
     }
   }
 }
