@@ -131,7 +131,9 @@ body {
         word-break: break-all;
         margin-top: 5px;
         margin-right: 20px;
-
+        .message-text {
+          text-align: left;
+        }
       }
       .message-triangule {
         width: 0px;
