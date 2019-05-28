@@ -177,6 +177,28 @@ body {
         color: #AA2629;
       }
     }
+    .contents-products-box {
+      width: 720px;
+      min-height: 80vh;
+      margin: 20px auto 0;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      a:link { color: #0299E8; }
+      a:hover { opacity: 0.5 ; }
+      a {text-decoration: none;}
+      a:visited { color: #0299E8; }
+        h2 {
+          text-align: left;
+        }
+      .products-box {
+        height: 310px;
+        width: 230px;
+        background-color: white;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 
