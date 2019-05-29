@@ -9,5 +9,4 @@ class Product < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :size
   has_many :evaluations
-  has_many_attached :images
 end
