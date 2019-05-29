@@ -1,0 +1,20 @@
+.sub-footer {
+  nav {
+    .policy {
+      list-style: none;
+      text-align: center;
+      padding-left: 0;
+      li {
+        display: inline-block;
+        padding: 10px 5px;
+        color: #535353;
+        font-size: 12px;
+      }
+    }
+  }
+  .copyright {
+    font-size: small;
+    color: #333333;
+    padding-bottom: 40px;
+  }
+}
