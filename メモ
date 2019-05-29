@@ -39,3 +39,15 @@ rake db:rollback STEP=3
 
 未ログイン時ログインページ遷移
 before_action :authenticate_user!
+
+テスト
+rails g rspec:install
+
+bundle exec rspec
+
+it "条件文" do
+user = build(:user, password: "00000", password_confirmation: "00000")
+"buildの内容を上書きしている"
+user.valid?
+"バリデーションされれば"
+expect(user.errors[:password][0]).to include("is too short")
