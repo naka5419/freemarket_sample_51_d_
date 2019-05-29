@@ -5,10 +5,10 @@
     .product-main-content
       .product-main-content__photos
         *ここに写真を表示
-      %table.product-main-content__details
+      %table.product-main-content__details{:cellspacing => "0"}
         %tr
-          %th 出品者
-          %td *
+          %th.border-top 出品者
+          %td.border-top *
         %tr
           %th カテゴリー
           %td *
@@ -65,7 +65,8 @@
     .message-triangule
     %form.message-form
       #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %input{size: "100"}
+      %p
+      %textarea#comment{:cols => "100", :name => "comment", :rows => "10"}
       %button.message-submit
         %span 売り切れのためコメントできません
       %button.message-submit
