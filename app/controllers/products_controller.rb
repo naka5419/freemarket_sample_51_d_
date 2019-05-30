@@ -8,9 +8,12 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
-  end
+    @bland = Bland.find(@product.bland_id)
+    @user = User.find(@product.user_id)
+  end 
 
   def buy
   end
+
 
 end
