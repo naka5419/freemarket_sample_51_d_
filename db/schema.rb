@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_021240) do
+ActiveRecord::Schema.define(version: 2019_05_30_055649) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 2019_05_29_021240) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "condition", limit: 1, default: 0, null: false
-    t.string "shipping_cost", null: false
-    t.string "shipping_method", null: false
-    t.string "source_area", null: false
-    t.string "shipping_days", null: false
+    t.integer "shipping_cost", null: false
+    t.integer "shipping_method", null: false
+    t.integer "source_area", null: false
+    t.integer "shipping_day", null: false
     t.integer "price", null: false
     t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
