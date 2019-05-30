@@ -1,39 +1,51 @@
 %body
 .wrapper-products-show
   .contents-products-detail
-    %h1*ここに商品名を表示
+    %h1
+      = @product.name
     .product-main-content
       .product-main-content__photos
-        *ここに写真を表示
+        - if @product.images.attached?
+          - @product.images.each do |image|
+            = image_tag image
       %table.product-main-content__details{:cellspacing => "0"}
         %tr
           %th.border-top 出品者
-          %td.border-top *
+          %td.border-top 
+            = @user.nickname
         %tr
           %th カテゴリー
-          %td *
+          %td 
+            = @product.name
         %tr
           %th ブランド
-          %td *
+          %td
+            = @bland.name
         %tr
           %th 商品の状態
-          %td *
+          %td 
+            = @product.condition
         %tr
           %th 配送料の負担
-          %td *
+          %td 
+            = @product.shipping_cost
         %tr
           %th 配送の方法
-          %td *
+          %td 
+            = @product.shipping_method
         %tr
           %th 配送元地域
-          %td *
+          %td 
+            = @product.source_area
         %tr
           %th 発送日の目安
-          %td *
+          %td 
+            = @product.shipping_days
     .product-price-box
       .price-box
         .product-price
-          ¥1,000円
+          ¥
+          = @product.price
         .product-tax
           (税込)
         .product-shipping-fee
@@ -44,7 +56,7 @@
       売り切れました
     .product-description
       .product-description-inner
-        ＊ここに説明文を表示
+        = @product.description
     .product-button-left
       %button.product-button-like  
         %i.far.fa-heart いいね! ０
@@ -58,7 +70,7 @@
     %figure.user-image
       %img.profile-image{ alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"45px", height: "45px" }/
     .user-name 
-      ユーザーネーム
+      = @user.nickname 
     .message-body
       .message-text
         こんばんは。
