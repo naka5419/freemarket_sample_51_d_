@@ -84,3 +84,35 @@
                 %label(for="nickname") パスワード(確認)
                 %span.form-require 必須
                 %input.input-default{:type => "email",:placeholder => "PC・携帯どちらでも可", :value => ""}/
+
+
+
+
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   = devise_error_messages!
+-#   .field
+-#     .field-label
+-#       = f.label :nickname
+-#     .field-input
+-#       = f.text_field :nickname, autofocus: true
+-#   .field
+-#     .field-label
+-#       = f.label :email
+-#     .field-input
+-#       = f.email_field :email
+-#   .field
+-#     .field-label
+-#       = f.label :password
+-#       %i (英数字8文字以上)
+-#     .field-input
+-#       = f.password_field :password, autocomplete: "off"
+-#   .field
+-#     .field-label
+-#       = f.label :password_confirmation
+-#     .field-input
+-#       = f.password_field :password_confirmation, autocomplete: "off"
+-#   .actions
+-#     = f.submit "Create Account", class: 'btn'
+
+-#   = render "devise/shared/links"
