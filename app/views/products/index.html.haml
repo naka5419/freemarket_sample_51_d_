@@ -1,37 +1,5 @@
 .top-page
-  .header
-    .header__inner
-      .header__top
-        %h1
-          %a
-            %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}
-        %form.header__form
-          %input{type: "search", name: "ketword", placeholder: "何かお探しですか？", class: "header__input"}
-          .icon-search
-            %i.fas.fa-search
-      .header__bottom
-        %nav.header__bottom__left
-          %ul.header__nav
-            %li.header__bottom__category-list
-              %h2
-                %a
-                  %i.fas.fa-list-ul
-                  %span カテゴリーから探す
-            %li.header__bottom__brand-list
-              %h2
-                %a
-                  %i.fas.fa-list
-                  %span ブランドから探す
-        %nav.header__bottom__right
-          .header__bottom__mypage
-            %img{src: "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"}
-            %span{class: "mypage-text"} マイページ
-          .header__bottom__todo-list
-            %i.fas.fa-check.todo-list--blue
-            %span.todo-list--blue やることリスト
-          .header__bottom__know-list
-            %i.far.fa-bell.know-list--blue
-            %span.know-list--blue お知らせ
+  = render 'layouts/header'
   .main
     .main__category
       %h2.main__category__title ピックアップカテゴリー
@@ -388,99 +356,8 @@
         .left-dot.dot
         .center-dot.dot
         .right-dot.dot
-  %aside.app-banner
-    .app-banner__area
-      .app-banner__left
-        %h2 スマホでかんたんフリマアプリ
-        %p 今すぐ無料ダウンロード！
-        .app-banner__left__bottom
-          .app-banner__left__bottom__icon
-            %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?1204800476", class: "mercari-icon"}
-          %ul
-            %li.appstore-img
-              %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1204800476"}
-            %li.googleplay-img
-              %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1204800476"}
-      .app-banner__right
-        %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1204800476", class: "iphone-img"}
-  .footer
-    .footer__top
-      .footer__left__left
-        %h2.footer__head メルカリについて
-        %ul
-          %li.clear
-            %a 会社概要（運営会社）
-          %li.clear
-            %a 採用情報
-          %li.clear
-            %a プレスリリース
-          %li.clear
-            %a 公式ブログ
-          %li.clear
-            %a メルカリロゴ利用ガイドライン
-          %li.footer__twitter-link
-            %a
-              %i.fab.fa-twitter
-          %li.footer__facebook-link
-            %a
-              %i.fab.fa-facebook-square
-      .footer__left__right
-        %h2.footer__head ヘルプ＆ガイド
-        %ul
-          %li.clear
-            %a メルカリガイド
-          %li.clear
-            %a らくらくメルカリ便
-          %li.clear
-            %a ゆうゆうメルカリ便
-          %li.clear
-            %a 大型メルカリ便
-          %li.clear
-            %a 車体取引ガイド
-          %li.clear
-            %a メルカリあんしん・あんぜん宣言！
-          %li.clear
-            %a 偽ブランド品撲滅への取り組み
-          %li.clear
-            %a メルカリボックス
-      .footer__right__left
-        %h2.footer__head プライバシーと利用規約
-        .footer__right__left__left
-          %ul
-            %li.clear
-              %a プライバシーポリシー
-            %li.clear
-              %a メルカリ利用規約
-            %li.clear.line
-              %a あんしんスマホサポート制度に関する利用規約
-            %li.clear
-              %a コンプライアンスポリシー
-        .footer__right__left__right
-          %ul
-            %li.clear.line
-              %a 個人データの安全管理に係る基本方針
-            %li.clear
-              %a 特定商取引に関する表記
-            %li.clear
-              %a 資金決済法に基づく表示
-            %li.clear
-              %a 法令順守と犯罪抑止のために
-            %li.clear
-              %a 返品・返金ポリシー
-      .footer__right__right
-        %h2.footer__head 国
-        %ul
-          %li.clear
-            %a 日本
-          %li.clear
-            %a United States
-    .footer__bottom
-      %a
-        %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3856598694"}
-      %span
-        %small © 2019 Mercari
-
-
+  = render 'layouts/aside'
+  = render 'layouts/footer'
   .sell-btn
     .sell-btn__text 出品
     %i.fas.fa-camera
