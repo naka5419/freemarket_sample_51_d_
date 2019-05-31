@@ -1,59 +1,65 @@
 $(function () {
-  //1番目の画像を末尾に複製
-  // $('#gallery').append($('.natukasi').clone().get());
-  // // 5番目の画像を末尾に複製
-  // $('#gallery').prepend($('.img').eq(2).clone().get());
+  $('.center-dot').css('background', 'black');
 
   $('#prev').click(function() {
-    $('#prev').attr('disabled', true);
+    $('.dot').css('background', '#fff');
     if (parseInt($('#gallery').css('left')) == 0) {
-      // 最後へ進む
       $('#gallery').animate({
-        left: '-2880px'
+        left: '-=200%'
       }, 500);
+      $('.right-dot').css('background', 'black');
+    } else if (parseInt($('#gallery').css('right')) == 0){
+      $('#gallery').animate({
+        left: '+=100%'
+      }, 500);
+      $('.center-dot').css('background', 'black');
     } else {
-      // 右に移動
     $('#gallery').animate({
-      left: '+=1440px'
+      left: '+=100%'
     }, 500);
+    $('.left-dot').css('background', 'black');
     }
   });
 
   $('#next').click(function() {
-    $('#next').attr('disabled', true);
-    if (parseInt($('#gallery').css('left')) == -2880) {
-      // 最初に戻る
+    $('.dot').css('background', '#fff');
+    if (parseInt($('#gallery').css('right')) == 0) {
       $('#gallery').animate({
-        left: '0px'
+        left: '+=200%'
       }, 500);
+      $('.left-dot').css('background', 'black');
+    } else if (parseInt($('#gallery').css('left')) == 0){
+      $('#gallery').animate({
+        left: '-=100%'
+      }, 500);
+      $('.center-dot').css('background', 'black');
     } else {
-      // 左に移動
     $('#gallery').animate({
-      left: '-=1440px'
+      left: '-=100%'
     }, 500);
+    $('.right-dot').css('background', 'black');
     }
   });
 
   $('.left-dot').hover(function() {
+    $('.dot').css('background', '#fff');
     $('#gallery').animate({
-      left: '0px'
+      left: '0%'
     }, 500);
+    $('.left-dot').css('background', 'black');
   })
   $('.center-dot').hover(function() {
+    $('.dot').css('background', '#fff');
     $('#gallery').animate({
-      left: '-1440px'
+      left: '-100%'
     }, 500);
+    $('.center-dot').css('background', 'black');
   })
   $('.right-dot').hover(function() {
+    $('.dot').css('background', '#fff');
     $('#gallery').animate({
-      left: '-2880px'
+      left: '-200%'
     }, 500);
+    $('.right-dot').css('background', 'black');
   })
-  // if (parseInt($('#gallery').css('left')) == 0) {
-  //   $('.left-dot').css('background', 'black');
-  // } else if (parseInt($('#gallery').css('left')) == -2880) {
-  //   $('.right-dot').css('background', 'black');
-  // } else {
-  //   $('.center-dot').css('background', 'black');
-  // }
 });
