@@ -1,10 +1,32 @@
 %body
 .wrapper-products-show
   .contents-products-detail
-    %h1*ここに商品名を表示
+    %h1 値下げ！新品 セーター
     .product-main-content
-      .product-main-content__photos
-        *ここに写真を表示
+      .product-main-content__photos-flame
+        .gallery
+          %img.photo{ src: "https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119" }
+          %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119"}
+          %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119"}
+          %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119"}
+        .owl-dots
+          .owl-dot 
+            %span
+            .owl-dot-inner
+              %img.photo-1{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119"}/
+          .owl-dot
+            %span
+            .owl-dot-inner
+              %img.photo-2{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119"}/
+          .owl-dot
+            %span
+            .owl-dot-inner
+              %img.photo-3{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119"}/
+          .owl-dot
+            %span
+            .owl-dot-inner
+              %img.photo-4{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119"}/
+
       %table.product-main-content__details{:cellspacing => "0"}
         %tr
           %th.border-top 出品者
@@ -17,6 +39,10 @@
           %td *
         %tr
           %th 商品の状態
+          %td *
+          
+        %tr
+          %th 商品のサイズ
           %td *
         %tr
           %th 配送料の負担
@@ -44,7 +70,12 @@
       売り切れました
     .product-description
       .product-description-inner
-        ＊ここに説明文を表示
+        数回着用してますが、目立った傷や汚れはありません。<br>
+        前後で長さが違います。<br>
+
+        シンプルなので、何にでも合わせられると思います。<br>
+
+        自宅保管ですので神経質な方はご遠慮ください。
     .product-button-left
       %button.product-button-like  
         %i.far.fa-heart いいね! ０
@@ -66,7 +97,7 @@
     %form.message-form
       #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %p
-      %textarea#comment{:cols => "100", :name => "comment", :rows => "10"}
+      %textarea.comment{:cols => "100", :name => "comment", :rows => "10"}
       %button.message-submit
         %span 売り切れのためコメントできません
       %button.message-submit
@@ -80,15 +111,43 @@
       .i.fab.fa-pinterest-square.fa-3x.pinterest
   .contents-products-box
     %a{:href => "#"}
-      %h2 *関連商品の名前
+      %h2 関連するカテゴリーその他の商品
     .products-box
-       *写真を表示
-      %h2 商品タイトル
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
     .products-box
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
     .products-box
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
     .products-box
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
     .products-box
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
     .products-box
+      %figure.photo
+        %img.product-box-photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+      %h2 デニムジャケット　Gジャン
+      .price-box ¥ 11,000
+      .price-box-tax (税込)
       
 
 
