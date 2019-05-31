@@ -2,16 +2,16 @@
   width: 100vw;
   height: 100px;
   background: #fff;
-  .header__inner {
+  &__inner {
     width: 1020px;
     height: 92px;
-    margin: 0 210px;
+    margin: 0 auto;
     padding-top: 8px;
     .header__top {
       display: flex;
       width: 1020px;
       height: 40px;
-      h1 {
+      & h1 {
         height: 36px;
         width: 134px;
         float: left;
@@ -57,14 +57,14 @@
       height: 44px;
       width: 1020px;
       margin-top: 8px;
-      .header__bottom__left {
+      &__left {
         width: 305.64px;
         height: 44px;
         float: left;
         .header__nav {
           width: 320px;
           height: 44px;
-          .header__bottom__category-list {
+          &__category-list {
             position: relative;
             float: left;
             cursor: pointer;
@@ -74,10 +74,10 @@
             width: 160px;
             height: 34px;
           }
-          .header__bottom__category-list:hover {
+          &__category-list:hover {
             color: #0099e8;
             }
-          .header__bottom__brand-list {
+          &__brand-list {
             position: relative;
             float: left;
             cursor: pointer;
@@ -86,7 +86,7 @@
             font-size: 14px;
             height: 34px;
           }
-          .header__bottom__brand-list:hover {
+          &__brand-list:hover {
             color: #0099e8;
           }
         }
@@ -94,7 +94,7 @@
           color: red;
         }
       }
-      .header__bottom__right {
+      &__right {
         float: right;
         width: 500px;
         height: 44px;
