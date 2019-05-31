@@ -22,11 +22,11 @@
         font-size: 35px;
         margin-top: 10px;
       }
-      .app-banner__left__bottom {
+      &__bottom {
         margin-top: 20px;
         width: 420px;
         height: 68px;
-        .app-banner__left__bottom__icon {
+        &__icon {
           float: left;
           .mercari-icon {
             width: 68px;

@@ -17,12 +17,12 @@
       margin-top: 18px;
       float: left;
       display: block;
-      & h2 {
+      h2 {
         font-size: 16px;
         font-weight: 100;
         display: block;
       }
-      & ul {
+      ul {
         display: block;
         width: 184px;
         height: 203px;
@@ -56,7 +56,7 @@
       margin-top: 18px;
       float: left;
       display: block;
-      & ul {
+      ul {
         display: block;
         width: 200px;
         height: 203px;
@@ -83,7 +83,7 @@
         float: left;
         width: 45%;
       }
-      & ul {
+      ul {
         list-style: none;
         li {
           margin-top: 20px;
@@ -91,7 +91,7 @@
           font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
         }
       }
-      & .line {
+      .line {
         line-height: 18px;
       }
     }
@@ -99,7 +99,7 @@
       float: left;
       width: auto;
       margin-top: 18px;
-      & ul {
+      ul {
         list-style: none;
         li {
           margin-top: 20px;
