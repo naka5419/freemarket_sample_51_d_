@@ -24,5 +24,4 @@ class Product < ApplicationRecord
                         未定:48
                       }
   enum shipping_day:  { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
-  enum status:        { "出品中": 0, "取引中": 1, "購入済み": 2}
 end

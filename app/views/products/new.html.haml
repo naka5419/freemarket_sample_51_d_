@@ -51,5 +51,4 @@
                   = form.select :source_area, Product.source_areas.keys, prompt: "---"
                   = form.select :shipping_day, Product.shipping_days.keys, prompt: "---"
                   = form.text_field :price, :praceholder => "例）300"
-                  = form.select :status, Product.statuses.keys
                   = form.submit
