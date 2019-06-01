@@ -1,4 +1,5 @@
 .wrapper-products
+  = render 'layouts/header'
   .show-products
     .product-contents
       %h1 値下げ！新品 セーター
@@ -82,7 +83,7 @@
         %button.product-contents__left-button--report
           %i.far.fa-flag  不適切な商品の報告
       .product-contents__right-button
-        %a{:href => "#"}
+        = link_to "#" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
     .product-messages
@@ -103,14 +104,14 @@
         %button.message-submit
           %span コメントする
     .product-media
-      %a{:href => "#"}
+      = link_to "#" do
         .i.fab.fa-facebook-square.fa-3x.product-media__facebook
-      %a{:href => "#"}
+      = link_to "#" do
         .i.fab.fa-twitter-square.fa-3x.product-media__twitter
-      %a{:href => "#"}
+      = link_to "#" do
         .i.fab.fa-pinterest-square.fa-3x.product-media__pinterest
     .product-other-contents
-      %a{:href => "#"}
+      = link_to "#" do
         %h2 関連するカテゴリーその他の商品
       .product-other-contents__box
         %figure
@@ -148,8 +149,8 @@
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
-      
-
+  = render 'layouts/aside'
+  = render 'layouts/footer'
 
 
 
