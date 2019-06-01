@@ -5,27 +5,27 @@
       .product-contents__main-content 
         .product-contents__main-content--photos-flame
           .gallery
-            %img.photo{ src: "https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119" }
-            %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119"}
-            %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119"}
-            %img.photo{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119"}
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo")
           .owl-dots
             .owl-dot 
               %span
               .owl-dot-inner
-                %img.photo-1{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119"}/
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo-1")
             .owl-dot
               %span
               .owl-dot-inner
-                %img.photo-2{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119"}/
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo-2")
             .owl-dot
               %span
               .owl-dot-inner
-                %img.photo-3{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119"}/
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo-3")
             .owl-dot
               %span
               .owl-dot-inner
-                %img.photo-4{:src => "https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119"}/
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo-4")
 
         %table.product-contents__main-content--table{:cellspacing => "0"}
           %tr
@@ -87,7 +87,7 @@
           %span あんしん・あんぜんへの取り組み
     .product-messages
       %figure.user-image
-        %img.profile-image{ alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"45px", height: "45px" }/
+        = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", width:"45px", height: "45px")
       .user-name 
         ユーザーネーム
       .message-body
@@ -114,37 +114,37 @@
         %h2 関連するカテゴリーその他の商品
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
       .product-other-contents__box
         %figure
-          %img.photo{:src => "https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146"}/
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
         %h2 デニムジャケット　Gジャン
         .price-box ¥ 11,000
         .price-box-tax (税込)
