@@ -1,0 +1,39 @@
+.wrapper
+  = render 'layouts/header'
+  .nav-bar
+  .contents
+    .side-bar
+    .main-content
+      .title
+      .description
+      .profile
+        .profile__name
+          .profile__name--title
+          .profile__name--show
+        .profile__name-kana
+          .profile__name-kana--title
+          .profile__name-kana--show
+        .profile__date-of-birth
+          .profile__date-of-birth--title
+          .profile__date-of-birth--show
+      .form
+        .address
+          .address__postal-code
+            .address__postal-code--title
+            .input
+          .address__prefecture
+            .address__prefecture__title
+            .input
+          .address__city
+            .address__city--title
+            .input
+          .address__address-number
+            .address__address-number--title
+            .input
+          .address__building-name
+            .address__building-name--title
+            .input
+      .button.register
+      .about
+  = render 'layouts/aside'
+  = render 'layouts/footer'
