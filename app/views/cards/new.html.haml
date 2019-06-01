@@ -1,0 +1,23 @@
+.card_registration
+  = render 'layouts/header'
+  .main
+    .main__content
+      .content__area
+        %h2.content__area__head クレジットカード情報入力
+        -# = form_with(url: new_card, local: true, method: :post, class: 'content__area__info') do
+        %form.content__area__info
+          .form
+            .form__group
+              %label カード番号
+              %span.form__require 必須
+              %input{type: "text", name: "nickname", placeholder: "半角数字のみ", class: "input__default", maxlength: '19', autofocus: true, autocomplete: "email"}
+            .form__group
+            .form__group
+
+
+
+
+
+
+  = render 'layouts/aside'
+  = render 'layouts/footer'
