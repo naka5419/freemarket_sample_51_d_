@@ -1,36 +1,36 @@
 body {
-  .header-body {
+  .contents {
     background-color: #f5f5f5;
-    .product-sell_header {
+    &__header {
       text-align: center;
       padding: 35px 0;
-      .header-image {
+      &--image {
         height: 49px;
         width: 193px;
       }
     }
-    .contents-confirmation {
+    &__confirmation {
       min-height: 100vh;
       text-align: center;
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
       width: 700px;
       margin: 10px auto 0;
       background-color: white;
-      .product-buy {
+      &--message {
         background-color: #fff;
         width: 700px;
         height: 97px;
         margin: 0 auto;
         border: solid  thin #f5f5f5;
         text-align: center;
-        .product-buy_title {
+        .message-inner {
           font-size: 22px;
           font-weight: bold;
           padding-top: 36px;
           color: #333333;
         }
       }
-      .buy-content {
+      &--content {
         .buy-content-inner {
           .buy-product-image {
             .product-image {
@@ -100,7 +100,7 @@ body {
           }
         }
       }
-      .buy-user-info {
+      &--user-info {
         border: solid  thin #f5f5f5;
         padding-bottom: 40px;
         .buy-user-content {

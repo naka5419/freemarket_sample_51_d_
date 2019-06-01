@@ -1,11 +1,11 @@
 %body
-  .header-body 
-    .product-sell_header
-      = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340", class:"header-image")
-    .contents-confirmation
-      .product-buy
-        .product-buy_title 購入内容の確認
-      %section.buy-content
+  .contents
+    .contents__header
+      = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340", class:"contents__header--image")
+    .contents__confirmation
+      .contents__confirmation--message
+        .message-inner 購入内容の確認
+      %section.contents__confirmation--content
         .buy-content-inner
           %h3.buy-product-image
             = image_tag("https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830", class: "product-image")
@@ -34,7 +34,7 @@
                 = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3856598694")
               = link_to  "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: 'google' do
                 = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3856598694")
-      %section.buy-user-info
+      %section.contents__confirmation--user-info
         .buy-user-content
           .buy-user-address
             %h3 配送先
@@ -43,7 +43,7 @@
               .buy-change-link
                 = link_to "#" do
                   変更する >
-      %section.buy-user-info
+      %section.contents__confirmation--user-info
         .buy-user-method-content
           .buy-user-pay-method
             %h3 支払い方法
