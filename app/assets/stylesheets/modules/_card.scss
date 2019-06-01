@@ -68,6 +68,44 @@
             }
           }
         }
+        &__info {
+          padding: 64px;
+          border-top: 1px solid #f5f5f5;
+          .form {
+            max-width: 320px;
+            margin: 0 auto;
+            &__group:first-child  {
+              margin: 0;
+            }
+            &__group {
+              margin-top: 40px;
+              label {
+                font-weight: 600;
+                display: inline-block;
+              }
+              .form__require {
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+              }
+              .input__default {
+                width: 100%;
+                margin-top: 8px;
+                height: 28px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+            }
+          }
+        }
       }
     }
   }
