@@ -14,12 +14,13 @@
  *= require_self
  */
 @import "config/reset";
-@import "products/toppage";
 @import "modules/header";
 @import "modules/main";
 @import "modules/aside";
 @import "modules/footer";
 @import "modules/sell-btn";
 @import "modules/products_show";
+@import "modules/card.scss";
 @import "modules/products_buy";
 @import "modules/sub-footer";
+
