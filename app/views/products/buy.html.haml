@@ -1,54 +1,55 @@
 %body
-  .product-sell_header
-    %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}/
-  .contents-confirmation
-    .product-buy
-      .product-buy_title 購入内容の確認
-    %section.buy-content
-      .buy-content-inner
-        %h3.buy-product-image
-          %img.product-image{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830", :src => "https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830"}/
-        %p.buy-product-name
-          90s Tommy トミーヒルフィガー ポロ
-        %form.buy-form
-          %p.product-price
-            ¥2,300
-            %span.product-shipping-fee
-              送料込み
-          %ul.point
-            %li.list-parent
-              .list-toggle
-                ポイントを使う
-                %i.fas.fa-chevron-down
-          %ul.product-price-confirm
-            %li.buy-price-row
-              .buy-price-cell 
-                支払い金額
-                %span.buy-price-number 
-                  ¥2,300
-          %button.buy-button 購入する
-          %p.install-description アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
-          .store
-            %a.apple{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-              %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3856598694"}/
-            %a.google{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-              %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3856598694"}/
-    %section.buy-user-info
-      .buy-user-content
-        .buy-user-address
-          %h3 配送先
-          .buy-user-address-detail
-            ここに住所を表示
-            .buy-change-link
-              %a{:href => "#"}
-                変更する >
-    %section.buy-user-info
-      .buy-user-method-content
-        .buy-user-pay-method
-          %h3 支払い方法
-          .buy-user-address-detail
-            ここに支払いの方法を表示
-            .buy-change-link
-              %a{:href => "#"}
-                変更する >
-  = render 'sub-footer'
+  .contents
+    .contents__header
+      = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340", class:"contents__header--image")
+    .contents__confirmation
+      .contents__confirmation--message
+        .message-inner 購入内容の確認
+      %section.contents__confirmation--content
+        .buy-content-inner
+          %h3.buy-product-image
+            = image_tag("https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830", class: "product-image")
+          %p.buy-product-name
+            90s Tommy トミーヒルフィガー ポロ
+          %form.buy-form
+            %p.product-price
+              ¥2,300
+              %span.product-shipping-fee
+                送料込み
+            %ul.point
+              %li.list-parent
+                .list-toggle
+                  ポイントを使う
+                  %i.fas.fa-chevron-down
+            %ul.product-price-confirm
+              %li.buy-price-row
+                .buy-price-cell 
+                  支払い金額
+                  %span.buy-price-number 
+                    ¥2,300
+            %button.buy-button 購入する
+            %p.install-description アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            .store
+              = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', class: 'apple' do
+                = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3856598694")
+              = link_to  "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: 'google' do
+                = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3856598694")
+      %section.contents__confirmation--user-info
+        .buy-user-content
+          .buy-user-address
+            %h3 配送先
+            .buy-user-address-detail
+              ここに住所を表示
+              .buy-change-link
+                = link_to "#" do
+                  変更する >
+      %section.contents__confirmation--user-info
+        .buy-user-method-content
+          .buy-user-pay-method
+            %h3 支払い方法
+            .buy-user-address-detail
+              ここに支払いの方法を表示
+              .buy-change-link
+                = link_to "#" do
+                  変更する >
+    = render 'sub-footer'
