@@ -1,3 +1,5 @@
+
+
       t.string :nickname,           null: false
       t.string :firstname,          null: false
       t.string :lastname,           null: false
@@ -40,6 +42,17 @@ rake db:rollback STEP=3
 未ログイン時ログインページ遷移
 before_action :authenticate_user!
 
+パス明示的に指定
+<%= form_for @変数, url: ~_path do |f| %>
+<% end %>
+
+
+バリデーション
+youtubeという文字を含んでいるか(正規表現)
+VALID_YOUTUBE_URL_REGEX = /\A.*youtube.*\z/
+validates :text, presence: true, format: { with: VALID_YOUTUBE_URL_REGEX }
+
+
 テスト
 rails g rspec:install
 
@@ -51,3 +64,22 @@ user = build(:user, password: "00000", password_confirmation: "00000")
 user.valid?
 "バリデーションされれば"
 expect(user.errors[:password][0]).to include("is too short")
+
+バリデーション
+
+１ページ目のバリデーションだけとりあえずテストする
+
+css
+親要素の幅に合わせる
+width: 100%;
+box-sizing: border-box;
+
+
+enum 列挙型
+
+gemを探す
+
+
+ログアウト
+    -# %li
+    -#   = link_to "ログアウト", destroy_user_session_path, method: :delete
