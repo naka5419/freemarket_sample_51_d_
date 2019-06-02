@@ -35,7 +35,9 @@
             %td.border-top *
           %tr
             %th カテゴリー
-            %td *
+            %td
+              - @product.product_categories.each do |product_category|
+                = product_category.category.category
           %tr
             %th ブランド
             %td
