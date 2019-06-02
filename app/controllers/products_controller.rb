@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    @bland = Bland.find(@product.bland_id)
   end
 
   def buy
