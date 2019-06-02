@@ -6,34 +6,35 @@
     .main-content
       .title
       .description
+       .about-upload
       .profile
-        .profile__name
-          .profile__name--title
-          .profile__name--show
-        .profile__name-kana
-          .profile__name-kana--title
-          .profile__name-kana--show
-        .profile__date-of-birth
-          .profile__date-of-birth--title
-          .profile__date-of-birth--show
-      .form
-        .address
-          .address__postal-code
-            .address__postal-code--title
-            .input
-          .address__prefecture
-            .address__prefecture__title
-            .input
-          .address__city
-            .address__city--title
-            .input
-          .address__address-number
-            .address__address-number--title
-            .input
-          .address__building-name
-            .address__building-name--title
-            .input
+        .flame
+          .flame__name
+          .flame__name--show
+        .flame
+          .flame__kana
+          .flame__kana--show
+        .flame
+          .flame__date-of-birth
+          .flame__date-of-birth--show
+      %form.address-info
+        .boxes
+          .box
+            .box__postal-code
+            %input
+          .box
+            .box__prefecture
+            %input
+          .box
+            .box__city
+            %input
+          .box
+            .box__address-number
+            %input
+          .box
+            .box__building-name
+            %input
       .button.register
-      .about
+      .about-registration
   = render 'layouts/aside'
   = render 'layouts/footer'
