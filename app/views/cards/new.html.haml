@@ -1,0 +1,49 @@
+.card_registration
+  = render 'layouts/header'
+  .main
+    .main__content
+      .content__area
+        %h2.content__area__head クレジットカード情報入力
+        = form_with(url: new_card_path, local: true, method: :post, class: 'content__area__info') do |f|
+          .form
+            .form__group
+              = f.label :カード番号
+              %span.form__require 必須
+              = f.text_field :cardnum, type: "text", placeholder: "半角数字のみ", class: "input__default", maxlength: '19'
+              %ul.sign-up__card__list
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2399382397', width: '49', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2399382397', width: '34', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2399382397', width: '30', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2399382397', width: '32', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2399382397', width: '21', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2399382397', width: '32', height: '20'
+                %li
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2399382397', width: '32', height: '20'
+            .form__group.signup__from-expire
+              = f.label :有効期限
+              %span.form__require 必須
+              .select__wrapdd
+                .select__default
+                %i.fas.fa-chevron-down
+                %span.form__month 月
+              .select__wrapdd
+                .select__default
+                %i.fas.fa-chevron-down
+                %span.form__month 年
+            .form__group
+              = f.label :セキュリティコード
+              %span.form__require 必須
+              = f.text_field :sequrytycode, type: "text", placeholder: "カード背面４桁もしくは３桁の番号", class: "input__default"
+              .signup__seqcode
+                .signup__seqcode__text
+                  %span.form__question ?
+                  カード裏面の番号とは？
+            = f.submit "追加する", id: "submit__button", class: "btn__default btn--red"
+  = render 'layouts/aside'
+  = render 'layouts/footer'
