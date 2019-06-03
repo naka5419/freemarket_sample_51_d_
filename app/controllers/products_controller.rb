@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-  end  
-  
+  end
+
   def show
   end
 

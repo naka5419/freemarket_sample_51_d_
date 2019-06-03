@@ -1,25 +1,4 @@
-.user-signup{
-  p {
-    font-size: 14px;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    text-align: left;
-  }
-
-  .btn-befault {
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    border: 1px solid transparent;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer;
-    text-align: center;
-  }
+.user-signup4{
 
   .signup-container {
     padding: 0 0 220px;
@@ -93,34 +72,27 @@
                 background: #ccc;
                 right: 50%;
               }
+
               .back-active {
                 background: #ea352d;
               }
 
             }
 
-            .active {
-              font-weight: 600;
-              color: #ea352d;
-            }
-
             .back-active {
-            background: #ea352d;
+              background: #ea352d;
             }
-              // .after {
-              //   background: #ea352d;
-              // }
 
-              // .before {
-              //   background: #ea352d;
-              // }
+          }
 
+          .active {
+            font-weight: 600;
+            color: #ea352d;
           }
 
         }
       }
     }
-
 
 
 
@@ -314,6 +286,51 @@
 
 
 
+  }
+
+  p {
+    font-size: 14px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+  }
+
+  .arrow-right {
+    display: inline-block;
+    font-family: 'icon-font';
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .link-blue {
+    color: #0099e8;
+    text-decoration: none;
+  }
+
+
+  .btn-befault {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
   }
 
 

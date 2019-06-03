@@ -83,3 +83,9 @@ gemを探す
 ログアウト
     -# %li
     -#   = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+devise_scope
+１つのアクションでルートを増やせる
+
+「about_path」を名前付きルートと言う
+:asを使うことで名前付きルートの名前を変えることができます
