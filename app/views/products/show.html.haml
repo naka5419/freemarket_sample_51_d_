@@ -32,7 +32,8 @@
         %table.product-contents__main-content--table{:cellspacing => "0"}
           %tr
             %th.border-top 出品者
-            %td.border-top *
+            %td.border-top 
+              = @product.seller.nickname
           %tr
             %th カテゴリー
             %td
@@ -41,7 +42,7 @@
           %tr
             %th ブランド
             %td
-              = @bland.name
+              = @product.bland.name
           %tr
             %th 商品の状態
             %td
