@@ -45,7 +45,7 @@
           %tr
             %th ブランド
             %td
-              = @product.bland.name
+              = @product.bland.name unless @product.bland.nil?
           %tr
             %th 商品の状態
             %td
@@ -53,7 +53,8 @@
             
           %tr
             %th 商品のサイズ
-            %td *
+            %td
+              = @size.size unless @size.nil?
           %tr
             %th 配送料の負担
             %td *
