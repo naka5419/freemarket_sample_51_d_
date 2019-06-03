@@ -57,7 +57,8 @@
               = @size.size unless @size.nil?
           %tr
             %th 配送料の負担
-            %td *
+            %td 
+              = @product.shipping_cost
           %tr
             %th 配送の方法
             %td
