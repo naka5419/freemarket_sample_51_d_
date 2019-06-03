@@ -7,6 +7,9 @@
       .product-contents__main-content 
         .product-contents__main-content--photos-flame
           .gallery
+            -# - if @product.images.attached?
+            -#   = @product.images.each do |image|
+            -#     = image_tag image
             = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo")
             = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo")
             = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo")
