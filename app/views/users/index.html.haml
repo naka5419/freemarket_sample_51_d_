@@ -1,0 +1,103 @@
+%main.l-container
+  .l-content
+    %section.mypage-user-icon
+      %a(href="")
+        %figure
+          %img{alt:"サンプル",height: "60", width: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/  
+          %h2.bold username
+          .mypage-number
+            %div
+              評価
+              %span.bold 0
+            %div
+              出品数
+              %span.bold 0
+
+
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.tab-label.active
+          %h3
+            %a#mypage-notification{"data-toggle" => "tab", href: "#mypage-tab-notification"}
+              お知らせ
+        %li.tab-label
+          %h3
+            %a#mypage-todo{"data-toggle" => "tab", href: "#mypage-tab-todo"}     
+              やることリスト
+
+
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「【重要】事務局からのお知らせ」
+                %time
+                  %i.far.fa-clock
+                  %span 2 日前
+              %i.fas.fa-chevron-right
+
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
+                %time
+                  %i.far.fa-clock
+                  %span 2 日前
+              %i.fas.fa-chevron-right
+          
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「らくらくメルカリ便の「集荷サービス」はたったの30円！」
+                %time
+                  %i.far.fa-clock
+                  %span 3 日前
+              %i.fas.fa-chevron-right
+
+          
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
+                %time
+                  %i.far.fa-clock
+                  %span 3 日前
+                %i.fas.fa-chevron-right
+
+          %li.mypage-go-list    
+            %a{:href => ""} 一覧を見る
+
+
+        %ul#mypage-tab-todo.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 現在、やることリストはありません
+
+
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.tab-label.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+              取引中
+        %li.tab-label
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 過去に取引した商品がありません
+
+  = render 'l-side'
+  
