@@ -7,15 +7,246 @@
     .new-product__main__contents
       .new-product__main__contents__head
         %h 商品の情報を入力
-      = form_with model: @product, local: true, id: "productForm", class: "new-product__main__contents__form sell-form" do |f|
-        .sell-form__image{"data-image_count": 0}
-          %h2
+      = form_with model: @product, local: true, id: "productForm", class: "new-product__main__contents__sell-form" do |f|
+        .sell-form__image
+          %label
             出品画像
             %span 必須
-          %p 最大10枚までアップロードできます
-          = f.file_field :images, class: "sell-form__images__upload", accept: ".jpg, .jpeg, .png", multiple: true
-          %pre
-            ドラッグアンドドロップ
-            またはクリックしてファイルをアップロード
-    
+          .sell-form__image__text 最大5枚までアップロードできます
 
+        .sell-form__container
+          .sell-form__container__name
+            %label
+              商品名
+              %span 必須
+            = f.text_field :name, class: "sell-form__container__name__title", placeholder: "商品名（必須 40文字まで)"
+          .sell-form__container__description
+            %label
+              商品の説明
+              %span 必須
+            = f.text_area :description, class: "sell-form__container__description__form", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .sell-form__detail
+          .sell-form__detail__name
+            %h3 商品の詳細
+            .sell-form__detail__select-box
+              .sell-form__detail__select-box__category
+                %label
+                  カテゴリー
+                  %span 必須
+                %select.sell-form__category
+                  %option{:value => ""} ---
+                  %option{:value => "1"} レディース
+                  %option{:value => "2"} メンズ
+                  %option{:value => "3"} ベビー・キッズ
+                  %option{:value => "4"} インテリア・住まい・小物
+                  %option{:value => "5"} 本・音楽・ゲーム
+                  %option{:value => "1328"} おもちゃ・ホビー・グッズ
+                  %option{:value => "6"} コスメ・香水・美容
+                  %option{:value => "7"} 家電・スマホ・カメラ
+                  %option{:value => "8"} スポーツ・レジャー
+                  %option{:value => "9"} ハンドメイド
+                  %option{:value => "1027"} チケット
+                  %option{:value => "1318"} 自動車・オートバイ
+                  %option{:value => "10"} その他
+                %select.sell-form__category__sub
+                  %option{:value => ""} ---
+                  %option{:value => "11"} トップス
+                  %option{:value => "12"} ジャケット/アウター
+                  %option{:value => "13"} パンツ
+                  %option{:value => "14"} スカート
+                  %option{:value => "15"} ワンピース
+                  %option{:value => "16"} 靴
+                  %option{:value => "17"} ルームウェア/パジャマ
+                  %option{:value => "18"} レッグウェア
+                  %option{:value => "19"} 帽子
+                  %option{:value => "20"} バッグ
+                  %option{:value => "21"} アクセサリー
+                  %option{:value => "22"} ヘアアクセサリー
+                  %option{:value => "23"} 小物
+                  %option{:value => "24"} 時計
+                  %option{:value => "25"} ウィッグ/エクステ
+                  %option{:value => "26"} 浴衣/水着
+                  %option{:value => "27"} スーツ/フォーマル/ドレス
+                  %option{:value => "28"} マタニティ
+                  %option{:value => "29"} その他
+                %select.sell-form__category__sub__sub
+                  %option{:value => ""} ---
+                  %option{:value => "119"} Tシャツ/カットソー(半袖/袖なし)
+                  %option{:value => "120"} Tシャツ/カットソー(七分/長袖)
+                  %option{:value => "121"} シャツ/ブラウス(半袖/袖なし)
+                  %option{:value => "122"} シャツ/ブラウス(七分/長袖)
+                  %option{:value => "123"} ポロシャツ
+                  %option{:value => "124"} キャミソール
+                  %option{:value => "125"} タンクトップ
+                  %option{:value => "126"} ホルターネック
+                  %option{:value => "127"} ニット/セーター
+                  %option{:value => "128"} チュニック
+                  %option{:value => "129"} カーディガン/ボレロ
+                  %option{:value => "130"} アンサンブル
+                  %option{:value => "131"} ベスト/ジレ
+                  %option{:value => "132"} パーカー
+                  %option{:value => "133"} トレーナー/スウェット
+                  %option{:value => "134"} ベアトップ/チューブトップ
+                  %option{:value => "135"} ジャージ
+                  %option{:value => "136"} その他
+              .sell-form__detail__select-box__size
+                %label 
+                  サイズ
+                  %span 必須
+                %select.sell-form__size
+                  %option{:value => ""} ---
+                  %option{:value => "153"} XXS以下
+                  %option{:value => "154"} XS(SS)
+                  %option{:value => "2"} S
+                  %option{:value => "3"} M
+                  %option{:value => "4"} L
+                  %option{:value => "5"} XL(LL)
+                  %option{:value => "155"} 2XL(3L)
+                  %option{:value => "156"} 3XL(4L)
+                  %option{:value => "157"} 4XL(5L)以上
+                  %option{:value => "7"} FREE SIZE
+              .sell-form__detail__select-box__bland
+                %label
+                  ブランド
+                  %span 任意
+                %input.sell-form__bland{:placeholder => "例）シャネル", :value => ""}/
+              .sell-form__detail__select-box__condition
+                %label 
+                  商品の状態
+                  %span 必須
+                %select.sell-form__condition
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 新品、未使用
+                  %option{:value => "2"} 未使用に近い
+                  %option{:value => "3"} 目立った傷や汚れなし
+                  %option{:value => "4"} やや傷や汚れあり
+                  %option{:value => "5"} 傷や汚れあり
+                  %option{:value => "6"} 全体的に状態が悪い
+        .sell-form__shipping
+          .sell-form__shipping__name
+            %h3
+              配送について
+              = link_to "?", "/", class: "help"
+            .sell-form__shipping__select-box
+              .sell-form__shipping__select-box__fee
+                %label
+                  配送料の負担
+                  %span 必須
+                %select.sell-form__fee
+                  %option{:value => ""} ---
+                  %option{:value => "2"} 送料込み(出品者負担)
+                  %option{:value => "1"} 着払い(購入者負担)
+              .sell-form__shipping__select-box__method
+                %label
+                  配送の方法
+                  %span 必須
+                %select.sell-form__method
+                  %option{:value => ""} ---
+                  %option{:value => "5"} 未定
+                  %option{:value => "14"} らくらくメルカリ便
+                  %option{:value => "6"} ゆうメール
+                  %option{:value => "8"} レターパック
+                  %option{:value => "9"} 普通郵便(定形、定形外)
+                  %option{:value => "10"} クロネコヤマト
+                  %option{:value => "11"} ゆうパック
+                  %option{:value => "13"} クリックポスト
+                  %option{:value => "7"} ゆうパケット
+              .sell-form__shipping__select-box__area
+                %label
+                  発送元の地域
+                  %span 必須
+                %select.sell-form__area
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 北海道
+                  %option{:value => "2"} 青森県
+                  %option{:value => "3"} 岩手県
+                  %option{:value => "4"} 宮城県
+                  %option{:value => "5"} 秋田県
+                  %option{:value => "6"} 山形県
+                  %option{:value => "7"} 福島県
+                  %option{:value => "8"} 茨城県
+                  %option{:value => "9"} 栃木県
+                  %option{:value => "10"} 群馬県
+                  %option{:value => "11"} 埼玉県
+                  %option{:value => "12"} 千葉県
+                  %option{:value => "13"} 東京都
+                  %option{:value => "14"} 神奈川県
+                  %option{:value => "15"} 新潟県
+                  %option{:value => "16"} 富山県
+                  %option{:value => "17"} 石川県
+                  %option{:value => "18"} 福井県
+                  %option{:value => "19"} 山梨県
+                  %option{:value => "20"} 長野県
+                  %option{:value => "21"} 岐阜県
+                  %option{:value => "22"} 静岡県
+                  %option{:value => "23"} 愛知県
+                  %option{:value => "24"} 三重県
+                  %option{:value => "25"} 滋賀県
+                  %option{:value => "26"} 京都府
+                  %option{:value => "27"} 大阪府
+                  %option{:value => "28"} 兵庫県
+                  %option{:value => "29"} 奈良県
+                  %option{:value => "30"} 和歌山県
+                  %option{:value => "31"} 鳥取県
+                  %option{:value => "32"} 島根県
+                  %option{:value => "33"} 岡山県
+                  %option{:value => "34"} 広島県
+                  %option{:value => "35"} 山口県
+                  %option{:value => "36"} 徳島県
+                  %option{:value => "37"} 香川県
+                  %option{:value => "38"} 愛媛県
+                  %option{:value => "39"} 高知県
+                  %option{:value => "40"} 福岡県
+                  %option{:value => "41"} 佐賀県
+                  %option{:value => "42"} 長崎県
+                  %option{:value => "43"} 熊本県
+                  %option{:value => "44"} 大分県
+                  %option{:value => "45"} 宮崎県
+                  %option{:value => "46"} 鹿児島県
+                  %option{:value => "47"} 沖縄県
+                  %option{:value => "99"} 未定
+              .sell-form__shipping__select-box__day
+                %label
+                  発送までの日数
+                  %span 必須
+                %select.sell-form__day
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 1~2日で発送
+                  %option{:value => "2"} 2~3日で発送
+                  %option{:value => "3"} 4~7日で発送
+        .sell-form__price
+          %h3
+            販売価格(300〜9,999,999)
+            = link_to "?", "/", class: "help"
+          %ul.sell-form__price__box
+            %li.sell-form-price__box__left
+              %label
+                価格
+                %span 必須
+              .sell__price__box__right
+                ¥
+                %div
+                  %input.input-default{:placeholder => "例）300", :value => ""}/
+            %li.sell-form__price__box__profit__left
+              %p 販売手数料 (10%)
+              .sell-form__price__box__charge__right -
+            %li.sell-form__price__box__profit__ 
+              %p 販売利益
+              .sell-form__price__box__charge__right -
+        .sell-form__submit
+          %p 禁止されている出品、行為を必ずご確認ください。
+          %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+          .sell-form__submit__button
+            = f.submit "出品する", class: "sell-form__submit__button__btn", type: "button"
+          = link_to "もどる", "/", class: "sell-form__submit__back"
+
+        = render "sub-footer"
+
+    //画像投稿フォーム
+    = form_with model: @product, local: true, html: {class:'dropzone', id: "img_field"} do |f|
+      .dz-message.needsclick
+        %h3 ドラッグアンドドロップ
+        %h3 またはクリックしてファイルをアップロード
+      .fallback
+        = f.file_field :image_url
