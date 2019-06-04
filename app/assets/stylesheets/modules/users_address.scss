@@ -13,7 +13,6 @@
         margin: 40px 0 0;
 
         a {
-          // width: 120px;
           height: 33px;
           margin: 0 8px 0 0;
           line-height: 33px;
@@ -143,6 +142,17 @@
                 float: left;
               }
 
+              .form-voluntary {
+                margin: 0 0 0 8px;
+                padding: 3px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #888;
+                float: left;
+              }
+
               .field-input {
                 height: 48px;
                 padding: 10px 16px 8px;
@@ -167,6 +177,14 @@
 
               .birthday-select-wrap {
                 clear: both;
+
+                #pref_name {
+                  margin: 8px 0 0;
+                  width: calc(100%);
+                  display: inline-block;
+                  position: relative;
+                  background: #fff;
+                }
 
                 .select-wrap {
                   margin: 8px 0 0;
@@ -226,7 +244,6 @@
     }
 
     .signup-footer {
-      // position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
@@ -280,12 +297,7 @@
         display: block;
         color: #333;
       }
-
     }
-
-
-
-
   }
 
   p {
@@ -305,7 +317,6 @@
   .arrow-right {
     display: inline-block;
     font-family: 'icon-font';
-    speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;

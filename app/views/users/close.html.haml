@@ -46,26 +46,16 @@
 
           .signup-inner
 
-            -# = form_for [@user] do |f|
-            -#   .signup-content
+            .signup-content
 
-            -#     .form-group#first
-            -#       = f.label :携帯電話の番号
-            -#       -# %span.form-require 必須
-            -#       = f.text_field :nickname, autofocus: true,autocomplete: "email", class: 'field-input', placeholder: "携帯電話の番号を入力"
+              .form-group#first
 
-            -#     %p.info-text
-            -#       ※本人確認のため、携帯電話のSNS(ショートメッセージサービス)を利用して認証を行います。
+              .form-group
+                %p.text-center#close
+                  ありがとうございます。
+                %p.text-center#close
+                  会員登録が完了しました。
 
-            -#     = f.submit "次へ進む", class: 'btn-red btn-befault'
-
-            -#     %p.info-text
-            -#       ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-
-            -#     .form-group
-            -#       %p.text-right.rink-bule
-            -#         %a.link-blue(href="#" terget="_blank")
-            -#           電話番号の確認が必要な理由
-            -#           %i.fas.fa-angle-right
+              = link_to "メルカリをはじめる" ,users_registration_payment_path(@user), class: "btn-red btn-befault"
 
       = render partial: 'footer'

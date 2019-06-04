@@ -89,3 +89,9 @@ devise_scope
 
 「about_path」を名前付きルートと言う
 :asを使うことで名前付きルートの名前を変えることができます
+
+【1】Mac command+option+I
+
+【2】Mac command+shift+P
+
+【3】Mac「full」→return
