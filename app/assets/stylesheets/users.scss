@@ -313,11 +313,11 @@ body {
       display: block; 
       .mypage-nav-list {     
         li {
+          list-style: none;
           border-top: 1px solid #eee;
           :first-child{
             border: 0;
           }
-          list-style: none;
           .mypage-nav-list-item {
             position: relative;
             display: block;
