@@ -31,3 +31,7 @@
         .header__bottom__know-list
           %i.far.fa-bell.know-list--blue
           %span.know-list--blue お知らせ
+- unless current_page?(controller: 'products', action: 'index') || current_page?(root_path)
+  .breadcrumbs__area
+    .breadcrumbs__area__text
+      = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
