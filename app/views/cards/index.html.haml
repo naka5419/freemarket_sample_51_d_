@@ -10,7 +10,7 @@
               %h3.inner__head__text クレジットカード一覧
           .add-card
             .add-card__area
-              %a.add-card__area__text
+              = link_to new_card_path, class: "add-card__area__text" do
                 %i.far.fa-credit-card
                 クレジットカードを追加する
           .how-regist
