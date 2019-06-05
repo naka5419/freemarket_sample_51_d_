@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
-    @size = Size.find_by(product_id: params[:id])  
+    @size = Size.find_by(product_id: params[:id])
   end
 
   def buy
