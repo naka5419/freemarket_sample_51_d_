@@ -1,0 +1,60 @@
+.wrapper
+  = render 'layouts/header'
+  .nav-bar
+  .contents
+    .side-bar
+    .main-content
+      %h2.title 本人情報の登録
+      .content-inner
+        .description
+          %p 
+            お客さまの本人情報をご登録ください。<br>
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.about
+            = link_to "#", class: "about__upload" do
+              本人確認書類のアップロードについて>
+        .profile
+          .flame
+            .flame__label お名前
+            .flame__show 目流 華梨
+          .flame
+            .flame__label お名前カナ
+            .flame__show メル カリ
+          .flame
+            .flame__label 生年月日
+            .flame__show 1994/03/18
+        %form.address-info
+          .boxes
+            .box
+              .box__label 
+                郵便番号 
+                %span 任意 
+              %input{placeholder: "例) 1234567"}
+            .box
+              .box__label 
+                都道府県
+                %span 任意
+              %select
+            .box
+              .box__label 
+                市区町村
+                %span 任意
+              %input
+            .box
+              .box__label
+                番地
+                %span 任意
+              %input
+            .box
+              .box__label
+                建物名
+                %span 任意
+              %input{placeholder: "例) 柳ビル123"}
+        .button
+          %button.register 登録する
+        .about-registration
+          %p.registration
+            = link_to "#", class: "registration__sentence" do
+              本人情報の登録について>
+  = render 'layouts/aside'
+  = render 'layouts/footer'
