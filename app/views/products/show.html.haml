@@ -1,96 +1,156 @@
-%body
-.wrapper-products-show
-  .contents-products-detail
-    %h1*ここに商品名を表示
-    .product-main-content
-      .product-main-content__photos
-        *ここに写真を表示
-      %table.product-main-content__details{:cellspacing => "0"}
-        %tr
-          %th.border-top 出品者
-          %td.border-top *
-        %tr
-          %th カテゴリー
-          %td *
-        %tr
-          %th ブランド
-          %td *
-        %tr
-          %th 商品の状態
-          %td *
-        %tr
-          %th 配送料の負担
-          %td *
-        %tr
-          %th 配送の方法
-          %td *
-        %tr
-          %th 配送元地域
-          %td *
-        %tr
-          %th 発送日の目安
-          %td *
-    .product-price-box
-      .price-box
-        .product-price
-          ¥1,000円
-        .product-tax
-          (税込)
-        .product-shipping-fee
-          送料込み
-    .product-buy-button
-      購入画面に進む
-    .product-buy-button__sold
-      売り切れました
-    .product-description
-      .product-description-inner
-        ＊ここに説明文を表示
-    .product-button-left
-      %button.product-button-like  
-        %i.far.fa-heart いいね! ０
-      %button.product-button-report
-        %i.far.fa-flag  不適切な商品の報告
-    .product-button-right
-      %a{:href => "#"}
-        %i.fas.fa-lock
-        %span あんしん・あんぜんへの取り組み
-  .contents-products-messages
-    %figure.user-image
-      %img.profile-image{ alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"45px", height: "45px" }/
-    .user-name 
-      ユーザーネーム
-    .message-body
-      .message-text
-        こんばんは。
-    .message-triangule
-    %form.message-form
-      #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %p
-      %textarea#comment{:cols => "100", :name => "comment", :rows => "10"}
-      %button.message-submit
-        %span 売り切れのためコメントできません
-      %button.message-submit
-        %span コメントする
-  .contents-products-media
-    %a{:href => "#"}
-      .i.fab.fa-facebook-square.fa-3x.facebook
-    %a{:href => "#"}
-      .i.fab.fa-twitter-square.fa-3x.twitter
-    %a{:href => "#"}
-      .i.fab.fa-pinterest-square.fa-3x.pinterest
-  .contents-products-box
-    %a{:href => "#"}
-      %h2 *関連商品の名前
-    .products-box
-       *写真を表示
-      %h2 商品タイトル
-    .products-box
-    .products-box
-    .products-box
-    .products-box
-    .products-box
-      
+.wrapper-products
+  = render 'layouts/header'
+  .show-products
+    .product-contents
+      %h1 値下げ！新品 セーター
+      .product-contents__main-content
+        .product-contents__main-content--photos-flame
+          .gallery
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo")
+            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo")
+          .owl-dots
+            .owl-dot
+              %span
+              .owl-dot-inner
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo-1")
+            .owl-dot
+              %span
+              .owl-dot-inner
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo-2")
+            .owl-dot
+              %span
+              .owl-dot-inner
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo-3")
+            .owl-dot
+              %span
+              .owl-dot-inner
+                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo-4")
 
+        %table.product-contents__main-content--table{:cellspacing => "0"}
+          %tr
+            %th.border-top 出品者
+            %td.border-top *
+          %tr
+            %th カテゴリー
+            %td *
+          %tr
+            %th ブランド
+            %td *
+          %tr
+            %th 商品の状態
+            %td *
+
+          %tr
+            %th 商品のサイズ
+            %td *
+          %tr
+            %th 配送料の負担
+            %td *
+          %tr
+            %th 配送の方法
+            %td *
+          %tr
+            %th 配送元地域
+            %td *
+          %tr
+            %th 発送日の目安
+            %td *
+      .product-contents__price-box
+        .product-contents__price-box--number
+          .product-price
+            ¥1,000円
+          .product-tax
+            (税込)
+          .product-shipping-fee
+            送料込み
+      .product-contents__buy-button
+        購入画面に進む
+      .product-contents__sold-button
+        売り切れました
+      .product-contents__description
+        .product-contents__description--inner
+          数回着用してますが、目立った傷や汚れはありません。<br>
+          前後で長さが違います。<br>
+
+          シンプルなので、何にでも合わせられると思います。<br>
+
+          自宅保管ですので神経質な方はご遠慮ください。
+      .product-contents__left-button
+        %button.product-contents__left-button--like
+          %i.far.fa-heart いいね! ０
+        %button.product-contents__left-button--report
+          %i.far.fa-flag  不適切な商品の報告
+      .product-contents__right-button
+        = link_to "#" do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+    .product-messages
+      %figure.user-image
+        = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", width:"45px", height: "45px")
+      .user-name 
+        ユーザーネーム
+      .message-body
+        .message-text
+          こんばんは。
+      .message-triangule
+      %form.message-form
+        #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %p
+        %textarea.comment{:cols => "100", :name => "comment", :rows => "10"}
+        %button.message-submit
+          %span 売り切れのためコメントできません
+        %button.message-submit
+          %span コメントする
+    .product-media
+      = link_to "#" do
+        .i.fab.fa-facebook-square.fa-3x.product-media__facebook
+      = link_to "#" do
+        .i.fab.fa-twitter-square.fa-3x.product-media__twitter
+      = link_to "#" do
+        .i.fab.fa-pinterest-square.fa-3x.product-media__pinterest
+    .product-other-contents
+      = link_to "#" do
+        %h2 関連するカテゴリーその他の商品
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+      .product-other-contents__box
+        %figure
+          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
+        %h2 デニムジャケット　Gジャン
+        .price-box ¥ 11,000
+        .price-box-tax (税込)
+  = render 'layouts/aside'
+  = render 'layouts/footer'
 
 
 
