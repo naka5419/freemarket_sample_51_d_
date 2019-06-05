@@ -14,6 +14,15 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :index]
+
+  resources :users, only: [:new, :index] do
+    resources :profiles do
+      collection do
+        get 'edit_address'
+      end
+    end
+  end
+  
   resources :cards, only: [:index, :new, :show] do
     collection do
       post 'show', to: 'cards#show'
