@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def index
   end
 
@@ -17,6 +18,9 @@ class UsersController < ApplicationController
 
   def close
     @user = User.new
+  end
+  
+  def new
   end
 
 end

@@ -1,0 +1,20 @@
+.sell-btn {
+  width: 160px;
+  height: 160px;
+  bottom: 32px;
+  right: 32px;
+  font-size: 22px;
+  position: fixed;
+  background-color: #ea352d;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  &__text {
+    margin-top: 32px;
+  }
+  .fa-camera {
+    margin-top: 8px;
+    font-size: 60px;
+  }
+}
