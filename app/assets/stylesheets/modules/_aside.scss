@@ -1,0 +1,64 @@
+.app-banner {
+  width: 100vw;
+  height: 260px;
+  background: url(https://i.gyazo.com/a5671fe10d5aebd57ee37b64331cb315.jpg);
+  background-size: cover;
+  &__area {
+    height: 260px;
+    width: 750px;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+    .app-banner__left {
+      position: absolute;
+      top: 50px;
+      width: 420px;
+      height: 166px;
+      h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+      p {
+        font-size: 35px;
+        margin-top: 10px;
+      }
+      &__bottom {
+        margin-top: 20px;
+        width: 420px;
+        height: 68px;
+        &__icon {
+          float: left;
+          .mercari-icon {
+            width: 68px;
+          }
+        }
+        ul {
+          height: 68px;
+          float: left;
+          list-style: none;
+          li {
+            float: left;
+            height: 68px;
+          }
+          .appstore-img {
+            margin-left: 24px;
+            margin-top: 14px;
+          }
+          .googleplay-img {
+            margin-left: 16px;
+            margin-top: 14px;
+          }
+        }
+      }
+    }
+    .app-banner__right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      .iphone-img {
+        height: 260px;
+      }
+    }
+  }
+}

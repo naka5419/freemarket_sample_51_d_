@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
+  resources :purchase, only: [:index] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+    end
+  end
   devise_for :users
-  resources :users, only: [:new, :index]
+  resources :users, only: [:new, :index] do
+    resources :profiles do
+      collection do
+        get 'edit_address'
+      end
+    end
+  end
+
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :products, only: [:index, :show, :new] do
     collection do
       get 'buy'
