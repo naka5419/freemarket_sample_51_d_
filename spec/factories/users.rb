@@ -1,10 +1,11 @@
-FactoryBot.define do
+# FactoryBot.define do
+#   pass = Faker::Internet.password(8)
 
-  factory :user do
-    nickname              {"abe"}
-    email                 {"kkk@gmail.com"}
-    password              {"00000000"}
-    password_confirmation {"00000000"}
-  end
-
-end
+#   factory :user do
+#     email                 {Faker::Internet.email}
+#     password              {pass}
+#     password_confirmation {pass}
+#     created_at            {Time.now}
+#     updated_at            {Time.now}
+#   end
+# end
