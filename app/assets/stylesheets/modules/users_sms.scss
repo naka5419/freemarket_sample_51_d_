@@ -13,7 +13,6 @@
         margin: 40px 0 0;
 
         a {
-          // width: 120px;
           height: 33px;
           margin: 0 8px 0 0;
           line-height: 33px;
@@ -95,7 +94,6 @@
     }
 
 
-
     .signup-main {
       display: block;
       background-color: #f5f5f5;
@@ -143,6 +141,17 @@
                 float: left;
               }
 
+              .form-voluntary {
+                margin: 0 0 0 8px;
+                padding: 3px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #888;
+                float: left;
+              }
+
               .field-input {
                 height: 48px;
                 padding: 10px 16px 8px;
@@ -168,26 +177,40 @@
               .birthday-select-wrap {
                 clear: both;
 
+                #pref_name {
+                  margin: 8px 0 0;
+                  width: calc(100%);
+                  display: inline-block;
+                  position: relative;
+                  background: #fff;
+                }
+
                 .select-wrap {
                   margin: 8px 0 0;
                   width: calc(33% - 17px);
                   display: inline-block;
                   position: relative;
                   background: #fff;
+
                   .select-default {
                     width: 100%;
                     position: relative;
                     z-index: 2;
                     height: 48px;
-                    padding: 0;
+                    padding: 0 10px;
                     border-radius: 4px;
                     border: 1px solid #ccc;
                     background: 0;
                     font-size: 16px;
                     line-height: 1.5;
                     cursor: pointer;
+                    -webkit-appearance: none;
+                    option {
+                      padding: 0 10px;
+                    }
                   }
-                  .arrow-bottom {
+
+                  .fas.fa-angle-down {
                     position: absolute;
                     right: 16px;
                     top: 50%;
@@ -197,6 +220,7 @@
                     -webkit-transform: translate(0, -50%);
                     transform: translate(0, -50%);
                   }
+
                 }
                 .month {
                   width: calc(30% - 17px);
@@ -212,21 +236,23 @@
 
             }
 
+            .info-text {
+              color: #888;
+            }
+
             .btn-red {
               margin: 40px 0 0;
               background: #ea352d;
               border: 1px solid #ea352d;
               color: #fff;
+              text-decoration: none;
             }
           }
         }
       }
-
-
     }
 
     .signup-footer {
-      // position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
@@ -266,11 +292,11 @@
 
       p {
         text-align: center;
-        small{
-          font-size: 13px;
-        }
       }
 
+      small {
+        font-size: 11px;
+      }
 
       label {
         display: inline-block;
@@ -280,12 +306,7 @@
         display: block;
         color: #333;
       }
-
     }
-
-
-
-
   }
 
   p {
@@ -298,16 +319,13 @@
     text-align: left;
   }
 
-  .arrow-right {
-    display: inline-block;
-    font-family: 'icon-font';
-    speak: none;
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
+  .text-center {
+    text-align: center;
+  }
+
+  #close {
+    font-size: 20px;
+    margin: 10px 0;
   }
 
   .text-right {
@@ -318,7 +336,6 @@
     color: #0099e8;
     text-decoration: none;
   }
-
 
   .btn-befault {
     display: block;

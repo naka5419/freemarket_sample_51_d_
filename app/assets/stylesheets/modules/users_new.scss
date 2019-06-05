@@ -24,7 +24,7 @@
         }
       }
 
-      &__progress-ber {
+      .progress-ber {
         display: inline-block;
         padding: 40px 0 0 44px;
         border: 0;
@@ -78,8 +78,6 @@
 
             }
 
-
-
             .back-active {
             background: #ea352d;
             }
@@ -96,7 +94,7 @@
     }
 
 
-    .signup__main {
+    .signup-main {
       display: block;
       background-color: #f5f5f5;
 
@@ -115,7 +113,7 @@
           padding: 40px 16px;
           border-top: 1px solid #f5f5f5;
 
-          .signup-content {
+          .form {
             max-width: 320px;
             margin: 0 auto;
 
@@ -123,7 +121,7 @@
               margin: 0;
             }
 
-            .form-group {
+            &__group {
               margin: 40px 0 0;
 
               label {
@@ -132,7 +130,7 @@
                 font-size: 14px;
               }
 
-              .form-require {
+              &--require {
                 margin: 0 0 0 8px;
                 padding: 3px 4px;
                 border-radius: 2px;
@@ -140,6 +138,17 @@
                 font-size: 12px;
                 vertical-align: top;
                 background: #ea352d;
+                float: left;
+              }
+
+              &--voluntary {
+                margin: 0 0 0 8px;
+                padding: 3px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                background: #888;
                 float: left;
               }
 
@@ -167,6 +176,14 @@
 
               .birthday-select-wrap {
                 clear: both;
+
+                #pref_name {
+                  margin: 8px 0 0;
+                  width: calc(100%);
+                  display: inline-block;
+                  position: relative;
+                  background: #fff;
+                }
 
                 .select-wrap {
                   margin: 8px 0 0;
@@ -219,8 +236,21 @@
 
             }
 
-            .info-text {
+            #ash {
               color: #888;
+            }
+
+            .btn-befault {
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
             }
 
             .btn-red {
@@ -230,6 +260,40 @@
               color: #fff;
               text-decoration: none;
             }
+
+            p {
+              font-size: 14px;
+              display: block;
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              text-align: left;
+            }
+
+            .text-center {
+              text-align: center;
+            }
+
+            #close {
+              font-size: 20px;
+              margin: 10px 0;
+            }
+
+            #identification {
+              line-height: 1.5;
+              font-weight: 100;
+            }
+
+            .text-right {
+              text-align: right;
+            }
+
+            .link-blue {
+              color: #0099e8;
+              text-decoration: none;
+            }
+
           }
         }
       }
@@ -261,6 +325,7 @@
 
             a {
               font-size: 12px;
+              text-decoration: none;
             }
           }
         }
@@ -273,11 +338,12 @@
       }
 
       p {
+        margin: 8px 0 0 0;
         text-align: center;
       }
 
       small {
-        font-size: 11px;
+        font-size: 10.5px;
       }
 
       label {
@@ -288,48 +354,8 @@
         display: block;
         color: #333;
       }
-
     }
 
-
-  }
-
-  p {
-    font-size: 14px;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    text-align: left;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .text- {
-    text-align: right;
-  }
-
-  .link-blue {
-    color: #0099e8;
-    text-decoration: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .btn-befault {
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    border: 1px solid transparent;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
   }
 
 }

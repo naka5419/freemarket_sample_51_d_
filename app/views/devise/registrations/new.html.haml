@@ -7,10 +7,10 @@
 
         %h1
 
-          %a(href="https://www.mercari.com/jp/")
+          = link_to new_user_registration_path do
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
 
-        %nav.signup-header__progress-ber
+        %nav.progress-ber
 
           %ol.clearfix
             %li.active
@@ -37,100 +37,98 @@
               .progress-status
                 .before
 
-      %main.signup__main
+      %main.signup-main
 
-        %section.signup__main__container
+        %section.signup-main__container
 
           %h2.signup-head 会員情報入力
 
           .signup-inner
 
-            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-              .signup-content
+            = form_with(model: resource,url: registration_path(resource_name), local: true) do |f|
 
-                .form-group#first
+              .form
+
+                .form__group#first
                   = f.label :ニックネーム
-                  %span.form-require 必須
+                  %span.form__group--require 必須
                   = f.text_field :nickname, autofocus: true,autocomplete: "nickname", class: 'field-input', placeholder: "例）メルカリ太郎"
 
-                .form-group
+                .form__group
                   = f.label :メールアドレス
-                  %span.form-require 必須
+                  %span.form__group--require 必須
                   = f.email_field :email, autofocus: true,autocomplete: "email", class: 'field-input', placeholder: "PC・携帯どちらでも可"
 
-                .form-group
+                .form__group
                   = f.label :パスワード
-                  %span.form-require 必須
+                  %span.form__group--require 必須
                   = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "6文字以上"
 
-                .form-group
+                .form__group
                   = f.label :パスワード確認
-                  %span.form-require 必須
+                  %span.form__group--require 必須
                   = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "6文字以上"
 
-                .form-group
+                .form__group
                   %h3.text-left 本人確認
-                  %p.text
+                  %p.text#identification
                     安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
-                .form-group
+                .form__group
                   = f.label :"姓(全角)"
-                  %span.form-require 必須
-                  = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "例）山田"
+                  %span.form__group--require 必須
+                  = f.password_field :firstname, autocomplete: "off", class: 'field-input', placeholder: "例）山田"
 
-                .form-group
+                .form__group
                   = f.label :"名(全角)"
-                  %span.form-require 必須
-                  = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "例）彩"
+                  %span.form__group--require 必須
+                  = f.password_field :lastname, autocomplete: "off", class: 'field-input', placeholder: "例）彩"
 
-                .form-group
+                .form__group
                   = f.label :"姓カナ(全角)"
-                  %span.form-require 必須
-                  = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "例）ヤマダ"
+                  %span.form__group--require 必須
+                  = f.password_field :firstname_kana, autocomplete: "off", class: 'field-input', placeholder: "例）ヤマダ"
 
-                .form-group
+                .form__group
                   = f.label :"名カナ(全角)"
-                  %span.form-require 必須
-                  = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "例）アヤ"
+                  %span.form__group--require 必須
+                  = f.password_field :lastname_kana, autocomplete: "off", class: 'field-input', placeholder: "例）アヤ"
 
-                .form-group
+                .form__group
                   = f.label :"生年月日"
-                  %span.form-require 必須
+                  %span.form__group--require 必須
                   %br/
 
                   .birthday-select-wrap
 
                     .select-wrap
-                      %select.select-default#id_year{:name => "year"}
+                      %select.select-default
                         %option{:name => ""} --
-
                       %i.fas.fa-angle-down
                     %span 年
 
                     .select-wrap.month
-                      %select.select-default#id_month{:name => "month"}
+                      %select.select-default
                         %option{:value => ""} --
-
                       %i.fas.fa-angle-down
                     %span 月
 
                     .select-wrap.day
-                      %select.select-default#id_day{:name => "day"}
+                      %select.select-default
                         %option{:value => ""} --
-
                       %i.fas.fa-angle-down
                     %span 日
 
-                %p.info-text
+                %p.info-text#ash
                   ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-                .form-group
+                .form__group
                   .g-recaptcha.signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
                     %div
                       %iframe{:frameborder => "0", :height => "78", :name => "a-38r8qy4bksn8", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1558333958099&size=normal&cb=do3zentao7q1", :width => "304"}
                     %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
 
-                .form-group
+                .form__group
                   %p.text-senter
                     「次へ進む」のボタンを押すことにより、
                     %a.link-blue(href="#")<> 利用規約
@@ -138,50 +136,13 @@
 
                 = f.submit "次へ進む", class: 'btn-red btn-befault'
 
-                = link_to "次へ進む(仮)" ,users_registration_sms_path(@user), class: "btn-red btn-befault"
+                = link_to "次へ進む(仮)" ,users_registration_sms_path, class: "btn-red btn-befault"
 
-                .form-group
+                .form__group
                   %p.text-right.link-blue
-                    %a.link-blue(href="#" terget="_blank") 本人情報の登録について
+                    = link_to new_user_registration_path, class: "link-blue" do
+                      本人情報の登録について
                     %i.fas.fa-angle-right
 
       = render partial: 'footer'
-
-:javascript
-  (function() {
-    'use strict';
-
-    /*
-      今日の日付データを変数todayに格納
-     */
-    var optionLoop, this_day, this_month, this_year, today;
-    today = new Date();
-    this_year = today.getFullYear();
-    this_month = today.getMonth() + 1;
-    this_day = today.getDate();
-
-    /*
-      ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
-     */
-    optionLoop = function(start, end, id, this_day) {
-      var i, opt;
-
-      opt = null;
-      for (i = start; i <= end ; i++) {
-        if (i === this_day) {
-          opt += "<option value='" + i + "' selected>" + i + "</option>";
-        } else {
-          opt += "<option value='" + i + "'>" + i + "</option>";
-        }
-      }
-      return document.getElementById(id).innerHTML = opt;
-    };
-
-    /*
-      関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）
-     */
-    optionLoop(1900, this_year, 'id_year', this_year);
-    optionLoop(1, 12, 'id_month', this_month);
-    optionLoop(1, 31, 'id_day', this_day);
-  })();
 

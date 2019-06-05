@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # root 'products#new'
-  root 'users#sms'
+  root 'users#index'
   resources :products, only: [:index, :show]
   resources :users, only: [:index, :edit, :update]
 

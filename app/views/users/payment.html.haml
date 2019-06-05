@@ -1,13 +1,13 @@
 %body
-  .user-signup4
+  .user-signup
 
-    .signup-container
+    .signup-wrapper
 
       %header.signup-header
 
         %h1
 
-          %a(href="#")
+          = link_to new_user_registration_path do
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
 
         %nav.progress-ber
@@ -40,34 +40,19 @@
 
       %main.signup-main
 
-        %section.signup__container
+        %section.signup-main__container
 
           %h2.signup-head 支払い方法
 
           .signup-inner
 
-            -# = form_for [@user] do |f|
-            -#   .signup-content
+            = form_with(local: true) do |f|
+              .form
 
-            -#     .form-group#first
-            -#       = f.label :携帯電話の番号
-            -#       -# %span.form-require 必須
-            -#       = f.text_field :nickname, autofocus: true,autocomplete: "email", class: 'field-input', placeholder: "携帯電話の番号を入力"
+                .form__roup#first
 
-            -#     %p.info-text
-            -#       ※本人確認のため、携帯電話のSNS(ショートメッセージサービス)を利用して認証を行います。
+                .form__group
 
-            -#     = f.submit "次へ進む", class: 'btn-red btn-befault'
-
-            -#     %p.info-text
-            -#       ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-
-            -#     .form-group
-            -#       %p.text-right.rink-bule
-            -#         %a.link-blue(href="#" terget="_blank")
-            -#           電話番号の確認が必要な理由
-            -#           %i.fas.fa-angle-right
-
-            = link_to "次へ進む(仮)" ,users_registration_close_path(@user), class: "btn-red btn-befault"
+                = link_to "次へ進む(仮)" ,users_registration_close_path, class: "btn-red btn-befault"
 
       = render partial: 'footer'
