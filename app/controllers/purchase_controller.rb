@@ -6,7 +6,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: current_user)
     if card.blank?
       redirect_to action: "show"
     else

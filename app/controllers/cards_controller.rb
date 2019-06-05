@@ -3,12 +3,12 @@ class CardsController < ApplicationController
   require "payjp"
 
   def index
-    card = Card.where(user_id: current_user.id)
+    card = Card.where(user_id: current_user)
     redirect_to action: "show" if card.exists?
   end
 
   def new
-    card = Card.where(user_id: current_user.id)
+    card = Card.where(user_id: current_user)
     redirect_to action: "show" if card.exists?
   end
 
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: current_user)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -40,7 +40,7 @@ class CardsController < ApplicationController
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: current_user)
     if card.blank?
       redirect_to action: "index"
     else

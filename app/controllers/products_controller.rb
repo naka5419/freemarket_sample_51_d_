@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: current_user)
     if card.blank?
       redirect_to action: "index"
     else
