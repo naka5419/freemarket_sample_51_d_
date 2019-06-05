@@ -10,7 +10,7 @@ body {
       }
     }
     &__confirmation {
-      min-height: 100vh;
+      min-height: 80vh;
       text-align: center;
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
       width: 700px;
@@ -34,6 +34,7 @@ body {
         .buy-content-inner {
           .buy-product-image {
             .product-image {
+              margin-top: 40px;
               width: 148px;
             }
           }
@@ -58,26 +59,28 @@ body {
               list-style: none;
               border-style: solid;
               border-width: 1px;
-              border-color: #CCCCCC; 
+              border-color: #CCCCCC;
               padding: 10px 10px;
               width: 300px;
               margin: 10px auto;
             }
             .product-price-confirm {
+              margin: 10px 0;
               list-style: none;
               .buy-price-cell {
                 font-size: 25px;
                 font-weight: bold;
-                padding-right: 70px;
+                text-align: center;
                 .buy-price-number {
                   padding-left: 90px;
                 }
               }
             }
             .buy-button {
+              cursor: pointer;
               border-style: solid;
               border-width: 1px;
-              border-color: #CCCCCC; 
+              border-color: #CCCCCC;
               padding: 10px 10px;
               width: 325px;
               margin: 10px auto;
@@ -86,17 +89,15 @@ body {
               color: white;
               font-family: inherit;
             }
-            .install-description {
-              text-align: center;
-              width: 325px;
-              margin: 15px auto;
+          }
+          .store {
+            padding: 10px 0 20px 0;
+            a {
+              text-decoration: none;
             }
-            .store {
-              padding-bottom: 40px;
-              a {
-                text-decoration: none;
-              }
-            }
+          }
+          .install-description {
+            padding: 15px 0;
           }
         }
       }
@@ -126,19 +127,56 @@ body {
           width: 330px;
           margin: 0 auto;
           .buy-user-pay-method {
+            position: relative;
+            padding-top: 30px;
             text-align: left;
             h3 {
               font-size: 12px;
             }
-            .buy-user-address-detail {
-              .buy-change-link {
-                a:link { color: #0299E8; }
-                a:hover { opacity: 0.5 ; }
-                a {text-decoration: none;}
-                font-size: 14px;
-                text-align: right;
+            .buy-change-link {
+              a:link { color: #0299E8; }
+              a:hover { opacity: 0.5 ; }
+              a {text-decoration: none;}
+              font-size: 14px;
+              right: 0;
+              bottom: 0;
+              position: absolute;
+            }
+            .payment__list {
+              &__area {
+                margin: 0 auto;
+                max-width: 320px;
+                .credit__num {
+                  margin-top: 8px;
+                }
               }
             }
+          }
+        }
+      }
+      .wait__message {
+        height: 200px;
+        background: #FDF9EC;
+        &__area {
+          width: 450px;
+          margin: 0 auto;
+          .message__top {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            .fa-clock {
+              display: inline-block;
+              font-size: 30px;
+              color: #E84440;
+            }
+            .top__message {
+              display: inline-block;
+              font-size: 25px;
+              color: #E84440;
+            }
+          }
+          .message__bottom {
+            font-size: 20px;
+            font-weight: bold;
           }
         }
       }
