@@ -1,0 +1,12 @@
+.sell-form__image__field
+  %label
+    出品画像
+    %span 必須
+.sell-form__image__text 最大5枚までアップロードできます
+#image_field{:onclick => "$('#upload_field').click()"}
+  %pre
+    :preserve
+      ドラッグアンドドロップ
+      またはクリックしてファイルをアップロード
+= form_with model: @product, local: true do |f|
+  = f.file_field :images, class: "sell-form__image__upload", accept: ".jpg, .jpeg, .png", multiple: true, style: "display:none;", id: "upload_field"
