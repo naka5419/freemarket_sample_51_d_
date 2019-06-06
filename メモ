@@ -1,9 +1,13 @@
+
+
       t.string :nickname,           null: false
+
       t.string :firstname,          null: false
       t.string :lastname,           null: false
       t.string :firstname_kana,     null: false
       t.string :lastname_kana,      null: false
       t.integer :birthday,          null: false
+
       t.integer :postalcode,        null: false
       t.string :prefecture,         null: false
       t.string :city_name,          null: false
@@ -28,6 +32,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 コントローラー作成
 rails g controller users
 
+sms_controller.rb
+
 DBマイグレート
 rake db:migrate
 
@@ -40,6 +46,17 @@ rake db:rollback STEP=3
 未ログイン時ログインページ遷移
 before_action :authenticate_user!
 
+パス明示的に指定
+<%= form_for @変数, url: ~_path do |f| %>
+<% end %>
+
+
+バリデーション
+youtubeという文字を含んでいるか(正規表現)
+VALID_YOUTUBE_URL_REGEX = /\A.*youtube.*\z/
+validates :text, presence: true, format: { with: VALID_YOUTUBE_URL_REGEX }
+
+
 テスト
 rails g rspec:install
 
@@ -51,3 +68,81 @@ user = build(:user, password: "00000", password_confirmation: "00000")
 user.valid?
 "バリデーションされれば"
 expect(user.errors[:password][0]).to include("is too short")
+
+バリデーション
+
+１ページ目のバリデーションだけとりあえずテストする
+
+css
+親要素の幅に合わせる
+width: 100%;
+box-sizing: border-box;
+
+
+enum 列挙型
+
+gemを探す
+
+
+ログアウト
+    -# %li
+    -#   = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+devise_scope
+１つのアクションでルートを増やせる
+
+「about_path」を名前付きルートと言う
+:asを使うことで名前付きルートの名前を変えることができます
+
+【1】Mac command+option+I
+
+【2】Mac command+shift+P
+
+【3】Mac「full」→return
+
+生年月日
+
+#id_year{:name => "year"}
+#id_month{:name => "month"}
+#id_day{:name => "day"}
+:javascript
+  (function() {
+    'use strict';
+
+    /*
+      今日の日付データを変数todayに格納
+     */
+    var optionLoop, this_day, this_month, this_year, today;
+    today = new Date();
+    this_year = today.getFullYear();
+    this_month = today.getMonth() + 1;
+    this_day = today.getDate();
+
+    /*
+      ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
+     */
+    optionLoop = function(start, end, id, this_day) {
+      var i, opt;
+
+      opt = null;
+      for (i = start; i <= end ; i++) {
+        if (i === this_day) {
+          opt += "<option value='" + i + "' selected>" + i + "</option>";
+        } else {
+          opt += "<option value='" + i + "'>" + i + "</option>";
+        }
+      }
+      return document.getElementById(id).innerHTML = opt;
+    };
+
+    /*
+      関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）
+     */
+    optionLoop(1900, this_year, 'id_year', this_year);
+    optionLoop(1, 12, 'id_month', this_month);
+    optionLoop(1, 31, 'id_day', this_day);
+  })();
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
+# before_action :authenticate_user!
