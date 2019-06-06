@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   end
   devise_for :users
 
-  devise_scope :user do
-    get '/users/sign_up/sms' => 'users#sms', as: :users_registration_sms
-    get '/users/sign_up/address' => 'users#address', as: :users_registration_address
-    get '/users/sign_up/payment' => 'users#payment', as: :users_registration_payment
-    get '/users/sign_up/close' => 'users#close', as: :users_registration_close
-  end
+  resources :smses, only: :new
 
-  resources :users, only: [:new, :index]
+  resources :addresses, only: :new
+
+  resources :payments, only: :new
+
+  resources :closes, only: :new
 
   resources :users, only: [:new, :index] do
     resources :profiles do
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   resources :cards, only: [:index, :new, :show] do
     collection do
       post 'show', to: 'cards#show'

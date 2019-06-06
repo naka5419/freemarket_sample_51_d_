@@ -32,6 +32,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 コントローラー作成
 rails g controller users
 
+sms_controller.rb
+
 DBマイグレート
 rake db:migrate
 
