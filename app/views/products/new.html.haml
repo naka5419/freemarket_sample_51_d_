@@ -44,7 +44,8 @@
               %label
                 ブランド
                 %span 任意
-              %input.sell-form__bland{:placeholder => "例）シャネル", :value => ""}/
+              .bland-serect 
+                = f.text_field :bland, placeholder: "例）シャネル"
             .sell-form__detail__select-box__condition
               %label 
                 商品の状態
@@ -92,7 +93,7 @@
               %span 必須
             .sell-form__price__box__input__right
               %div 
-                = f.text_field :price, placeholder: "例）300"
+                = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left
               %p 販売手数料 (10%)
