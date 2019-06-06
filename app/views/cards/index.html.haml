@@ -1,0 +1,21 @@
+.card_registration
+  = render 'layouts/header'
+  .main
+    .main__content
+      .content__area
+        %h2.content__area__head 支払い方法
+        .content__area__inner
+          .inner__area
+            .inner__area__head
+              %h3.inner__head__text クレジットカード一覧
+          .add-card
+            .add-card__area
+              = link_to new_card_path, class: "add-card__area__text" do
+                %i.far.fa-credit-card
+                クレジットカードを追加する
+          .how-regist
+            %a.how-regist__area
+              %span.how-regist__area__text 支払い方法について
+              %i.fas.fa-chevron-right
+  = render 'layouts/aside'
+  = render 'layouts/footer'
