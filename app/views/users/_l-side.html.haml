@@ -1,8 +1,8 @@
 .l-side
   %nav.mypage-nav
-    %ul.mypage-nav-list
+    %ul.mypage-nav__list
       %li        
-        = link_to "/users/", class: "mypage-nav-list-item" do
+        = link_to "/users/new/", class: "mypage-nav-list-item" do
           マイページ
           %i.fas.fa-chevron-right
       %li
@@ -58,7 +58,7 @@
           お問い合わせ
           %i.fas.fa-chevron-right
     %h3.mypage-nav-head メルペイ
-    %ul.mypage-nav-list
+    %ul.mypage-nav__list
       %li
         = link_to "", class: "mypage-nav-list-item" do
           売上・振込申請
@@ -68,7 +68,7 @@
           ポイント
           %i.fas.fa-chevron-right
     %h3.mypage-nav-head 設定
-    %ul.mypage-nav-list
+    %ul.mypage-nav__list
       %li
         = link_to "", class: "mypage-nav-list-item" do
           プロフィール

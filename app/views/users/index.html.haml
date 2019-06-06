@@ -12,80 +12,91 @@
             %div
               出品数
               %span.bold 0
-
-
-    %section.mypage-tab-container-notification-todo
-      %ul.mypage-tabs
-        %li.tab-label.active
-          %h3         
-            = link_to "お知らせ", "#mypage-notification", id: "mypage-notification" 
-        %li.tab-label
-          %h3
-            =link_to "やることリスト", "#mypage-todo", id: "#mypage-todo"  
-      .tab-content
-        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+    %section.mypage-upper-tab
+      %ul.upper-tab
+        %li.upper-tab__label
+          %h3#mypage-notification       
+            お知らせ
+        %li.upper-tab__label
+          %h3#mypage-todo
+            やることリスト  
+      .upper-content
+        %ul#mypage-tab-notification.upper-content__pane
           %li
-            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "tab-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
-                .mypage-item-text 事務局から個別メッセージ「【重要】事務局からのお知らせ」
+              .tab-item-body
+                .tab-item-text 事務局から個別メッセージ「【重要】事務局からのお知らせ」
                 %time
                   %i.far.fa-clock
                   %span 2 日前
               %i.fas.fa-chevron-right
           %li
-            = link_to "", class: "mypage-item-link" do
+            = link_to "", class: "tab-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
-                .mypage-item-text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
+              .tab-item-body
+                .tab-item-body__text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
                 %time
                   %i.far.fa-clock
                   %span 2 日前
               %i.fas.fa-chevron-right        
           %li
-            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage-item-link" do
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "tab-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
-                .mypage-item-text 事務局から個別メッセージ「らくらくメルカリ便の「集荷サービス」はたったの30円！」
+              .tab-item-body
+                .tab-item-body__text 事務局から個別メッセージ「らくらくメルカリ便の「集荷サービス」はたったの30円！」
                 %time
                   %i.far.fa-clock
                   %span 3 日前
               %i.fas.fa-chevron-right         
           %li
-            = link_to "", class: "mypage-item-link" do
+            = link_to "", class: "tab-item-link" do
               %figure
                 %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
-                .mypage-item-text 【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
+              .tab-item-body
+                .tab-item-body__text 【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
                 %time
                   %i.far.fa-clock
                   %span 3 日前
                 %i.fas.fa-chevron-right
-          %li.mypage-go-list    
-            = link_to "一覧を見る"
-        %ul#mypage-tab-todo.mypage-item-list.tab-pane
-          %li.mypage-item-not-found.bold 現在、やることリストはありません
-
-
-    %section.mypage-tab-container
-      %h2.mypage-tab-head 購入した商品
-      %ul.mypage-tabs
-        %li.tab-label.active
-          %h3  
-            = link_to "取引中", "#mypage-transaction-now", id: "mypage-transaction-now"
-                
-        %li.tab-label
-          %h3
-            = link_to "過去の取引", "#mypage-transaction-old", id: "mypage-transaction-old"
-              
-      .tab-content
-        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-          %li.mypage-item-not-found.bold 取引中の商品がありません
-        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-          %li.mypage-item-not-found.bold 過去に取引した商品がありません
+          %li.tab-go-list    
+            = link_to "一覧を見る", "" 
+        %ul#mypage-tab-todo.upper-content__pane
+          %li.tab-item-not-found.bold 現在、やることリストはありません
+    %section.mypage-bottom-tab
+      %h2.bottom-tab-head 購入した商品
+      %ul.bottom-tab
+        %li.bottom-tab__label
+          %h3#mypage-transaction-now  
+            取引中               
+        %li.bottom-tab__label
+          %h3#mypage-transaction-old
+            過去の取引              
+      .bottom-content
+        %ul#mypage-tab-transaction-now.bottom-content__pane
+          %li.tab-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.bottom-content__pane
+          %li.tab-item-not-found.bold 過去に取引した商品がありません
 
   = render 'l-side'
-  
+
+:javascript
+  $(function() {
+    $(".upper-tab__label").on("click",function(){
+      var $th = $(this).index();
+      $(".upper-tab__label").removeClass("active");
+      $(".upper-content__pane").removeClass("active");
+      $(this).addClass("active");
+      $(".upper-content__pane").eq($th).addClass("active");
+    });
+    $(".bottom-tab__label").on("click",function(){
+      var $th = $(this).index();
+      $(".bottom-tab__label").removeClass("active");
+      $(".bottom-content__pane").removeClass("active");
+      $(this).addClass("active");
+      $(".bottom-content__pane").eq($th).addClass("active");
+    }); 
+  });
