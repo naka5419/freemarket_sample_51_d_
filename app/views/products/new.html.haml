@@ -30,22 +30,22 @@
               %label
                 カテゴリー
                 %span 必須
-              .category-select
-                = f.collection_select :category, Category.where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13]), :category, :category, {prompt: "---"}
-                = f.collection_select :category, Category.where(id: [14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]), :category, :category, {prompt: "---"}
-                = f.collection_select :category, Category.where(id: [33,34,35,36,37]), :category, :category, {prompt: "---"}
+              -# .category-select
+              -#   = f.collection_select :category, Category.where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13]), :category, :category, {prompt: "---"}
+              -#   = f.collection_select :category, Category.where(id: [14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]), :category, :category, {prompt: "---"}
+              -#   = f.collection_select :category, Category.where(id: [33,34,35,36,37]), :category, :category, {prompt: "---"}
             .sell-form__detail__select-box__size
               %label 
                 サイズ
                 %span 必須
-              .sell-form__size
-                = f.select :size, Size.sizes.keys, prompt: "---"
+              -# .sell-form__size
+              -#   = f.select :size, Size.sizes.keys, prompt: "---"
             .sell-form__detail__select-box__bland
               %label
                 ブランド
                 %span 任意
-              .bland-serect 
-                = f.text_field :bland, placeholder: "例）シャネル"
+              -# .bland-serect 
+              -#   = f.text_field :bland, placeholder: "例）シャネル"
             .sell-form__detail__select-box__condition
               %label 
                 商品の状態
@@ -102,12 +102,14 @@
             .sell-form__price__box__profit__left
               %p 販売利益
             .sell-form__price__box__profit__right -
+      .status-form{ hidden: "" }
+        = f.select :status, Product.statuses.keys
       .sell-form__submit
         %p 禁止されている出品、行為を必ずご確認ください。
         %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
         %p また、出品をもちまして加盟店規約に同意したことになります。
         .sell-form__submit__button
-          = f.submit "出品する", class: "sell-form__submit__button__btn", type: "button"
+          = f.submit "出品する", class: "sell-form__submit__button__btn", type: "submit"
         = link_to "もどる", "/", class: "sell-form__submit__back"
 
       = render "sub-footer"

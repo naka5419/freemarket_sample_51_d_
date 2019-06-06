@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
+    logger.debug @product.errors.inspect
   end
 
   def buy
@@ -27,6 +28,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:images, :name, :description, :category, :size, :bland, :condition, :shipping_cost, :shipping_method, :source_area, :shipping_day, :price)
+    params.require(:product).permit(:images, :name, :description, :condition, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price)
   end
 end
