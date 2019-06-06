@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :products, only: [:index, :show, :new] do
+  resources :products, only: [:index, :show, :new, :create] do
     collection do
       get 'buy'
     end
