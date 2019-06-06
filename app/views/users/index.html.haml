@@ -3,7 +3,7 @@
     %section.mypage-user-icon
       = link_to "" do
         %figure
-          %img{alt:"サンプル",height: "60", width: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}/  
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'   
           %h2.bold username
           .mypage-number
             %div
@@ -13,7 +13,7 @@
               出品数
               %span.bold 0
     %section.mypage-upper-tab
-      %ul.upper-tab
+      %ul.upper-tab 
         %li.upper-tab__label
           %h3#mypage-notification       
             お知らせ
@@ -25,7 +25,7 @@
           %li
             = link_to "https://www.mercari.com/jp/mypage/news/", class: "tab-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded"
               .tab-item-body
                 .tab-item-text 事務局から個別メッセージ「【重要】事務局からのお知らせ」
                 %time
@@ -35,7 +35,7 @@
           %li
             = link_to "", class: "tab-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded"
               .tab-item-body
                 .tab-item-body__text 【出品はじめかたガイド】安心でかんたんに出品する方法をCHECKしてみよう！
                 %time
@@ -45,7 +45,7 @@
           %li
             = link_to "https://www.mercari.com/jp/mypage/news/", class: "tab-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded"
               .tab-item-body
                 .tab-item-body__text 事務局から個別メッセージ「らくらくメルカリ便の「集荷サービス」はたったの30円！」
                 %time
@@ -55,7 +55,7 @@
           %li
             = link_to "", class: "tab-item-link" do
               %figure
-                %img.lazyloaded{:alt => "", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+                = image_tag "//static.mercdn.net/images/mercari_profile.png", class: "lazyloaded"
               .tab-item-body
                 .tab-item-body__text 【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
                 %time
