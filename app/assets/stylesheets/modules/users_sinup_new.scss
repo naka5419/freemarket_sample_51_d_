@@ -26,7 +26,7 @@
     }
 
 
-    .login-main {
+    .signup-main {
       display: block;
       background-color: #f5f5f5;
 
@@ -43,106 +43,61 @@
         font-size: 14px;
       }
 
-      .login-panel {
+      .signup-panel {
         max-width: none;
-        width: 456px;
+        width: 700px;
         margin: 0 auto;
         background: #fff;
 
-        .no-account {
-          padding: 40px 64px;
+        h2 {
+          padding: 32px 16px;
+          font-size: 22px;
+          line-height: 1.5;
           text-align: center;
-          font-size: 14px;
-          p {
-            font-size: 14px;
-          }
-          .new-account {
-            display: block;
-            margin: 8px 0 0;
-            border: 1px solid #0099e8;
-            background: #0099e8;
-            color: #fff;
-            line-height: 40px;
-            text-decoration: none;
-          }
+          border-bottom: 1px solid #eee;
         }
-      }
 
-      .login-sns {
-        padding: 32px 64px;
-        border-top: 1px solid #eee;
-
-        .btn-sns {
-          position: relative;
-          outline: 0;
-        }
-        .btn-sns-facebook {
-          margin: 0 0;
-          background: #385185;
-          color: #fff;
-        }
-        .btn-sns-google {
-          margin: 16px 0 0;
-          background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
-          border: #979797 solid 1px;
-          color: #333;
-        }
-        .i {
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-        }
-      }
-
-      .login-mail {
-        padding: 24px 64px 32px;
-
-        .form {
-          max-width: 100%;
+        .signup-inner {
+          max-width: 320px;
           margin: 0 auto;
+          padding: 64px;
 
-          #mail {
+
+          .btn-mail {
             margin: 0 0;
+            background: #eee;
+            color: #000;
+            outline: 0;
           }
 
-          &__group {
-            margin: 24px 0 0;
+          .login-sns {
+            padding: 0 0;
 
-            .field-input {
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
-              margin: 0 0;
-              width: 100%;
-              box-sizing: border-box;
+
+            .btn-sns {
+              position: relative;
+              outline: 0;
+            }
+            .btn-sns-facebook {
+              margin: 16px 0;
+              background: #385185;
+              color: #fff;
+            }
+            .btn-sns-google {
+              margin: 16px 0 0;
+              background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+              border: #979797 solid 1px;
+              color: #333;
+            }
+            .i {
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
             }
 
           }
-
-          .login-submit {
-            margin: 24px 0 0;
-          }
-
-          .btn-red {
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-          }
-
-          a {
-            display: block;
-            margin: 40px 0 0;
-            color: #0099e8;
-            text-decoration: none;
-            font-size: 14px;
-          }
-
         }
       }
     }
