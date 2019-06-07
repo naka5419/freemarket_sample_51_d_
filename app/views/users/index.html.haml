@@ -1,3 +1,17 @@
-%body
-  %li
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
+= render "layouts/header"
+
+
+.user-logout
+  .content
+    .chapter
+      = form_with(class: "inner", local: true) do |f|
+        .logout
+          %button.btn-default.btn-red
+            ログアウト
+
+
+  = render 'layouts/l-side'
+
+= render 'layouts/aside'
+
+= render 'layouts/footer'

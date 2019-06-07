@@ -1,0 +1,42 @@
+.user-logout {
+  margin: 40px auto 0;
+  width: 1020px;
+  display: block;
+  content: '';
+  display: block;
+  clear: both;
+  height: 1292px;
+  .content {
+    float: right;
+    width: 700px;
+    .chapter {
+      clear: both;
+      margin: 0;
+      background: #fff;
+      .inner {
+        padding: 64px;
+        .logout {
+          max-width: 320px;
+          margin: 0 auto;
+          .btn-default {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+          .btn-red {
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+

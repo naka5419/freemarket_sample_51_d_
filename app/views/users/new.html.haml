@@ -1,21 +1,37 @@
 %body
-  .product-sell_header
-    %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"}/
-  .registration-contents
-    .title-box
-      .title 新規会員登録
-    .content-inner
-      .options
-        .item
-          %a.btn-registration{:href => "/users/sign_up/"}
-            .i.far.fa-envelope.my-gray.fa-lg
-            メールアドレスで登録
-        .item
-          %button#facebook-login.btn-facebook
-            .i.fab.fa-facebook-square.fa-3x.facebook
-            Facebookで登録
-        .item
-          %button#google-login.btn-google
-            .i.fab.fa-google
-            Googleで登録
-  = render 'products/sub-footer'
+  .user-new
+    .signup-wrapper
+      %header.signup-header
+        %h1
+          = link_to new_user_registration_path do
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
+
+      .signup-main
+        .signup-panel
+          %h2 新規会員登録
+          .signup-inner
+            .signin-mail
+            .login-sns
+              = link_to new_user_registration_path do
+                %button.btn-default.btn-sns.btn-mail
+                  メールアドレスで登録
+                  .i.far.fa-envelope.fa-2x
+              = link_to new_user_registration_path do
+                %button.btn-default.btn-sns.btn-sns-facebook
+                  Facebookで登録
+                  .i.fab.fa-facebook-square.fa-2x
+              = link_to new_user_registration_path do
+                %button.btn-default.btn-sns.btn-sns-google
+                  Googleで登録
+                  .i.fab.fa-google.fa-2x
+            .login-mail
+              = form_with(local: true) do |f|
+                .form
+                  .form__group#mail
+
+      = render 'footer'
+
+
+
+
+
