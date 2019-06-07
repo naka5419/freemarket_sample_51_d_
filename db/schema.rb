@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_074702) do
+ActiveRecord::Schema.define(version: 2019_06_05_110314) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -72,15 +72,15 @@ ActiveRecord::Schema.define(version: 2019_06_02_074702) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "condition", default: 0, null: false
-    t.integer "shipping_cost", null: false
-    t.integer "shipping_method", null: false
-    t.integer "source_area", null: false
-    t.integer "shipping_day", null: false
+    t.integer "condition", limit: 1, default: 0, null: false
+    t.string "shipping_cost", null: false
+    t.string "shipping_method", null: false
+    t.string "source_area", null: false
+    t.string "shipping_days", null: false
     t.integer "price", null: false
     t.integer "status", limit: 1, default: 0, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "bland_id"
     t.index ["bland_id"], name: "index_products_on_bland_id"
   end
@@ -102,6 +102,19 @@ ActiveRecord::Schema.define(version: 2019_06_02_074702) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "firstname_kana"
+    t.string "lastname_kana"
+    t.integer "birthday"
+    t.integer "postalcode"
+    t.string "prefecture"
+    t.string "city_name"
+    t.string "address_number"
+    t.string "building_name"
+    t.integer "phone_number"
+    t.string "user_image"
+    t.text "profile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

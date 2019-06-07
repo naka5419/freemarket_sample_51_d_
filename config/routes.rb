@@ -5,6 +5,15 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
+
+  resources :smses, only: :new
+
+  resources :addresses, only: :new
+
+  resources :payments, only: :new
+
+  resources :closes, only: :new
+
   resources :users, only: [:new, :index] do
     resources :profiles do
       collection do
