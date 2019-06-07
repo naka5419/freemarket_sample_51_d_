@@ -1,22 +1,17 @@
 .user-new {
-
   .signup-wrapper {
     padding: 0 0 220px;
     background-color: #f5f5f5;
-
     .signup-header {
       height: 128px;
       text-align: center;
-
       h1 {
         display: inline-block;
         margin: 40px 0 0;
-
         a {
           height: 33px;
           margin: 0 8px 0 0;
           line-height: 33px;
-
           .signup-header-img {
             width: 185px;
             height: 49px;
@@ -25,11 +20,9 @@
       }
     }
 
-
     .signup-main {
       display: block;
       background-color: #f5f5f5;
-
       .btn-default {
         display: block;
         width: 100%;
@@ -42,13 +35,11 @@
         text-align: center;
         font-size: 14px;
       }
-
       .signup-panel {
         max-width: none;
         width: 700px;
         margin: 0 auto;
         background: #fff;
-
         h2 {
           padding: 32px 16px;
           font-size: 22px;
@@ -56,31 +47,24 @@
           text-align: center;
           border-bottom: 1px solid #eee;
         }
-
         .signup-inner {
           max-width: 320px;
           margin: 0 auto;
           padding: 64px;
-
-
           .login-sns {
             padding: 0 0;
-
             a {
               text-decoration: none;
-
               .btn-mail {
                 margin: 0 0;
                 background: #eee;
                 color: #000;
                 outline: 0;
               }
-
               .btn-sns {
                 position: relative;
                 outline: 0;
               }
-
               .btn-sns-facebook {
                 margin: 16px 0;
                 background: #385185;
@@ -100,12 +84,10 @@
                 transform: translate(0, -50%);
               }
             }
-
           }
         }
       }
     }
-
     .signup-footer {
       right: 0;
       bottom: 0;
@@ -113,23 +95,18 @@
       z-index: 1;
       padding: 40px 0;
       text-align: center;
-
       width: 456px;
       height: 220px;
       margin: 0 auto;
-
       nav {
         display: block;
-
         .clesrfix {
           content: '';
           display: block;
           clear: both;
-
           li {
             display: inline-block;
             margin: 0 0 0 16px;
-
             a {
               font-size: 12px;
               text-decoration: none;
@@ -146,27 +123,21 @@
           border: 0;
         }
       }
-
       p {
         margin: 8px 0 0 0;
         text-align: center;
       }
-
       small {
         font-size: 10.5px;
       }
-
       label {
         display: inline-block;
       }
-
       .link {
         display: block;
         color: #333;
       }
     }
-
   }
-
 }
 
