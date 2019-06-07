@@ -63,38 +63,42 @@
           padding: 64px;
 
 
-          .btn-mail {
-            margin: 0 0;
-            background: #eee;
-            color: #000;
-            outline: 0;
-          }
-
           .login-sns {
             padding: 0 0;
 
+            a {
+              text-decoration: none;
 
-            .btn-sns {
-              position: relative;
-              outline: 0;
-            }
-            .btn-sns-facebook {
-              margin: 16px 0;
-              background: #385185;
-              color: #fff;
-            }
-            .btn-sns-google {
-              margin: 16px 0 0;
-              background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
-              border: #979797 solid 1px;
-              color: #333;
-            }
-            .i {
-              position: absolute;
-              top: 50%;
-              left: 16px;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
+              .btn-mail {
+                margin: 0 0;
+                background: #eee;
+                color: #000;
+                outline: 0;
+              }
+
+              .btn-sns {
+                position: relative;
+                outline: 0;
+              }
+
+              .btn-sns-facebook {
+                margin: 16px 0;
+                background: #385185;
+                color: #fff;
+              }
+              .btn-sns-google {
+                margin: 16px 0 0;
+                background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+                border: #979797 solid 1px;
+                color: #333;
+              }
+              .i {
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+              }
             }
 
           }
