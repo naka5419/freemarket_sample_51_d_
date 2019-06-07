@@ -1,16 +1,16 @@
 = render "layouts/header"
 
+
 .user-logout
-  %main.container
-    .content
-      .chapter
-        = form_with(class: "inner", local: true) do |f|
-          .logout
-            %button.btn-default.btn-red
-              ログアウト
+  .content
+    .chapter
+      = form_with(class: "inner", local: true) do |f|
+        .logout
+          %button.btn-default.btn-red
+            ログアウト
 
 
-= render 'layouts/l-side'
+  = render 'layouts/l-side'
 
 = render 'layouts/aside'
 
