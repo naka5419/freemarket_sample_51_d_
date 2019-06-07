@@ -22,7 +22,7 @@ crumb :show_product do |product|
   parent :root
 end
 
-crumb :index_user do |user|
-  link "マイページ",
+crumb :index_user do
+  link "マイページ", user_path
   parent :root
 end
