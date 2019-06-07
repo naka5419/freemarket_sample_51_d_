@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :closes, only: :new
 
-  resources :users, only: [:new, :index] do
+  resources :users, only: [:new, :index, :show, :edit] do
     resources :profiles do
       collection do
         get 'edit_address'
