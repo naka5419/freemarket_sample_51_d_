@@ -146,3 +146,5 @@ devise_scope
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
 # before_action :authenticate_user!
+
+= link_to "パスワードをお忘れの方" , new_user_registration_path, class: '' , style: "text-decoration: none; color: #333; font-size: 14px; margin: px px px px"

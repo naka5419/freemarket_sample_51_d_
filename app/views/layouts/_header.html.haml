@@ -23,11 +23,14 @@
                 %span ブランドから探す
       %nav.header__bottom__right
         .header__bottom__mypage
-          = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
-          %span{class: "mypage-text"} マイページ
+          = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
+            %span{class: "mypage-text"} マイページ(ログイン)
         .header__bottom__todo-list
-          %i.fas.fa-check.todo-list--blue
-          %span.todo-list--blue やることリスト
+          = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
+            %i.fas.fa-check.todo-list--blue
+            %span.todo-list--blue やることリスト(新規)
         .header__bottom__know-list
-          %i.far.fa-bell.know-list--blue
-          %span.know-list--blue お知らせ
+          = link_to(users_path, style: "text-decoration: none; color: #333;") do
+            %i.far.fa-bell.know-list--blue
+            %span.know-list--blue お知らせ(ログアウト)
