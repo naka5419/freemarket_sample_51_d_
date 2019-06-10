@@ -1,3 +1,4 @@
+- breadcrumb :edit_profile
 = render 'layouts/header'
 .l-container
   .l-content
@@ -9,7 +10,7 @@
 
         .setting-profile-icon
           %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'          
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'
           = f.text_field :nickname, class: 'input-default', value: "hidehide"
 
         .setting-profile-content
