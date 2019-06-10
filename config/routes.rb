@@ -4,7 +4,11 @@ Rails.application.routes.draw do
       post 'pay', to: 'purchase#pay'
     end
   end
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
 
   resources :smses, only: :new
 
