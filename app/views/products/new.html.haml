@@ -19,8 +19,7 @@
             :preserve
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
-              
-          = f.file_field :images, class: "sell-form__image__upload", accept: ".jpg, .jpeg, .png", id: "upload_field"
+          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -89,7 +88,7 @@
                 発送までの日数
                 %span 必須
               .sell-form__day
-                = f.select :shipping_days, Product.shipping_days.keys, prompt: "---"
+                = f.select :shipping_day, Product.shipping_days.keys, prompt: "---"
       .sell-form__price
         %h3
           販売価格(300〜9,999,999)

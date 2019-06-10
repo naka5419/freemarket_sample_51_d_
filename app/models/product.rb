@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_many :comments
   has_many :product_categories
   has_many :categories, through: :product_categories
+  accepts_nested_attributes_for :categories
   has_many :trade_messages
   has_many :likes
   # belongs_to :bland
@@ -23,7 +24,7 @@ class Product < ApplicationRecord
                           福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47,
                           未定:48
                         }
-  enum shipping_days:    { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
+  enum shipping_day:    { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
   enum shipping_method: { "らくらくメルカリ便": 1, "ゆうメール": 2, "レターパック": 3, "普通郵便(定形、定形外)": 4, "クロネコヤマト": 5, "ゆうパック": 6, "クリックポスト": 7, "ゆうパケット": 8}
   enum status:          { 出品中: 0, 取引中: 1, 購入済み: 2 }
   
