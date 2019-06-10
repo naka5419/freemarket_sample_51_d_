@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
     category = @product.product_categories.select(:category_id)
     product_category = category.last
     category_id = product_category[:category_id]
-
     @products = Category.find(category_id).products
   end
 
