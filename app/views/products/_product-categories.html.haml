@@ -1,0 +1,5 @@
+.category-select
+  = form_with model: @category, local: true do |f|
+    = f.collection_select :category_id, Category.where(id: [1]), :category, :category, {prompt: "---"}
+    = f.collection_select :category_id, Category.where(id: [2]), :category, :category, {prompt: "---"}
+    = f.collection_select :category_id, Category.where(id: [3]), :category, :category, {prompt: "---"}
