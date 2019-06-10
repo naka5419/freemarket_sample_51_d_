@@ -27,6 +27,7 @@
             %td
               - if @product.product_categories.present?
                 - @product.product_categories.each do |product_category|
+                  .name
                   = product_category.category.category
           %tr
             %th ブランド
@@ -56,7 +57,7 @@
           %tr
             %th 発送日の目安
             %td
-              = @product.shipping_days
+              = @product.shipping_day
       .product-contents__price-box
         .product-contents__price-box--number
           .product-price
@@ -97,10 +98,12 @@
         #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %p
         %textarea.comment{:cols => "100", :name => "comment", :rows => "10"}
-        %button.message-submit
-          %span 売り切れのためコメントできません
-        %button.message-submit
-          %span コメントする
+        - if @product.buyer.present?
+          %button.message-submit
+            %span 売り切れのためコメントできません
+        - if @product.buyer.nil?
+          %button.message-submit
+            %span コメントする
     .product-media
       = link_to "#" do
         .i.fab.fa-facebook-square.fa-3x.product-media__facebook
