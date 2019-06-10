@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :lastname, presence: true
   validates :firstname_kana, presence: true
   validates :lastname_kana, presence: true
-  validates :birthday, presence: true
+  # validates :birthday, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
