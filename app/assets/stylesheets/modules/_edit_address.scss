@@ -1,0 +1,125 @@
+.contents {
+  padding: 40px 48px;
+  background-color: #f5f5f5;
+  .main-content {
+    width: 700px;
+    height: 1208px;
+    background-color: white;
+    .title {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      color: #333333;
+      text-align: center;
+      padding: 8px 24px;
+    }
+    .content-inner {
+      padding: 64px;
+      .description {
+        font-size: 14px;
+        line-height: 1.5;
+        .about {
+          text-align: right;
+          margin-top: 8px;
+          &__upload {
+            color: #0099e8;
+            text-decoration: none;
+          }
+          &__upload:hover {
+            opacity: 0.5;
+            text-decoration: underline;
+          }
+        }
+      }
+      .profile {
+        font-size: 14px;
+        line-height: 1.5;
+        .flame {
+          height: 43px;
+          margin-top: 40px;
+          &__label {
+            font-weight: 600;
+            font-size: inherit;
+            line-height: inherit;
+          }
+          &__show {
+            margin-top: 8px;
+            font-size: inherit;
+            line-height: inherit;
+          }
+        }
+      }
+      .address-info {
+        .boxes {
+          .box {
+            height: 70px;
+            width: 100%;
+            margin-top: 40px;
+            &__label {
+              font-weight: 600;
+              font-size: 14px;
+              span {
+                background: #ccc;
+                color: #fff;
+                font-size: 12px;
+                font-weight: normal;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                vertical-align: top;
+              }
+            }
+            input {
+              width: 538px;
+              margin: 8px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+            select {
+              width: 100%;
+              margin: 8px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              font-size: 16px;
+              background: 0;
+              height: 44px;
+            }
+          }
+        }
+      }
+      .register {
+        margin: 40px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+      }
+      .about-registration {
+        margin: 40px 0 0;
+        .registration {
+          text-align: right;
+          margin-top: 8px;
+          font-size: 14px;
+          &__sentence {
+            color: #0099e8;
+            text-decoration: none;
+          }
+          &__sentence:hover {
+            opacity: 0.5;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
