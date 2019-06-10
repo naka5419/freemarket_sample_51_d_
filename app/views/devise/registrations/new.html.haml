@@ -7,7 +7,7 @@
 
         %h1
 
-          = link_to new_user_registration_path do
+          = link_to root_path do
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
 
         %nav.progress-ber
@@ -45,9 +45,10 @@
 
           .signup-inner
 
-            = form_with(model: resource,url: registration_path(resource_name), local: true) do |f|
+            = form_with(model: resource, url: registration_path(resource_name), local: true) do |f|
 
               .form
+                = devise_error_messages!
 
                 .form__group#first
                   = f.label :ニックネーム
@@ -101,6 +102,10 @@
 
                   .birthday-select-wrap
 
+                  .birth_date_field
+                    = f.label :birth_date
+                    = raw sprintf(f.date_select(:birth_date,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),include_blank: true, selected: search_attr[:user_id], date_separator: '%s'),'年 ', '月 ') + '日'
+
                     .select-wrap
                       %select.select-default
                         %option{name: ""} --
@@ -140,7 +145,7 @@
 
                 .form__group
                   %p.text-right.link-blue
-                    = link_to new_user_registration_path, class: "link-blue" do
+                    = link_to user_session_path, class: "link-blue" do
                       本人情報の登録について
                     %i.fas.fa-angle-right
 
