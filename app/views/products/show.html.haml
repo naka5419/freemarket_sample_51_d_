@@ -20,17 +20,19 @@
         %table.product-contents__main-content--table{:cellspacing => "0"}
           %tr
             %th.border-top 出品者
-            %td.border-top 
+            %td.border-top
               = @product.seller.nickname
           %tr
             %th カテゴリー
             %td
-              - @product.product_categories.each do |product_category|
-                = product_category.category.category
+              - if @product.product_categories.present?
+                - @product.product_categories.each do |product_category|
+                  = product_category.category.category
           %tr
             %th ブランド
             %td
-              = @product.bland.name unless @product.bland.nil?
+              - if @product.bland.present?
+                = @product.bland.name unless @product.bland.nil?
           %tr
             %th 商品の状態
             %td
@@ -41,7 +43,7 @@
               = @size.size unless @size.nil?
           %tr
             %th 配送料の負担
-            %td 
+            %td
               = @product.shipping_cost
           %tr
             %th 配送の方法
@@ -59,15 +61,17 @@
         .product-contents__price-box--number
           .product-price
             ¥
-            = @product.price 
+            = @product.price
           .product-tax
             (税込)
           .product-shipping-fee
             送料込み
-      .product-contents__buy-button
-        購入画面に進む
-      .product-contents__sold-button
-        売り切れました
+      - if @product.buyer.nil?
+        .product-contents__buy-button
+          購入画面に進む
+      - if @product.buyer.present?
+        .product-contents__sold-button
+          売り切れました
       .product-contents__description
         .product-contents__description--inner
           = @product.description
@@ -83,7 +87,7 @@
     .product-messages
       %figure.user-image
         = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", width:"45px", height: "45px")
-      .user-name 
+      .user-name
         ユーザーネーム
       .message-body
         .message-text
