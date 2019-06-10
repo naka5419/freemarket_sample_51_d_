@@ -95,34 +95,31 @@
                   %span.form__group--require 必須
                   = f.text_field :lastname_kana, autocomplete: "off", class: 'field-input', placeholder: "例）アヤ"
 
-                .form__group
-                  = f.label :"生年月日"
-                  %span.form__group--require 必須
-                  %br/
+                -# 必須ではないため時間があれば実装するできなければ消去する
+                -# .form__group
+                -#   = f.label :"生年月日"
+                -#   %span.form__group--require 必須
+                -#   %br/
 
-                  .birthday-select-wrap
+                -#   .birthday-select-wrap
 
-                  .birth_date_field
-                    = f.label :birth_date
-                    = raw sprintf(f.date_select(:birth_date,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),include_blank: true, selected: search_attr[:user_id], date_separator: '%s'),'年 ', '月 ') + '日'
+                -#     .select-wrap
+                -#       %select.select-default
+                -#         %option{name: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 年
 
-                    .select-wrap
-                      %select.select-default
-                        %option{name: ""} --
-                      %i.fas.fa-angle-down
-                    %span 年
+                -#     .select-wrap.month
+                -#       %select.select-default
+                -#         %option{value: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 月
 
-                    .select-wrap.month
-                      %select.select-default
-                        %option{value: ""} --
-                      %i.fas.fa-angle-down
-                    %span 月
-
-                    .select-wrap.day
-                      %select.select-default
-                        %option{value: ""} --
-                      %i.fas.fa-angle-down
-                    %span 日
+                -#     .select-wrap.day
+                -#       %select.select-default
+                -#         %option{value: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 日
 
                 %p.info-text#ash
                   ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。

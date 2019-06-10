@@ -210,6 +210,25 @@
                     }
                   }
 
+                  // .select-default
+                  #prefecture {
+                    width: 100%;
+                    position: relative;
+                    z-index: 2;
+                    height: 48px;
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    background: 0;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    cursor: pointer;
+                    -webkit-appearance: none;
+                    option {
+                      padding: 0 10px;
+                    }
+                  }
+
                   .fas.fa-angle-down {
                     position: absolute;
                     right: 16px;

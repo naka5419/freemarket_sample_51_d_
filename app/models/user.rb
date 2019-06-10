@@ -5,7 +5,6 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true, length: { maximum: 6 }
-  validates :nickname, presence: true
 
   VALID_NAMEKANZI_REGEX = /\A[一-龥]+\z/
   validates :firstname, format: { with: VALID_NAMEKANZI_REGEX }
@@ -15,10 +14,13 @@ class User < ApplicationRecord
   validates :lastname_kana, format: { with: VALID_NAMEKANA_REGEX }
 
   # # 空ではないこと
-  # validates :firstname, presence: true
-  # validates :lastname, presence: true
-  # validates :firstname_kana, presence: true
-  # validates :lastname_kana, presence: true
-  # validates :birthday, presence: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :firstname_kana, presence: true
+  validates :lastname_kana, presence: true
+  validates :birthday, presence: true
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
 end
