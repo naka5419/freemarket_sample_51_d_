@@ -4,7 +4,7 @@ end
 
 crumb :index_card do
   link '支払い方法', "/cards"
-  parent :index_user
+  parent :index_profile
 end
 
 crumb :new_card do
@@ -14,7 +14,7 @@ end
 
 crumb :show_card do
   link "支払い方法", cards_path
-  parent :index_user
+  parent :index_profile
 end
 
 crumb :show_product do |product|
@@ -22,7 +22,12 @@ crumb :show_product do |product|
   parent :root
 end
 
-crumb :index_user do
-  link "マイページ", user_path
+crumb :index_profile do
+  link "マイページ", "/users/:user_id/profiles"
   parent :root
+end
+
+crumb :edit_profile do
+  link "プロフィール", "/users/:user_id/profiles/:id/edit"
+  parent :index_profile
 end
