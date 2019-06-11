@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :smses, only: :new
 
-  resources :addresses, only: :new
+  resources :addresses
 
   resources :payments, only: :new
 
