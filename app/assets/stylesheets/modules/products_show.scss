@@ -37,7 +37,6 @@ html, body {
               .photo-#{i} {
                 position: absolute;
                 top: 0;
-                left: #{i} * 300;
               }
             }
             .owl-dots {
