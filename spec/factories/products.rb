@@ -1,14 +1,4 @@
 FactoryBot.define do
-<<<<<<< HEAD
-
-  factory :product do
-    nickname              {"abe"}
-    email                 {"kkk@gmail.com"}
-    password              {"00000000"}
-    password_confirmation {"00000000"}
-  end
-
-=======
   factory :product do
     id { 1 }
     name {"トレーナー"}
@@ -23,5 +13,4 @@ FactoryBot.define do
     bland_id { 1 }
     seller_id { 1 }
   end
->>>>>>> master
 end

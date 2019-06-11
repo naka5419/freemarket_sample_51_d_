@@ -294,54 +294,6 @@ html, body {
             margin: 0px 10px;
           }
         }
-<<<<<<< HEAD
-      .products-box {
-        height: 310px;
-        width: 230px;
-        background-color: white;
-        float: left;
-        margin-right: 10px;
-        margin-bottom: 20px;
-        position: relative;
-        figure {
-          width: 220px;
-          height: 220px;
-          padding-bottom: 0;
-          margin: 0;
-          .product-image {
-            padding: 0;
-            margin: 0;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            width: 100%;
-            max-height: 220px;
-          }
-        }
-        .products-box__body {
-          height: 78px;
-          padding: 0;
-          .products-box__name {
-            overflow: hidden;
-            position: relative;
-            height: 48px;
-            line-height: 1.5;
-            color: #333;
-          }
-          .products-box__price {
-            font-size: 17px;
-            font-weight: 600;
-            color: #333;
-          }
-          .tax {
-            font-size: 10px;
-          }
-        }
-=======
->>>>>>> master
       }
     }
   }
