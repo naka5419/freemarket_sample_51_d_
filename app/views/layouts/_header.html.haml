@@ -27,7 +27,7 @@
             = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
             %span{class: "mypage-text"} マイページ(ログイン)
         .header__bottom__todo-list
-          = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
+          = link_to(new_user_path, style: "text-decoration: none; color: #333;") do
             %i.fas.fa-check.todo-list--blue
             %span.todo-list--blue やることリスト(新規)
         .header__bottom__know-list
