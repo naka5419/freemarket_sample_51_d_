@@ -14,9 +14,7 @@
             - if @product.images.attached?
               - @product.images.each_with_index do |image, i|
                 .owl-dot
-                  %span
-                  .owl-dot-inner
-                    = image_tag image, class:"photo photo-#{i}"
+                  = image_tag image, class:"photo photo-#{i}"
         %table.product-contents__main-content--table{:cellspacing => "0"}
           %tr
             %th.border-top 出品者
