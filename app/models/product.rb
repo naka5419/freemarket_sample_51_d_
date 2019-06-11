@@ -5,10 +5,10 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :categories
   has_many :trade_messages
   has_many :likes
-  # belongs_to :bland
-  # belongs_to :buyer, class_name: "User"
-  # belongs_to :seller, class_name: "User"
-  # belongs_to :size
+  belongs_to :bland
+  belongs_to :buyer, class_name: "User"
+  belongs_to :seller, class_name: "User"
+  belongs_to :size
   has_many :evaluations
   has_many_attached :images
 
