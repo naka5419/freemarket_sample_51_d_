@@ -1,0 +1,36 @@
+.header
+  .header__inner
+    .header__top
+      %h1
+        %a
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340"
+      %form.header__form
+        %input{type: "search", name: "ketword", placeholder: "何かお探しですか？", class: "header__input"}
+        .icon-search
+          %i.fas.fa-search
+    .header__bottom
+      %nav.header__bottom__left
+        %ul.header__nav
+          %li.header__nav__category-list
+            %h2
+              %a
+                %i.fas.fa-list-ul
+                %span カテゴリーから探す
+          %li.header__nav__brand-list
+            %h2
+              %a
+                %i.fas.fa-list
+                %span ブランドから探す
+      %nav.header__bottom__right
+        .header__bottom__mypage
+          = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
+            %span{class: "mypage-text"} マイページ(ログイン)
+        .header__bottom__todo-list
+          = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
+            %i.fas.fa-check.todo-list--blue
+            %span.todo-list--blue やることリスト(新規)
+        .header__bottom__know-list
+          = link_to(users_path, style: "text-decoration: none; color: #333;") do
+            %i.far.fa-bell.know-list--blue
+            %span.know-list--blue お知らせ(ログアウト)

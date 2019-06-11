@@ -59,7 +59,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |description|text|null: false|
-|brand_id|integer|foreign_key: true, index: true|
+|brand_id|references|foreign_key: true, index: true|
 |condition|integer|null: false, default: 0, limit: 1|
 |shipping_cost|string|null: false|
 |shipping_method|string|null: false|
@@ -67,8 +67,8 @@ Things you may want to cover:
 |shipping_days|string|null: false|
 |price|integer|null: false|
 |status|integer|null: false, default: 0, limit: 1|
-|buyer_id|integer|foreign_key: true|
-|seller_id|integer|foreign_key: true|
+|buyer_id|references|foreign_key: true|
+|seller_id|references|foreign_key: true|
 
 ### Association
 - has_many :comments
@@ -99,8 +99,8 @@ Things you may want to cover:
 ## product_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foreign_key: true|
-|category_id|integer|foreign_key: true|
+|product_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :product
@@ -109,8 +109,8 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foreign_key: true|
-|user_id|integer|foreign_key: true|
+|product_id|refeerences|foreign_key: true|
+|user_id|references|foreign_key: true|
 |comment|text|null: false|
 
 ### Association
@@ -120,9 +120,9 @@ Things you may want to cover:
 ## trade_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|foerign_key: true|
+|user_id|references|foerign_key: true|
 |message|text|null: false|
-|product_id|integer|foerign_key: true|
+|product_id|references|foerign_key: true|
 
 ### Association
 - belongs_to :user
@@ -132,9 +132,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|buyer_id|integer|foreign_key: true|
-|seller_id|integer|foreign_key: true|
-|product_id|integer|foerign_key: true|
+|buyer_id|references|foreign_key: true|
+|seller_id|references|foreign_key: true|
+|product_id|references|foerign_key: true|
 |review|text|
 
 ### Association
@@ -145,7 +145,7 @@ Things you may want to cover:
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|foerign_key: true|
+|product_id|references|foerign_key: true|
 |size|string|null: false|
 
 ### Association
@@ -171,8 +171,8 @@ Things you may want to cover:
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|foreign_key: true|
-|product_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user

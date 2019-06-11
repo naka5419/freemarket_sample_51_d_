@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -66,6 +67,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -81,3 +83,9 @@ gem 'kaminari'
 gem 'fog-aws'
 gem 'jquery-rails'
 gem 'devise'
+gem 'dropzonejs-rails'
+gem 'payjp'
+gem 'dotenv-rails'
+gem 'unf_ext', '~> 0.0.7.1'
+gem 'simple_form'
+gem 'active_hash'

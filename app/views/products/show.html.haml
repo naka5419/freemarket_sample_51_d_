@@ -1,117 +1,134 @@
-%body
-.wrapper-products-show
-  .contents-products-detail
-    %h1
-    .product-main-content
-      .product-main-content__photos
-        -# - if @product.images.attached?
-        -#   - @product.images.each do |image|
-        -#     = image_tag image
-      %table.product-main-content__details{:cellspacing => "0"}
-        %tr
-          %th.border-top 出品者
-          %td.border-top 
-            -# = @user.nickname
-        %tr
-          %th カテゴリー
-          %td 
-            -# = @product.name
-        %tr
-          %th ブランド
-          %td
-            -# = @bland.name
-        %tr
-          %th 商品の状態
-          %td 
-            -# = @product.condition
-        %tr
-          %th 配送料の負担
-          %td 
-            -# = @product.shipping_cost
-        %tr
-          %th 配送の方法
-          %td 
-            -# = @product.shipping_method
-        %tr
-          %th 配送元地域
-          %td 
-            -# = @product.source_area
-        %tr
-          %th 発送日の目安
-          %td 
-            -# = @product.shipping_days
-    .product-price-box
-      .price-box
-        .product-price
-          ¥
-          -# = @product.price
-        .product-tax
-          (税込)
-        .product-shipping-fee
-          送料込み
-    .product-buy-button
-      購入画面に進む
-    .product-buy-button__sold
-      売り切れました
-    .product-description
-      .product-description-inner
-        -# = @product.description
-    .product-button-left
-      %button.product-button-like  
-        %i.far.fa-heart いいね! ０
-      %button.product-button-report
-        %i.far.fa-flag  不適切な商品の報告
-    .product-button-right
-      %a{:href => "#"}
-        %i.fas.fa-lock
-        %span あんしん・あんぜんへの取り組み
-  .contents-products-messages
-    %figure.user-image
-      %img.profile-image{ alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width:"45px", height: "45px" }/
-    .user-name 
-      -# = @user.nickname 
-    .message-body
-      .message-text
-        こんばんは。
-    .message-triangule
-    %form.message-form
-      #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %p
-      %textarea#comment{:cols => "100", :name => "comment", :rows => "10"}
-      %button.message-submit
-        %span 売り切れのためコメントできません
-      %button.message-submit
-        %span コメントする
-  .contents-products-media
-    %a{:href => "#"}
-      .i.fab.fa-facebook-square.fa-3x.facebook
-    %a{:href => "#"}
-      .i.fab.fa-twitter-square.fa-3x.twitter
-    %a{:href => "#"}
-      .i.fab.fa-pinterest-square.fa-3x.pinterest
-  .contents-products-box
-    %a{:href => "#"}
-      %h2 *関連商品の名前
-    .products-box
-      %a
-        %figure
-          %img.product-image{:src => "https://static.mercdn.net/thumb/photos/m92323859263_1.jpg?1559185442"}
-
-        .products-box__body
-          %h3.product-box__name
-            -# = @product.name
-          .products-box-num
-            .products-box__price
-              -# = @product.price
-            %p.tax (税込)
-      .product-name-box 
-    .products-box
-    .products-box
-    .products-box
-    .products-box
-    .products-box
-      
-
+.wrapper-products
+  = render 'layouts/header'
+  .show-products
+    .product-contents
+      %h1
+        = @product.name
+      .product-contents__main-content
+        .product-contents__main-content--photos-flame
+          .gallery
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                = image_tag image, class:"photo photo-#{i}"
+          .owl-dots
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                .owl-dot
+                  = image_tag image, class:"photo photo-#{i}"
+        %table.product-contents__main-content--table{:cellspacing => "0"}
+          %tr
+            %th.border-top 出品者
+            %td.border-top
+              = @product.seller.nickname
+          %tr
+            %th カテゴリー
+            %td
+              - if @product.product_categories.present?
+                - @product.product_categories.each do |product_category|
+                  .name
+                  = product_category.category.category
+          %tr
+            %th ブランド
+            %td
+              - if @product.bland.present?
+                = @product.bland.name unless @product.bland.nil?
+          %tr
+            %th 商品の状態
+            %td
+              = @product.condition
+          %tr
+            %th 商品のサイズ
+            %td
+              = @size.size unless @size.nil?
+          %tr
+            %th 配送料の負担
+            %td
+              = @product.shipping_cost
+          %tr
+            %th 配送の方法
+            %td
+              = @product.shipping_method
+          %tr
+            %th 配送元地域
+            %td
+              = @product.source_area
+          %tr
+            %th 発送日の目安
+            %td
+              = @product.shipping_day
+      .product-contents__price-box
+        .product-contents__price-box--number
+          .product-price
+            ¥
+            = @product.price
+          .product-tax
+            (税込)
+          .product-shipping-fee
+            送料込み
+      - if @product.buyer.nil?
+        .product-contents__buy-button
+          購入画面に進む
+      - if @product.buyer.present?
+        .product-contents__sold-button
+          売り切れました
+      .product-contents__description
+        .product-contents__description--inner
+          = @product.description
+      .product-contents__left-button
+        %button.product-contents__left-button--like
+          %i.far.fa-heart いいね! ０
+        %button.product-contents__left-button--report
+          %i.far.fa-flag  不適切な商品の報告
+      .product-contents__right-button
+        = link_to "#" do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+    .product-messages
+      %figure.user-image
+        = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", width:"45px", height: "45px")
+      .user-name
+        ユーザーネーム
+      .message-body
+        .message-text
+          こんばんは。
+      .message-triangule
+      %form.message-form
+        #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %p
+        %textarea.comment{:cols => "100", :name => "comment", :rows => "10"}
+        - if @product.buyer.present?
+          %button.message-submit
+            %span 売り切れのためコメントできません
+        - if @product.buyer.nil?
+          %button.message-submit
+            %span コメントする
+    .product-media
+      = link_to "#" do
+        .i.fab.fa-facebook-square.fa-3x.product-media__facebook
+      = link_to "#" do
+        .i.fab.fa-twitter-square.fa-3x.product-media__twitter
+      = link_to "#" do
+        .i.fab.fa-pinterest-square.fa-3x.product-media__pinterest
+    .product-other-contents
+      = link_to "#" do
+        %h2 関連するカテゴリーその他の商品
+      - @products.each do |product|
+        - if product.id == @product.id
+        - else
+          .product-other-contents__box
+            %figure
+              - if product.images.attached?
+                - product.images.each_with_index do |image, i|
+                  - if i == 0
+                    = image_tag image, class:"photo photo-#{i}"
+            %h2
+              = product.name
+            .price-box
+              ¥
+              = product.price
+            .price-box-tax (税込)
+  = render 'layouts/aside'
+  = render 'layouts/footer'
 
 
 
