@@ -8,6 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @size = Size.find_by(product_id: params[:id])
+
+    category = @product.product_categories.select(:category_id)
+    product_category = category.last
+    category_id = product_category[:category_id]
+    @products = Category.find(category_id).products
   end
 
   def create
