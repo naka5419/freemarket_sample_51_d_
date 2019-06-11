@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def show
@@ -14,6 +15,10 @@ class ProductsController < ApplicationController
     product_category = category.last
     category_id = product_category[:category_id]
     @products = Category.find(category_id).products
+  end
+
+  def create
+    @product = Product.create(product_params)
   end
 
   def buy
@@ -27,4 +32,8 @@ class ProductsController < ApplicationController
     end
   end
 
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :condition, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: [])
+  end
 end

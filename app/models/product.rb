@@ -2,12 +2,13 @@ class Product < ApplicationRecord
   has_many :comments
   has_many :product_categories
   has_many :categories, through: :product_categories
+  accepts_nested_attributes_for :categories
   has_many :trade_messages
   has_many :likes
-  belongs_to :bland, optional: true
-  belongs_to :buyer, class_name: "User", optional: true
-  belongs_to :seller, class_name: "User", optional: true
-  belongs_to :size, optional: true
+  # belongs_to :bland
+  # belongs_to :buyer, class_name: "User"
+  # belongs_to :seller, class_name: "User"
+  # belongs_to :size
   has_many :evaluations
   has_many_attached :images
 
@@ -25,4 +26,6 @@ class Product < ApplicationRecord
                         }
   enum shipping_day:    { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
   enum shipping_method: { "らくらくメルカリ便": 1, "ゆうメール": 2, "レターパック": 3, "普通郵便(定形、定形外)": 4, "クロネコヤマト": 5, "ゆうパック": 6, "クリックポスト": 7, "ゆうパケット": 8}
+  enum status:          { 出品中: 0, 取引中: 1, 購入済み: 2 }
+
 end
