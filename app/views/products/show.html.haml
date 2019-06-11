@@ -113,15 +113,20 @@
       = link_to "#" do
         %h2 関連するカテゴリーその他の商品
       - @products.each do |product|
-        .product-other-contents__box
-          %figure
-            = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-          %h2
-            = product.name
-          .price-box
-            ¥
-            = product.price
-          .price-box-tax (税込)
+        - if product.id == @product.id
+        - else
+          .product-other-contents__box
+            %figure
+              - if product.images.attached?
+                - product.images.each_with_index do |image, i|
+                  - if i == 0
+                    = image_tag image, class:"photo photo-#{i}"
+            %h2
+              = product.name
+            .price-box
+              ¥
+              = product.price
+            .price-box-tax (税込)
   = render 'layouts/aside'
   = render 'layouts/footer'
 
