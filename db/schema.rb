@@ -33,12 +33,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_090504) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
@@ -71,11 +65,13 @@ ActiveRecord::Schema.define(version: 2019_06_12_090504) do
     t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "bland_id"
     t.integer "buyer_id"
     t.integer "seller_id"
     t.bigint "category_id"
     t.string "bland"
     t.integer "size"
+    t.index ["bland_id"], name: "index_products_on_bland_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
