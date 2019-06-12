@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_052823) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.bigint "bland_id"
+    t.integer "buyer_id"
     t.integer "seller_id"
     t.index ["bland_id"], name: "index_products_on_bland_id"
   end
