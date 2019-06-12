@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :purchase, only: [:index] do
+  resources :purchase, only: [:index, :show] do
     collection do
       post 'pay', to: 'purchase#pay'
     end
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :addresses, only: :new
 
-  resources :payments, only: :new
+  resources :payments, only: [:new, :show]
 
   resources :closes, only: :new
 
@@ -41,4 +41,5 @@ Rails.application.routes.draw do
     end
   end
   root 'products#index'
+
 end

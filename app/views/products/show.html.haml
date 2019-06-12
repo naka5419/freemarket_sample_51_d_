@@ -67,7 +67,7 @@
             送料込み
       - if @product.buyer.nil?
         .product-contents__buy-button
-          購入画面に進む
+          = link_to('購入画面に進む', purchase_path)
       - if @product.buyer.present?
         .product-contents__sold-button
           売り切れました
