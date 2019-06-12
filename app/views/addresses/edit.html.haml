@@ -99,17 +99,17 @@
                 = f.label :city_name, class: "box__label" do
                   市区町村
                   %span 任意
-                = f.text_field :city_name, placeholder: "例）横浜市緑区", class: "box__label"
+                = f.text_field :city_name, autofocus: true, autocomplete: "off", class: 'box__label', placeholder: "例）横浜市緑区"
               .box
                 = f.label :address_number, class: "box__label" do
                   番地
                   %span 任意
-                = f.text_field :address_number, placeholder: "例）青山1-1-1", class: "box__label"
+                = f.text_field :address_number, autofocus: true, autocomplete: "off", class: 'box__label', placeholder: "例）青山1-1-1"
               .box
                 = f.label :building_name, class: "box__label" do
                   建物名
                   %span 任意
-                = f.text_field :building_name, autofocus: true, autocomplete: "off", placeholder: "例）柳ビル103", class: "box__label"
+                = f.text_field :building_name, autofocus: true, autocomplete: "off", class: 'box__label', placeholder: "例）柳ビル103"
           = f.submit "登録する", class: 'register'
           .about-registration
             %p.registration
