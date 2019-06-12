@@ -1,14 +1,11 @@
 class Product < ApplicationRecord
   has_many :comments
-  has_many :product_categories
-  has_many :categories, through: :product_categories
   has_many :trade_messages
   has_many :likes
-  belongs_to :bland
   belongs_to :buyer, class_name: "User"
   belongs_to :seller, class_name: "User"
-  belongs_to :size
   has_many :evaluations
+  has_many_attached :images
 
   enum condition:       { 新品、未使用: 0, 未使用に近い: 1, 目立った傷や汚れなし: 2, やや傷や汚れあり: 3, 傷や汚れあり: 4, 全体的に状態が悪い: 5}
   enum shipping_cost:   { "送料込み(出品者負担)": 0, "着払い(購入者負担)": 1 }
@@ -24,5 +21,6 @@ class Product < ApplicationRecord
                         }
   enum shipping_day:    { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
   enum shipping_method: { "らくらくメルカリ便": 1, "ゆうメール": 2, "レターパック": 3, "普通郵便(定形、定形外)": 4, "クロネコヤマト": 5, "ゆうパック": 6, "クリックポスト": 7, "ゆうパケット": 8}
-  
+  enum status:          { 出品中: 0, 取引中: 1, 購入済み: 2 }
+
 end

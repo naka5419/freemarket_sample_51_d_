@@ -1,0 +1,14 @@
+= render "layouts/header"
+
+.user-logout
+  .content
+    .chapter
+      .inner
+        .logout
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-default btn-red" ,style: "text-decoration: none;"
+
+  = render 'layouts/l-side'
+
+= render 'layouts/aside'
+
+= render 'layouts/footer'
