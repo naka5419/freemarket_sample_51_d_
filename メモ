@@ -46,6 +46,10 @@ rake db:rollback STEP=3
 未ログイン時ログインページ遷移
 before_action :authenticate_user!
 
+フォームでカラムを指定して
+コントローラーで追加
+データベースに保存
+
 パス明示的に指定
 <%= form_for @変数, url: ~_path do |f| %>
 <% end %>
