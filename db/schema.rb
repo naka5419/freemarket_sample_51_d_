@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_052823) do
+ActiveRecord::Schema.define(version: 2019_06_13_034045) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,31 @@ ActiveRecord::Schema.define(version: 2019_06_11_052823) do
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "condition", null: false
+    t.integer "shipping_cost", null: false
+    t.integer "shipping_method", null: false
+    t.integer "source_area", null: false
+    t.integer "shipping_day", null: false
+    t.integer "price", null: false
+    t.integer "status", default: 0, null: false
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.string "bland"
+    t.integer "size"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
