@@ -23,6 +23,7 @@ class User < ApplicationRecord
   # validates :lastname_kana, presence: true
   # validates :birthday, presence: true
 
+  # 都道府県
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 

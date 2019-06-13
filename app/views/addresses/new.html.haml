@@ -46,7 +46,7 @@
 
           .signup-inner
 
-            = form_with(local: true) do |f|
+            = form_with(model: current_user, url: address_path(current_user), local: true) do |f|
               .form
 
                 .form__group#first
@@ -62,7 +62,7 @@
                   .birthday-select-wrap
 
                     .select-wrap#pref_name
-                      = f.collection_select :prefecture, Prefecture.all, :id, :name
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name
                       -# %select.select-default
 
                 .form__group
