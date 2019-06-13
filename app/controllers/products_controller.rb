@@ -1,7 +1,4 @@
 class ProductsController < ApplicationController
-  def new
-    @product = Product.new
-  end
 
   def new
     @product = Product.new
@@ -21,19 +18,17 @@ class ProductsController < ApplicationController
     @product = Product.create(product_params)
   end
 
-  def buy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "index"
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :condition, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: [])
+    params.require(:product).permit(:name, :description, :condition, :size, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: []).merge(seller_id: current_user.id)
   end
 end
