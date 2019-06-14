@@ -112,6 +112,10 @@ html, body {
           text-align: center;
           font-weight: 600;
           font-size: 24px;
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
         }
         &__sold-button {
           display: block;
