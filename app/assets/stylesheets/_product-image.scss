@@ -26,20 +26,13 @@
     float: left;
     }
   #image_field {
-    border: dashed 1px #cccccc;
-    cursor: pointer;
-    width: 88%;
-    height: 162px;
-    background-color: #F5F5F5;
-    margin: 16px 40px 0 40px;
-    float: right;
-    pre {
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: center;
-      color: black;
-      font-family: monospace,monospace;
-      margin-top: 55px;
+    .sell-form__image__upload {
+      border: dashed 1px #cccccc;
+      cursor: pointer;
+      width: 620px;
+      height: 162px;
+      background-color: #F5F5F5;
+      margin: 16px 40px 0 40px;
     }
   }
   .product__image {
