@@ -81,6 +81,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'kaminari'
 gem 'fog-aws'
+gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'devise'
 gem 'dropzonejs-rails'
