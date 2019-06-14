@@ -32,7 +32,10 @@
               .item-boxs
                 = link_to("./#{man.id}") do
                   %figure
-                    = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
+                    - if man.images.attached?
+                      - man.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
                   .item-boxs__body
                     %h3.item-boxs__name
                       = man.name
@@ -50,7 +53,10 @@
               .item-boxs
                 = link_to("./#{kid.id}") do
                   %figure
-                    = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
+                    - if kid.images.attached?
+                      - kid.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
                   .item-boxs__body
                     %h3.item-boxs__name
                       = kid.name
@@ -68,7 +74,10 @@
               .item-boxs
                 = link_to("./#{cosmetic.id}") do
                   %figure
-                    = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
+                    - if cosmetic.images.attached?
+                      - cosmetic.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
                   .item-boxs__body
                     %h3.item-boxs__name
                       = cosmetic.name
