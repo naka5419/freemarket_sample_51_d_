@@ -9,7 +9,7 @@
           - if @ladies.present?
             -  @ladies.last(4).each do |lady|
               .item-boxs
-                = link_to("./#{lady.id}") do
+                = link_to("products/#{lady.id}") do
                   %figure
                     - if lady.images.attached?
                       - lady.images.each_with_index do |image, i|
@@ -30,7 +30,7 @@
           - if @mens.present?
             -  @mens.last(4).each do |man|
               .item-boxs
-                = link_to("./#{man.id}") do
+                = link_to("products/#{man.id}") do
                   %figure
                     - if man.images.attached?
                       - man.images.each_with_index do |image, i|
@@ -51,7 +51,7 @@
           - if @kids.present?
             -  @kids.last(4).each do |kid|
               .item-boxs
-                = link_to("./#{kid.id}") do
+                = link_to("products/#{kid.id}") do
                   %figure
                     - if kid.images.attached?
                       - kid.images.each_with_index do |image, i|
@@ -72,7 +72,7 @@
           - if @cosmetics.present?
             -  @cosmetics.last(4).each do |cosmetic|
               .item-boxs
-                = link_to("./#{cosmetic.id}") do
+                = link_to("products/#{cosmetic.id}") do
                   %figure
                     - if cosmetic.images.attached?
                       - cosmetic.images.each_with_index do |image, i|
@@ -92,165 +92,85 @@
       .main__brand__item
         %h3.main__brand__sub-title シャネル 新着アイテム
         .main__brand__item-box
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
+          - if @chanels.present?
+            -  @chanels.last(4).each do |chanel|
+              .item-boxs
+                = link_to("products/#{chanel.id}") do
+                  %figure
+                    - if chanel.images.attached?
+                      - chanel.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
+                  .item-boxs__body
+                    %h3.item-boxs__name
+                      = chanel.name
+                    .item-boxs__num
+                      .item-boxs__price
+                        = chanel.price
+                    %p.tax (税込)
         .view__all
           %a すべての商品を見る
       .main__brand__item
         %h3.main__brand__sub-title ルイ ヴィトン 新着アイテム
         .main__brand__item-box
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
+          - if @vuittons.present?
+            -  @vuittons.last(4).each do |vuitton|
+              .item-boxs
+                = link_to("products/#{vuitton.id}") do
+                  %figure
+                    - if vuitton.images.attached?
+                      - vuitton.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
+                  .item-boxs__body
+                    %h3.item-boxs__name
+                      = vuitton.name
+                    .item-boxs__num
+                      .item-boxs__price
+                        = vuitton.price
+                    %p.tax (税込)
         .view__all
           %a すべての商品を見る
       .main__brand__item
         %h3.main__brand__sub-title シュプリーム 新着アイテム
         .main__brand__item-box
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
+          - if @supremes.present?
+            -  @supremes.last(4).each do |supreme|
+              .item-boxs
+                = link_to("products/#{supreme.id}") do
+                  %figure
+                    - if supreme.images.attached?
+                      - supreme.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
+                  .item-boxs__body
+                    %h3.item-boxs__name
+                      = supreme.name
+                    .item-boxs__num
+                      .item-boxs__price
+                        = supreme.price
+                    %p.tax (税込)
         .view__all
           %a すべての商品を見る
       .main__brand__item
         %h3.main__brand__sub-title ナイキ 新着アイテム
         .main__brand__item-box
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
-          .item-boxs
-            %a
-              %figure
-                = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
-              .item-boxs__body
-                %h3.item-boxs__name バッグ
-                .item-boxs__num
-                  .item-boxs__price 7,990
-                %p.tax (税込)
+          - if @nikes.present?
+            -  @nikes.last(4).each do |nike|
+              .item-boxs
+                = link_to("products/#{nike.id}") do
+                  %figure
+                    - if nike.images.attached?
+                      - nike.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
+                  .item-boxs__body
+                    %h3.item-boxs__name
+                      = nike.name
+                    .item-boxs__num
+                      .item-boxs__price
+                        = nike.price
+                    %p.tax (税込)
         .view__all
           %a すべての商品を見る
     .flame
