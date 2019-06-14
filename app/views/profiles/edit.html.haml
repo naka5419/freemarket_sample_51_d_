@@ -9,11 +9,11 @@
 
         .setting-profile-icon
           %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'          
+            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'
           = f.text_field :nickname, class: 'input-default', value: "hidehide"
 
         .setting-profile-content
-          = f.text_area :profile, class: "input-default", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"          
+          = f.text_area :profile, class: "input-default", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
           = f.hidden_field :"after_save_callback", value: "ttps://www.mercari.com/jp/mypage/profile/"
 
           = f.submit "変更する", class: "btn-red"
