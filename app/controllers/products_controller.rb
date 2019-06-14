@@ -4,13 +4,16 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def index
+    @ladies = Category.find(1).products
+    @mens = Category.find(2).products
+    @kids = Category.find(3).products
+    @cosmetics = Category.find(7).products
+  end
+
   def show
     @product = Product.find(params[:id])
-    @size = Size.find_by(product_id: params[:id])
-
-    category = @product.product_categories.select(:category_id)
-    product_category = category.last
-    category_id = product_category[:category_id]
+    category_id = @product.category_id
     @products = Category.find(category_id).products
   end
 
