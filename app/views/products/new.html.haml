@@ -13,12 +13,8 @@
           %label
             出品画像
             %span 必須
-        .sell-form__image__text 最大5枚までアップロードできます
+        .sell-form__image__text 最大10枚までアップロードできます
         #image_field
-          %pre
-            :preserve
-              ドラッグアンドドロップ
-              またはクリックしてファイルをアップロード
           = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
     .new-product__sell-form
       .sell-form__container
@@ -40,19 +36,21 @@
               %label
                 カテゴリー
                 %span 必須
-              = render "product-categories"
+              = f.collection_select :category_id, Category.where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13]), :id, :name, {prompt: "---"}
+              = f.collection_select :category_id, Category.where(id: [15,16,17,18,19,20,21,22,23,24]), :id, :name, {prompt: "---"}
+              = f.collection_select :category_id, Category.where(id: [154,155,156,157,158,162,167]), :id, :name, {prompt: "---"}
             .sell-form__detail__select-box__size
               %label 
                 サイズ
                 %span 必須
               .sell-form__size
-                = f.select :size, Size.sizes.keys, prompt: "---"
+                = f.select :size, Product.sizes.keys, prompt: "---"
             .sell-form__detail__select-box__bland
               %label
                 ブランド
                 %span 任意
               .bland-serect 
-                = f.text_field :bland, placeholder: "例）シャネル"
+                = f.select :bland, ['',  'CHANEL', 'LOUIS VUITTON', 'Supreme', 'NIKE']
             .sell-form__detail__select-box__condition
               %label 
                 商品の状態
