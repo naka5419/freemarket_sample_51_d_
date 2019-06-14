@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @parent = Category.all.order("id ASC").limit(13)
   end
 
   def show
@@ -29,6 +30,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: []).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :buyer_id, :price, images: []).merge(seller_id: current_user.id)
   end
 end

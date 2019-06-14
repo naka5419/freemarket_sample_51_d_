@@ -36,9 +36,7 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, Category.where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13]), :id, :name, {prompt: "---"}
-              = f.collection_select :category_id, Category.where(id: [15,16,17,18,19,20,21,22,23,24]), :id, :name, {prompt: "---"}
-              = f.collection_select :category_id, Category.where(id: [154,155,156,157,158,162,167]), :id, :name, {prompt: "---"}
+              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
             .sell-form__detail__select-box__size
               %label 
                 サイズ
@@ -109,6 +107,8 @@
             .sell-form__price__box__profit__right -
       .status-form{ hidden: "" }
         = f.select :status, Product.statuses.keys
+      .buyer-form{ hidden: "" }
+        = f.text_field :buyer_id
       .sell-form__submit
         %p 禁止されている出品、行為を必ずご確認ください。
         %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
