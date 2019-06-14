@@ -79,6 +79,10 @@ class ProductsController < ApplicationController
     }
     @cosmetics = cosmetics_category.sort_by{ |a| a[:created_at] }
 
+    @chanels = Product.where(bland: "CHANEL")
+    @vuittons = Product.where(bland: "LOUIS VUITTON")
+    @supremes = Product.where(bland: "Supreme")
+    @nikes = Product.where(bland: "NIKE")
   end
 
   def show
