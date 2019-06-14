@@ -7,18 +7,78 @@ class ProductsController < ApplicationController
   def index
     ladies_ids = Category.where('ancestry LIKE(?)', "1/%").select(:id)
 
-    # @ladies = ladies_ids.map{ |id| Product.where(category_id: id) }
-
-     @ladies = []
+     lady_array = []
       ladies_ids.each do |id|
         products = id.products
         if products.present?
-        @ladies << products
+        lady_array << products
         end
       end
-    @mens = Category.find(242).products
-    @kids = Category.find(3).products
-    @cosmetics = Category.find(7).products
+
+     category_ladies = []
+     lady_array.each{|products|
+       products.each{ |product|
+         category_ladies << product
+       }
+     }
+     @ladies = category_ladies.sort_by{ |a| a[:created_at] }
+
+
+    mens_ids = Category.where('ancestry LIKE(?)', "2/%").select(:id)
+
+    mens_array = []
+     mens_ids.each do |id|
+       products = id.products
+       if products.present?
+       mens_array << products
+       end
+     end
+
+    mens_category = []
+    mens_array.each{|products|
+      products.each{ |product|
+        mens_category << product
+      }
+    }
+    @mens = mens_category.sort_by{ |a| a[:created_at] }
+
+
+    kids_ids = Category.where('ancestry LIKE(?)', "3/%").select(:id)
+
+    kids_array = []
+     kids_ids.each do |id|
+       products = id.products
+       if products.present?
+       kids_array << products
+       end
+     end
+
+    kids_category = []
+    kids_array.each{|products|
+      products.each{ |product|
+        kids_category << product
+      }
+    }
+    @kids = kids_category.sort_by{ |a| a[:created_at] }
+
+    cosmetics_ids = Category.where('ancestry LIKE(?)', "7/%").select(:id)
+
+    cosmetics_array = []
+    cosmetics_ids.each do |id|
+       products = id.products
+       if products.present?
+       cosmetics_array << products
+       end
+     end
+
+    cosmetics_category = []
+    cosmetics_array.each{|products|
+      products.each{ |product|
+        cosmetics_category << product
+      }
+    }
+    @cosmetics = cosmetics_category.sort_by{ |a| a[:created_at] }
+
   end
 
   def show
