@@ -5,8 +5,18 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @ladies = Category.find(1).products
-    @mens = Category.find(2).products
+    ladies_ids = Category.where('ancestry LIKE(?)', "1/%").select(:id)
+
+     @ladies = []
+      ladies_ids.each do |id|
+        products = id.products
+        if products.present?
+        @ladies << products
+        end
+      end
+
+    @mens = Category.find(242).products
+    binding.pry
     @kids = Category.find(3).products
     @cosmetics = Category.find(7).products
   end
