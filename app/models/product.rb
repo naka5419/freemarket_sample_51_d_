@@ -1,11 +1,7 @@
 class Product < ApplicationRecord
-  has_many :comments
-  has_many :trade_messages
-  has_many :likes
-  has_many :evaluations
   has_many_attached :images
-  belongs_to :buyer, class_name: "User"
-  belongs_to :seller, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
+  # belongs_to :seller, class_name: "User"
   belongs_to :category
 
   enum condition:       { 新品、未使用: 0, 未使用に近い: 1, 目立った傷や汚れなし: 2, やや傷や汚れあり: 3, 傷や汚れあり: 4, 全体的に状態が悪い: 5}
@@ -23,5 +19,5 @@ class Product < ApplicationRecord
   enum shipping_day:    { "1〜2日で発送": 0, "2〜3日で発送": 1, "4〜7日で発送": 2}
   enum shipping_method: { "らくらくメルカリ便": 1, "ゆうメール": 2, "レターパック": 3, "普通郵便(定形、定形外)": 4, "クロネコヤマト": 5, "ゆうパック": 6, "クリックポスト": 7, "ゆうパケット": 8}
   enum status:          { 出品中: 0, 取引中: 1, 購入済み: 2 }
-
+  enum size:            { "XXS以下": 0, "XS(SS)": 1, "S": 2, "M": 3, "L": 4, "XL(LL)": 5, "2XL(3L)": 6, "3XL(4L)": 7, "4XL(5L)以上": 8, "FREE SIZE": 9}
 end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :smses, only: :new
 
-  resources :addresses
+  resources :addresses, only: [:new, :edit, :update]
 
   resources :payments, only: [:new, :show]
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :products, only: [:index, :show, :new, :create] do
+  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     collection do
       get 'buy'
     end
