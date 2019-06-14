@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   def index
     ladies_ids = Category.where('ancestry LIKE(?)', "1/%").select(:id)
 
+    # @ladies = ladies_ids.map{ |id| Product.where(category_id: id) }
+
      @ladies = []
       ladies_ids.each do |id|
         products = id.products
@@ -14,9 +16,7 @@ class ProductsController < ApplicationController
         @ladies << products
         end
       end
-
     @mens = Category.find(242).products
-    binding.pry
     @kids = Category.find(3).products
     @cosmetics = Category.find(7).products
   end
