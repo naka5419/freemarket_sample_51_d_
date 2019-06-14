@@ -9,9 +9,12 @@
           - if @ladies.present?
             -  @ladies.last(4).each do |lady|
               .item-boxs
-                %a
+                = link_to("./#{lady.id}") do
                   %figure
-                    = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
+                    - if lady.images.attached?
+                      - lady.images.each_with_index do |image, i|
+                        - if i == 0
+                          = image_tag image, class:"img"
                   .item-boxs__body
                     %h3.item-boxs__name
                       = lady.name
@@ -19,33 +22,6 @@
                       .item-boxs__price
                         = lady.price
                     %p.tax (税込)
-          -# .item-boxs
-          -#   %a
-          -#     %figure
-          -#       = image_tag "https://static.mercdn.net/thumb/photos/m36119128139_1.jpg?1558189525"
-          -#     .item-boxs__body
-          -#       %h3.item-boxs__name バッグ
-          -#       .item-boxs__num
-          -#         .item-boxs__price 7,990
-          -#       %p.tax (税込)
-          -# .item-boxs
-          -#   %a
-          -#     %figure
-          -#       = image_tag "https://static.mercdn.net/thumb/photos/m45850561484_1.jpg?1559179729"
-          -#     .item-boxs__body
-          -#       %h3.item-boxs__name レース襟ブラウス
-          -#       .item-boxs__num
-          -#         .item-boxs__price 7,990
-          -#       %p.tax (税込)
-          -# .item-boxs
-          -#   %a
-          -#     %figure
-          -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m98275892008_2.jpg?1559225832"
-          -#     .item-boxs__body
-          -#       %h3.item-boxs__name コーエン✨ネイビーの花柄半袖プルオーバー
-          -#       .item-boxs__num
-          -#         .item-boxs__price 7,990
-          -#       %p.tax (税込)
         .view__all
           %a すべての商品を見る
       .main__category__item
@@ -54,7 +30,7 @@
           - if @mens.present?
             -  @mens.last(4).each do |man|
               .item-boxs
-                %a
+                = link_to("./#{man.id}") do
                   %figure
                     = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
                   .item-boxs__body
@@ -72,7 +48,7 @@
           - if @kids.present?
             -  @kids.last(4).each do |kid|
               .item-boxs
-                %a
+                = link_to("./#{kid.id}") do
                   %figure
                     = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
                   .item-boxs__body
@@ -90,7 +66,7 @@
           - if @cosmetics.present?
             -  @cosmetics.last(4).each do |cosmetic|
               .item-boxs
-                %a
+                = link_to("./#{cosmetic.id}") do
                   %figure
                     = image_tag "https://static.mercdn.net/thumb/photos/m52699809959_1.jpg?1558602898"
                   .item-boxs__body
