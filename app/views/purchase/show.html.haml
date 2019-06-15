@@ -8,12 +8,16 @@
     %section.contents__confirmation--content
       .buy-content-inner
         %h3.buy-product-image
-          = image_tag("https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830", class: "product-image")
+          - if @product.images.attached?
+            - @product.images.each_with_index do |image, i|
+              - if i == 0
+                = image_tag image, class:"product-image"
         %p.buy-product-name
-          90s Tommy トミーヒルフィガー ポロ
+          = @product.name
         .buy-form
           %p.product-price
-            ¥2,300
+            ¥
+            = @product.price
             %span.product-shipping-fee
               送料込み
           %ul.point
@@ -26,7 +30,8 @@
               .buy-price-cell
                 支払い金額
                 %span.buy-price-number
-                  ¥2,300
+                  ¥
+                  = @product.price
           = form_with(url: payment_path, local: true, method: :get) do |f|
             = f.submit "購入する", class: "buy-button", type: "submit"
           %p.install-description アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
