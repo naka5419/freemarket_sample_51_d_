@@ -188,7 +188,7 @@
                   = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3856598694", class: "store-img"
               = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?3856598694", class: "iphone-img"
         = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg", class: "camp-photo"
-        = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/banner-natsukashi.jpg", class: "natukasi-photo"
+        = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/banner-6th-thanks.jpg", class: "natukasi-photo"
       .nav
         #prev
         #next
@@ -198,6 +198,7 @@
         .right-dot.dot
   = render 'layouts/aside'
   = render 'layouts/footer'
-  .sell-btn
-    .sell-btn__text 出品
-    %i.fas.fa-camera
+  =link_to "products/new" do
+    .sell-btn
+      .sell-btn__text 出品
+      %i.fas.fa-camera
