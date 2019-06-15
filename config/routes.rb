@@ -35,11 +35,14 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :productitems
     collection do
-      get 'buy'
+        get 'buy'
     end
   end
+
   root 'products#index'
 
 end
