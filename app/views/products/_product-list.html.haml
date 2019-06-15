@@ -1,0 +1,17 @@
+.main__list__item-box
+  - if categories.present?
+    -  categories.last(4).each do |category|
+      .item-boxs
+        = link_to("products/#{category.id}") do
+          %figure
+            - if category.images.attached?
+              - category.images.each_with_index do |image, i|
+                - if i == 0
+                  = image_tag image, class:"img"
+          .item-boxs__body
+            %h3.item-boxs__name
+              = category.name
+            .item-boxs__num
+              .item-boxs__price
+                = category.price
+            %p.tax (税込)
