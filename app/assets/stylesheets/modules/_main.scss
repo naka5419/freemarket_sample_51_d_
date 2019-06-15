@@ -6,7 +6,7 @@
     background: #f5f5f5;
     width: 100vw;
     height: 4372px;
-    &__category {
+    &__list {
       padding: 40px 0;
       width: 100vw;
       height: 1860px;
@@ -18,7 +18,7 @@
         width: 940px;
         margin: 26px auto 0 auto;
         height: 442px;
-        .main__category__sub-title {
+        .main__list__sub-title {
           font-size: 22px;
           color: #0099e8;
           margin: 0 11px 26px 11px;
@@ -35,6 +35,10 @@
             position: relative;
             float: left;
             background-color: #fff;
+            a {
+              text-decoration: none;
+              color: #333;
+            }
             figure {
               width: 213px;
               height: 220px;
@@ -47,85 +51,7 @@
                 left: 0;
                 z-index: 1;
                 width: 100%;
-                max-height: 220px;
-              }
-            }
-            &__body {
-              height: 78px;
-              padding: 16px;
-              .item-boxs__name {
-                overflow: hidden;
-                position: relative;
-                font-weight: 400;
-                height: 48px;
-                line-height: 1.5;
-                color: #333;
-              }
-              .item-boxs__price {
-                font-size: 17px;
-                font-weight: 600;
-                color: #333;
-              }
-              .tax {
-                font-size: 10px;
-              }
-            }
-          }
-        }
-        .view__all {
-          padding: 20px 0 30px;
-          width: 99.5%;
-          text-align: right;
-          display: block;
-          a {
-            color: #0099e8;
-          }
-        }
-      }
-    }
-    .main__brand {
-      padding: 40px 0;
-      width: 100vw;
-      height: 1900px;
-      &__title {
-        font-size: 28px;
-        text-align: center;
-      }
-      &__item {
-        width: 940PX;
-        margin: 26px auto 0 auto;
-        height: 442px;
-        .main__brand__sub-title {
-          font-size: 22px;
-          color: #0099e8;
-          margin: 0 11px 26px 11px;
-          text-align: center;
-          font-weight: bold;
-        }
-        &-box {
-          width: 940px;
-          height: 330px;
-          .item-boxs {
-            margin-left: 20px;
-            width: 213px;
-            height: 330px;
-            position: relative;
-            float: left;
-            background-color: #fff;
-            figure {
-              width: 213px;
-              height: 220px;
-              display: block;
-              img {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: 1;
-                width: 100%;
-                max-height: 220px;
-                min-height: 200px;
+                height: 220px;
               }
             }
             &__body {
