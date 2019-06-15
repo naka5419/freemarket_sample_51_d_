@@ -1,4 +1,5 @@
 .wrapper-products
+  - breadcrumb :show_product, @product
   = render 'layouts/header'
   .show-products
     .product-contents
@@ -23,15 +24,14 @@
           %tr
             %th カテゴリー
             %td
-              - if @product.product_categories.present?
-                - @product.product_categories.each do |product_category|
-                  .name
-                  = product_category.category.category
+              - if @product.category.present?
+                .name
+                = @product.category.name
           %tr
             %th ブランド
             %td
               - if @product.bland.present?
-                = @product.bland.name unless @product.bland.nil?
+                = @product.bland
           %tr
             %th 商品の状態
             %td
@@ -39,7 +39,8 @@
           %tr
             %th 商品のサイズ
             %td
-              = @size.size unless @size.nil?
+              - if @product.size.present?
+                = @product.size
           %tr
             %th 配送料の負担
             %td

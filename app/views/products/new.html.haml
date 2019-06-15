@@ -40,7 +40,7 @@
               = f.collection_select :category_id, Category.where(id: [15,16,17,18,19,20,21,22,23,24]), :id, :name, {prompt: "---"}
               = f.collection_select :category_id, Category.where(id: [154,155,156,157,158,162,167]), :id, :name, {prompt: "---"}
             .sell-form__detail__select-box__size
-              %label 
+              %label
                 サイズ
                 %span 必須
               .sell-form__size
@@ -97,7 +97,7 @@
               価格
               %span 必須
             .sell-form__price__box__input__right
-              %div 
+              %div
                 = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left

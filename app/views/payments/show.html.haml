@@ -1,6 +1,7 @@
 .contents
   .contents__header
-    = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340", class:"contents__header--image")
+    = link_to ("/") do
+      = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340", class:"contents__header--image")
   .contents__confirmation
     .wait__message
       .wait__message__area
@@ -13,10 +14,14 @@
     %section.contents__confirmation--content
       .buy-content-inner
         %h3.buy-product-image
-          = image_tag("https://static.mercdn.net/thumb/photos/m95042290129_1.jpg?1557987830", class: "product-image")
+          - if @product.images.attached?
+            - @product.images.each_with_index do |image, i|
+              - if i == 0
+                = image_tag image, class:"product-image"
         %p.buy-product-name
-          90s Tommy トミーヒルフィガー ポロ
+          = @product.name
         %form.buy-form
           %p.product-price
-            ¥2,300
+            ¥
+            = @product.price
   = render 'products/sub-footer'

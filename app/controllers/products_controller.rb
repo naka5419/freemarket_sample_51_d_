@@ -6,11 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @size = Size.find_by(product_id: params[:id])
-
-    category = @product.product_categories.select(:category_id)
-    product_category = category.last
-    category_id = product_category[:category_id]
+    category_id = @product.category_id
     @products = Category.find(category_id).products
   end
 
@@ -35,6 +31,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: [])
+    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: []).merge(seller_id: current_user.id)
   end
 end
