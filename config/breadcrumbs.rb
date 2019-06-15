@@ -8,17 +8,17 @@ crumb :index_card do
 end
 
 crumb :new_card do
-  link "クレジットカード情報入力", new_card_path
+  link "クレジットカード情報入力"
   parent :index_card
 end
 
 crumb :show_card do
-  link "支払い方法", cards_path
+  link "支払い方法"
   parent :index_profile
 end
 
 crumb :show_product do |product|
-  link product.name, product_path
+  link "#{product.name}"
   parent :root
 end
 
@@ -28,6 +28,6 @@ crumb :index_profile do
 end
 
 crumb :edit_profile do
-  link "プロフィール", "/users/:user_id/profiles/:id/edit"
+  link "プロフィール"
   parent :index_profile
 end
