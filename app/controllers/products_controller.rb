@@ -1,23 +1,30 @@
 class ProductsController < ApplicationController
 
-  def index
-  end
-
   def new
+    @product = Product.new
   end
 
   def show
+    @product = Product.find(params[:id])
+    category_id = @product.category_id
+    @products = Category.find(category_id).products
   end
 
-  def buy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "index"
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+  def create
+    @product = Product.create(product_params)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+  end
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :price, images: []).merge(seller_id: current_user.id)
+  end
 end

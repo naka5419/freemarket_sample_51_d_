@@ -81,6 +81,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'kaminari'
 gem 'fog-aws'
+gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
 gem 'devise'
 gem 'dropzonejs-rails'
@@ -88,4 +89,9 @@ gem 'payjp'
 gem 'dotenv-rails'
 gem "gretel"
 gem 'unf_ext', '~> 0.0.7.1'
+gem 'simple_form'
+gem 'active_hash'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'ancestry'
 

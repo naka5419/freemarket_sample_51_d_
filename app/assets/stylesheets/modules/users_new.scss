@@ -210,6 +210,25 @@
                     }
                   }
 
+                  // .select-default
+                  #user_prefecture_id {
+                    width: 100%;
+                    position: relative;
+                    z-index: 2;
+                    height: 48px;
+                    padding: 0 10px;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                    background: 0;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    cursor: pointer;
+                    -webkit-appearance: none;
+                    option {
+                      padding: 0 10px;
+                    }
+                  }
+
                   .fas.fa-angle-down {
                     position: absolute;
                     right: 16px;
@@ -362,162 +381,3 @@
   }
 
 }
-
-
-
-
-.registration-contents {
-  min-height: 50vh;
-  text-align: center;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  width: 700px;
-  margin: 10px auto 0;
-  background-color: white;
-  .title-box {
-    background-color: #fff;
-    width: 700px;
-    height: 97px;
-    margin: 0 auto;
-    border: solid  thin #f5f5f5;
-    text-align: center;
-    .title {
-      font-size: 22px;
-      font-weight: bold;
-      padding-top: 36px;
-      color: #333333;
-    }
-  }
-}
-.content-inner {
-  .options {
-    flex-direction: column;
-    align-items: center;
-    max-width: 320px;
-    margin: 0 auto;
-    background-color: whitesmoke;
-    .item {
-      height: 50px;
-      margin: 30px auto;
-      a {
-        text-decoration: none;
-      }
-      .btn-registration {
-        position: relative;
-        background: #eee;
-        color: #000;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        border: 1px solid transparent;
-        .my-gray {
-          color: #CCCCCC;
-        }
-      }
-      .btn-facebook {
-        height: 50px;
-        width: 320px;
-        background-color: #385185;
-        color: white;
-        display: inline-block;
-        font-family: 'icon-font';
-        font-style: normal;
-        font-weight: 400;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
-        text-align: center;
-        line-height: 50px;
-        .facebook {
-          color: white;
-        }
-      }
-      .btn-google {
-        border-style: solid;
-        border-color: #979797;
-        border-width: 1px;
-        width: 320px;
-        height: inherit;
-        font-size: 14px;
-      }
-    }
-  }
-}
-
-// .registration-contents {
-//   min-height: 50vh;
-//   text-align: center;
-//   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-//   width: 700px;
-//   margin: 10px auto 0;
-//   background-color: white;
-//   .title-box {
-//     background-color: #fff;
-//     width: 700px;
-//     height: 97px;
-//     margin: 0 auto;
-//     border: solid  thin #f5f5f5;
-//     text-align: center;
-//     .title {
-//       font-size: 22px;
-//       font-weight: bold;
-//       padding-top: 36px;
-//       color: #333333;
-//     }
-//   }
-// }
-// .content-inner {
-//   .options {
-//     flex-direction: column;
-//     align-items: center;
-//     max-width: 320px;
-//     margin: 0 auto;
-//     background-color: whitesmoke;
-//     .item {
-//       height: 50px;
-//       margin: 30px auto;
-//       a {
-//         text-decoration: none;
-//       }
-//       .btn-registration {
-//         position: relative;
-//         background: #eee;
-//         color: #000;
-//         display: block;
-//         width: 100%;
-//         line-height: 48px;
-//         font-size: 14px;
-//         border: 1px solid transparent;
-//         .my-gray {
-//           color: #CCCCCC;
-//         }
-//       }
-//       .btn-facebook {
-//         height: 50px;
-//         width: 320px;
-//         background-color: #385185;
-//         color: white;
-//         display: inline-block;
-//         font-family: 'icon-font';
-//         font-style: normal;
-//         font-weight: 400;
-//         font-variant: normal;
-//         text-transform: none;
-//         line-height: 1;
-//         text-align: center;
-//         line-height: 50px;
-//         .facebook {
-//           color: white;
-//         }
-//       }
-//       .btn-google {
-//         border-style: solid;
-//         border-color: #979797;
-//         border-width: 1px;
-//         width: 320px;
-//         height: inherit;
-//         font-size: 14px;
-//       }
-//     }
-//   }
-// }

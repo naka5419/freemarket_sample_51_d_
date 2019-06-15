@@ -1,13 +1,12 @@
 .wrapper
   = render 'layouts/header'
-  .nav-bar
   .contents
     .side-bar
     .main-content
       %h2.title 本人情報の登録
       .content-inner
         .description
-          %p 
+          %p
             お客さまの本人情報をご登録ください。<br>
             登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
           %p.about
@@ -26,17 +25,17 @@
         %form.address-info
           .boxes
             .box
-              .box__label 
-                郵便番号 
-                %span 任意 
+              .box__label
+                郵便番号
+                %span 任意
               %input{placeholder: "例) 1234567"}
             .box
-              .box__label 
+              .box__label
                 都道府県
                 %span 任意
               %select
             .box
-              .box__label 
+              .box__label
                 市区町村
                 %span 任意
               %input
@@ -56,5 +55,6 @@
           %p.registration
             = link_to "#", class: "registration__sentence" do
               本人情報の登録について>
+    = render 'layouts/l-side'
   = render 'layouts/aside'
   = render 'layouts/footer'
