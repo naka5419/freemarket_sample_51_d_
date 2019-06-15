@@ -13,10 +13,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
+    redirect_to "/"
   end
 
   def edit
     @product = Product.find(params[:id])
+    @parent = Category.all.order("id ASC").limit(13)
   end
 
   def update

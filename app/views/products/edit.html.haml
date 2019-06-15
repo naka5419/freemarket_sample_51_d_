@@ -15,10 +15,13 @@
             %span 必須
         .sell-form__image__text 最大10枚までアップロードできます
         #image_field
-          %p
-            - @product.images each do |image|
-              = image_tag image.variant(resize: "150x150")
-          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field" do
+          .images_view
+            - @product.images.each do |image|
+              = image_tag image.variant(resize: "116x116")
+            .images_view__btn
+              = link_to "削除", "/product_images/#{@product.id}", method: :delete, class: "images_view__btn__delete"
+              = link_to "編集", "", class: "images_view__btn__edit"
+          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -39,11 +42,9 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, Category.where(id: [1,2,3,4,5,6,7,8,9,10,11,12,13]), :id, :name, {prompt: "---"}
-              = f.collection_select :category_id, Category.where(id: [15,16,17,18,19,20,21,22,23,24]), :id, :name, {prompt: "---"}
-              = f.collection_select :category_id, Category.where(id: [154,155,156,157,158,162,167]), :id, :name, {prompt: "---"}
+              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
             .sell-form__detail__select-box__size
-              %label 
+              %label
                 サイズ
                 %span 必須
               .sell-form__size
@@ -100,7 +101,7 @@
               価格
               %span 必須
             .sell-form__price__box__input__right
-              %div 
+              %div
                 = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left
@@ -112,6 +113,8 @@
             .sell-form__price__box__profit__right -
       .status-form{ hidden: "" }
         = f.select :status, Product.statuses.keys
+      .buyer-form{ hidden: "" }
+        = f.text_field :buyer_id
       .sell-form__submit
         %p 禁止されている出品、行為を必ずご確認ください。
         %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。

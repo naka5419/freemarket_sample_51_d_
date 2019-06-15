@@ -26,13 +26,34 @@
     float: left;
     }
   #image_field {
+    clear: both;
+    .images_view {
+      height: 162px;
+      width: 116px;
+      float: left;
+      margin: 16px 8px 0 40px;
+      background-color: #F5F5F5;
+      border: solid 1px #F5F5F5;
+      &__btn {
+        text-align: center;
+        &__delete {
+          width: 50%;
+          margin-right: 10px;
+        }
+        &__edit {
+          width: 50%;
+          margin-left: 10px;
+        }
+      }
+    }
     .sell-form__image__upload {
       border: dashed 1px #cccccc;
       cursor: pointer;
-      width: 620px;
+      width: 490px;
       height: 162px;
       background-color: #F5F5F5;
-      margin: 16px 40px 0 40px;
+      margin: 16px 40px 0 0;
+      float: right;
     }
   }
   .product__image {
