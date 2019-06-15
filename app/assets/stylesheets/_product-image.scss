@@ -49,6 +49,15 @@
     .sell-form__image__upload {
       border: dashed 1px #cccccc;
       cursor: pointer;
+      width: 620px;
+      height: 162px;
+      background-color: #F5F5F5;
+      margin: 16px 40px 0 0;
+      float: right;
+    }
+    .sell-form__image__upload__edit {
+      border: dashed 1px #cccccc;
+      cursor: pointer;
       width: 490px;
       height: 162px;
       background-color: #F5F5F5;

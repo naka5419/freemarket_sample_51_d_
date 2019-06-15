@@ -1,11 +1,12 @@
-$(function() {
-  function buildChirdrenHTML() { 
-    html = `
-    <%= f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "sub-category-form" %>`
-  };
-
-  $(".category-form").change(function() {
-    var html = buildChirdrenHTML();
-    $(".category-form").after(html);
-  });
-});
+// $(function() {
+//   $(".category-form").change(function() {
+//     var parent = $(".category-form option:selected").text();
+//     var category = $(".sell-form__detail__select-box__category");
+//     var html = `<select class="subcategory-form" name="product[category_id]">
+//                   <option value="">---</option>
+//                   <option value="${parent}">${parent}</option>
+//                 </select>`;
+//     category.append(html);
+    
+//   });
+// });

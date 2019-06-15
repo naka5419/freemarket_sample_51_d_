@@ -22,7 +22,7 @@
               - @product.images.each do |image|
                 = image_tag image.variant(resize: "116x116")
               .images_view__btn
-                = link_to "削除", "/product_images/#{@product.id}", method: :delete, class: "images_view__btn__delete"
+                = link_to "削除", product_image_path, method: :delete, class: "images_view__btn__delete"
                 = link_to "編集", "", class: "images_view__btn__edit"
             = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, id: "upload_field"
     .new-product__sell-form
