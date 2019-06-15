@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :closes, only: :new
 
+  resources :product_images, only: :destroy
 
   resources :users, only: [:new, :index, :show, :edit, :destroy] do
     resources :profiles do
