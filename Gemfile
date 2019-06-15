@@ -93,5 +93,6 @@ gem 'simple_form'
 gem 'active_hash'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'ancestry'
 
