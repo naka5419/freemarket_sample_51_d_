@@ -5,44 +5,44 @@
       %h2.main__list__title ピックアップカテゴリー
       .main__list__item
         %h3.main__list__sub-title レディース 新着アイテム
-        = render partial: 'product-list', locals: {categories: @ladies}
+        = render partial: 'product-list', locals: {products: @ladies}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title メンズ 新着アイテム
-        = render partial: 'product-list', locals: {categories: @mens}
+        = render partial: 'product-list', locals: {products: @mens}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title ベビー・キッズ 新着アイテム
-        = render partial: 'product-list', locals: {categories: @kids}
+        = render partial: 'product-list', locals: {products: @kids}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title コスメ・香水・美容 新着アイテム
-        = render partial: 'product-list', locals: {categories: @cosmetics}
+        = render partial: 'product-list', locals: {products: @cosmetics}
         .view__all
           %a すべての商品を見る
     .main__list
       %h2.main__list__title ピックアップブランド
       .main__list__item
         %h3.main__list__sub-title シャネル 新着アイテム
-        = render partial: 'product-list', locals: {categories: @chanels}
+        = render partial: 'product-list', locals: {products: @chanels}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title ルイ ヴィトン 新着アイテム
-        = render partial: 'product-list', locals: {categories: @vuittons}
+        = render partial: 'product-list', locals: {products: @vuittons}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title シュプリーム 新着アイテム
-        = render partial: 'product-list', locals: {categories: @supremes}
+        = render partial: 'product-list', locals: {products: @supremes}
         .view__all
           %a すべての商品を見る
       .main__list__item
         %h3.main__list__sub-title ナイキ 新着アイテム
-        = render partial: 'product-list', locals: {categories: @nikes}
+        = render partial: 'product-list', locals: {products: @nikes}
         .view__all
           %a すべての商品を見る
     .flame
