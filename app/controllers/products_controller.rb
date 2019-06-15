@@ -4,6 +4,19 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def index
+
+    @ladies = Category.bring(1)
+    @mens = Category.bring(2)
+    @kids = Category.bring(3)
+    @cosmetics = Category.bring(7)
+
+    @chanels = Product.where(bland: "CHANEL")
+    @vuittons = Product.where(bland: "LOUIS VUITTON")
+    @supremes = Product.where(bland: "Supreme")
+    @nikes = Product.where(bland: "NIKE")
+  end
+
   def show
     @product = Product.find(params[:id])
     category_id = @product.category_id
