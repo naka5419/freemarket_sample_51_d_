@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def search
+    @categories = Category.find(params[:cat]).children
   end
 
   def show
