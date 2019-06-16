@@ -20,7 +20,11 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @categories = Category.find(params[:cat]).children
+    if params[:cat]
+      @categories = Category.find(params[:cat]).children
+    else
+      @childCategories = Category.find(params[:childCat]).children
+    end
   end
 
   def show
