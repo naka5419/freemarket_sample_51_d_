@@ -1,0 +1,110 @@
+body {
+  background: #f5f5f5;
+}
+.l-container {
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  display: block;
+  background-color: #f5f5f5;
+  height: 1252px;
+  .l-content {
+    position: relative;
+    width: 700px;
+    float: right;
+    .mypage-show-tab {
+      display: block;
+      margin: 40px 0 0;
+      background: #fff;
+      .show-tab-head {
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+      }
+      .show-tab {
+        height: 74px;
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        &__label{
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          background: #fff;
+          border-top: 2px solid #ea352d;
+          h3{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            text-decoration: none;
+          }
+        }
+      }
+      .show-content{
+        display: block;
+        &__pane{
+          position: relative;
+          .show-item{
+            position: relative;
+            border-bottom: 1px solid #eee;
+            box-sizing: border-box;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            text-decoration: none;
+            figure {
+              position: relative;
+              overflow: hidden;
+              float: left;
+              width: 60px;
+              height: 60px;
+              img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                vertical-align: middle;
+              }
+            }
+            .show-item-body {
+              margin: 0 100px 0 80px;
+              width: 550px;
+              &__text {
+                overflow: hidden;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              &__descript{
+                overflow: hidden;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+            }
+            .show-item-btn{
+              height: 40px;
+              width: 100px;
+              margin: 0 auto;
+              color: #fff;
+              line-height: 40px;
+              font-size: 12px;
+              text-align: center;
+              float: right;
+              text-decoration: none;
+              background: gray;
+              border: 1px solid red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

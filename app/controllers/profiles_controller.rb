@@ -9,7 +9,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
-      @product = Product.where("product.seller_id = ? and product.status = ?", "current_user.id", "0")
+    @user = User.find(current_user.id)
+    @products = @user.selling_products
   end
 
 end
