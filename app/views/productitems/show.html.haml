@@ -1,16 +1,81 @@
-= render 'layouts/header'
+.wrapper-product-destroy
+  = render 'layouts/header'
+  %h1.destroy-head 商品編集削除
+  .show-products
+    .product-contents
+      %h1
+        = @product.name
+      .product-contents__main-content
+        .product-contents__main-content--photos-flame
+          .gallery
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                = image_tag image, class:"photo photo-#{i}"
+          .owl-dots
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                .owl-dot
+                  = image_tag image, class:"photo photo-#{i}"
+        %table.product-contents__main-content--table{:cellspacing => "0"}
+          %tr
+            %th.border-top 出品者
+            %td.border-top
+              = @product.seller.nickname
+          %tr
+            %th カテゴリー
+            %td
+              - if @product.category.present?
+                .name
+                = @product.category.name
+          %tr
+            %th ブランド
+            %td
+              - if @product.bland.present?
+                = @product.bland
+          %tr
+            %th 商品の状態
+            %td
+              = @product.condition
+          %tr
+            %th 商品のサイズ
+            %td
+              - if @product.size.present?
+                = @product.size
+          %tr
+            %th 配送料の負担
+            %td
+              = @product.shipping_cost
+          %tr
+            %th 配送の方法
+            %td
+              = @product.shipping_method
+          %tr
+            %th 配送元地域
+            %td
+              = @product.source_area
+          %tr
+            %th 発送日の目安
+            %td
+              = @product.shipping_day
+      .product-contents__price-box
+        .product-contents__price-box--number
+          .product-price-destroy
+            ¥
+            = @product.price
+          .product-tax
+            (税込)
+          .product-shipping-fee
+            送料込み
+
 .container
   .content
     .destroy-main
-      %h2.destroy-head 商品削除
+      %h2.destroy-head
       .setting-destroy
-        = link_to "商品の編集","", class: "btn-edit-red"
-        -# = link_to "商品の編集", edit_product_path, class: "btn-edit-red"
+        = link_to "商品の編集", product_path(@product), method: :edit, class: "btn-edit-red"
         %p or
-        = link_to "出品を一旦停止する", "", class: "btn-delete-gray"
-        = link_to "この商品を削除する", "products/id/", method: :delete, data: { confirm: "この商品を削除します。本当によろしいですか？"}, class: "btn-delete-gray"
+        = link_to "出品を一旦停止する", "", data: { confirm: "現在、対応処理が出来ませんません。"}, class: "btn-delete-gray"
+        = link_to "この商品を削除する", product_path(@product), method: :delete, data: { confirm: "この商品を削除します。本当によろしいですか？"}, class: "btn-delete-gray"
 
-  -# = render 'layouts/l-side'
 = render 'layouts/aside'
 = render 'layouts/footer'
-
