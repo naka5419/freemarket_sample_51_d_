@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update] do
     collection do
       get 'buy'
+      get 'search'
     end
   end
   root 'products#index'

@@ -19,30 +19,12 @@ class ProductsController < ApplicationController
     @nikes = Product.where(bland: "NIKE")
   end
 
-  def index
-
-    @ladies = Category.bring(1)
-    @mens = Category.bring(2)
-    @kids = Category.bring(3)
-    @cosmetics = Category.bring(7)
-
-    @chanels = Product.where(bland: "CHANEL")
-    @vuittons = Product.where(bland: "LOUIS VUITTON")
-    @supremes = Product.where(bland: "Supreme")
-    @nikes = Product.where(bland: "NIKE")
-  end
-
-  def index
-
-    @ladies = Category.bring(1)
-    @mens = Category.bring(2)
-    @kids = Category.bring(3)
-    @cosmetics = Category.bring(7)
-
-    @chanels = Product.where(bland: "CHANEL")
-    @vuittons = Product.where(bland: "LOUIS VUITTON")
-    @supremes = Product.where(bland: "Supreme")
-    @nikes = Product.where(bland: "NIKE")
+  def search
+    if params[:cat]
+      @categories = Category.find(params[:cat]).children
+    else
+      @childCategories = Category.find(params[:childCat]).children
+    end
   end
 
   def show
