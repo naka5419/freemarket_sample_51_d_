@@ -27,15 +27,19 @@
             = link_to("/users/#{current_user.id}/profiles", style: "text-decoration: none; color: #333;") do
               = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
               %span{class: "mypage-text"} マイページ
+          .header__bottom__todo-list
+          = link_to(root_path, style: "text-decoration: none; color: #333;") do
+            %i.fas.fa-check.todo-list--blue
+            %span.todo-list--blue やることリスト
         - else
           .header__bottom__mypage
             = link_to(user_session_path, style: "text-decoration: none; color: #333;") do
               = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
               %span{class: "mypage-text"} ログイン
-        .header__bottom__todo-list
-          = link_to(new_user_path, style: "text-decoration: none; color: #333;") do
-            %i.fas.fa-check.todo-list--blue
-            %span.todo-list--blue やることリスト
+          .header__bottom__todo-list
+            = link_to(new_user_path, style: "text-decoration: none; color: #333;") do
+              %i.fas.fa-check.todo-list--blue
+              %span.todo-list--blue 新規登録
         .header__bottom__know-list
           %i.far.fa-bell.know-list--blue
           %span.know-list--blue お知らせ
