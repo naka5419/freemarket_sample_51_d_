@@ -16,6 +16,7 @@
         .sell-form__image__text 最大10枚までアップロードできます
         #image_field
           = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
+          .preview
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
