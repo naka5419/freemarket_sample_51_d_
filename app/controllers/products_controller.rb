@@ -25,9 +25,13 @@ class ProductsController < ApplicationController
 
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to("/")
+    if Product.find(params[:id]).destroy
+      redirect_to root_path
+    else
+      flash[:notice] = "削除に失敗しました。"
+      @product = Product.find(params[:id])
+      redirect_to productitem_path(@product)
+    end
   end
 
   private

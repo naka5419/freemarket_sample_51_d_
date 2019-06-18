@@ -1,5 +1,9 @@
 .wrapper-product-destroy
   = render 'layouts/header'
+  - if flash[:notice]
+    .flash-message
+      .flash-message__text
+        = flash[:notice]
   %h1.destroy-head 商品編集削除
   .show-products
     .product-contents
