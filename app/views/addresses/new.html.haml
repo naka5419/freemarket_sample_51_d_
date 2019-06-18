@@ -7,7 +7,7 @@
 
         %h1
 
-          = link_to new_user_registration_path do
+          = link_to root_path do
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
 
         %nav.progress-ber
@@ -63,7 +63,6 @@
 
                     .select-wrap#pref_name
                       = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-                      -# %select.select-default
 
                 .form__group
                   = f.label :市区町村
@@ -85,9 +84,9 @@
                   %span.form__group--voluntary 任意
                   = f.text_field :phone_number, autofocus: true, autocomplete: "off", class: 'field-input', placeholder: "09012345678"
 
-                = f.submit "次へ進む", class: 'btn-red btn-befault'
+                = f.submit "次へ進む", class: 'btn-red btn-default'
 
-                = link_to "次へ進む(仮)" ,new_payment_path, class: "btn-red btn-befault"
+                = link_to "次へ進む(仮)" , new_payment_path, class: "btn-red btn-default"
 
                 %p.info-text
                   ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
@@ -98,4 +97,4 @@
                       電話番号の確認が必要な理由
                       %i.fas.fa-angle-right
 
-      = render partial: 'footer'
+      = render 'layouts/signup-footer'

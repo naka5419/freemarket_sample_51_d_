@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :closes, only: :new
 
+  resources :product_images, only: :destroy
 
   resources :users, only: [:new, :index, :show, :edit, :destroy]
 
@@ -39,7 +40,8 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
-        get 'buy'
+      get 'buy'
+      get 'search'
     end
   end
 
