@@ -24,7 +24,7 @@
       %nav.header__bottom__right
         - if user_signed_in?
           .header__bottom__mypage
-            = link_to("/users/#{current_user.id}/profiles", style: "text-decoration: none; color: #333;") do
+            = link_to(profiles_path, style: "text-decoration: none; color: #333;") do
               = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "mypage-icon"
               %span{class: "mypage-text"} マイページ
         - else
