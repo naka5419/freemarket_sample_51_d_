@@ -2,15 +2,15 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to "/users/new/", class: "mypage-nav-list-item" do
+        = link_to "/users/id/profiles", class: "mypage-nav-list-item" do
           マイページ
           %i.fas.fa-chevron-right
       %li
-        = link_to "/#mypage-notification", class: "mypage-nav-list-item" do
+        = link_to "/users/id/profiles/#mypage-notification", class: "mypage-nav-list-item" do
           お知らせ
           %i.fas.fa-chevron-right
       %li
-        = link_to "/#mypage-todo", class: "mypage-nav-list-item" do
+        = link_to "/users/id/profiles/#mypage-todo", class: "mypage-nav-list-item" do
           やることリスト
           %i.fas.fa-chevron-right
       %li
@@ -70,7 +70,7 @@
     %h3.mypage-nav-head 設定
     %ul.mypage-nav__list
       %li
-        = link_to "", class: "mypage-nav-list-item" do
+        = link_to "/users/id/profiles/id/edit/", class: "mypage-nav-list-item" do
           プロフィール
           %i.fas.fa-chevron-right
       %li
@@ -85,7 +85,7 @@
           メール/パスワード
           %i.fas.fa-chevron-right
       %li
-        = link_to "", class: "mypage-nav-list-item" do
+        = link_to "/addresses/id/edit", class: "mypage-nav-list-item" do
           本人情報
           %i.fas.fa-chevron-right
       %li

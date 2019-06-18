@@ -1,6 +1,26 @@
 class Category < ApplicationRecord
-  has_many   :product_categories
-  has_many   :products, through: :product_categories
-  belongs_to :parent, class_name: :Category
-  has_many   :children, class_name: :Category, foreign_key: :parent_id
+  has_many :products
+  has_ancestry
+
+  def self.bring(number)
+    ids = self.where('ancestry LIKE(?)', "#{number}/%").select(:id)
+
+    array = []
+      ids.each do |id|
+        child_array = id.products
+        if child_array.present?
+          array << child_array
+        end
+      end
+
+    category = []
+    array.each{|child_array|
+      child_array.each{ |product|
+        category << product
+      }
+    }
+    products = category.sort_by{ |a| a[:created_at] }
+    return products
+  end
+
 end

@@ -26,20 +26,43 @@
     float: left;
     }
   #image_field {
-    border: dashed 1px #cccccc;
-    cursor: pointer;
-    width: 88%;
-    height: 162px;
-    background-color: #F5F5F5;
-    margin: 16px 40px 0 40px;
-    float: right;
-    pre {
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: center;
-      color: black;
-      font-family: monospace,monospace;
-      margin-top: 55px;
+    clear: both;
+    .images_view {
+      height: 162px;
+      width: 116px;
+      float: left;
+      margin: 16px 8px 0 40px;
+      background-color: #F5F5F5;
+      border: solid 1px #F5F5F5;
+      &__btn {
+        text-align: center;
+        &__delete {
+          width: 50%;
+          margin-right: 10px;
+        }
+        &__edit {
+          width: 50%;
+          margin-left: 10px;
+        }
+      }
+    }
+    .sell-form__image__upload {
+      border: dashed 1px #cccccc;
+      cursor: pointer;
+      width: 620px;
+      height: 162px;
+      background-color: #F5F5F5;
+      margin: 16px 40px 0 0;
+      float: right;
+    }
+    .sell-form__image__upload__edit {
+      border: dashed 1px #cccccc;
+      cursor: pointer;
+      width: 490px;
+      height: 162px;
+      background-color: #F5F5F5;
+      margin: 16px 40px 0 0;
+      float: right;
     }
   }
   .product__image {

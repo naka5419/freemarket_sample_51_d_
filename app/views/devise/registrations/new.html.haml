@@ -7,7 +7,7 @@
 
         %h1
 
-          = link_to new_user_registration_path do
+          = link_to root_path do
             = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
 
         %nav.progress-ber
@@ -45,9 +45,10 @@
 
           .signup-inner
 
-            = form_with(model: resource,url: registration_path(resource_name), local: true) do |f|
+            = form_with(model: resource, url: registration_path(resource_name), local: true) do |f|
 
               .form
+                = devise_error_messages!
 
                 .form__group#first
                   = f.label :ニックネーム
@@ -94,30 +95,31 @@
                   %span.form__group--require 必須
                   = f.text_field :lastname_kana, autocomplete: "off", class: 'field-input', placeholder: "例）アヤ"
 
-                .form__group
-                  = f.label :"生年月日"
-                  %span.form__group--require 必須
-                  %br/
+                -# 必須ではないため時間があれば実装するできなければ消去する
+                -# .form__group
+                -#   = f.label :"生年月日"
+                -#   %span.form__group--require 必須
+                -#   %br/
 
-                  .birthday-select-wrap
+                -#   .birthday-select-wrap
 
-                    .select-wrap
-                      %select.select-default
-                        %option{name: ""} --
-                      %i.fas.fa-angle-down
-                    %span 年
+                -#     .select-wrap
+                -#       %select.select-default
+                -#         %option{name: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 年
 
-                    .select-wrap.month
-                      %select.select-default
-                        %option{value: ""} --
-                      %i.fas.fa-angle-down
-                    %span 月
+                -#     .select-wrap.month
+                -#       %select.select-default
+                -#         %option{value: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 月
 
-                    .select-wrap.day
-                      %select.select-default
-                        %option{value: ""} --
-                      %i.fas.fa-angle-down
-                    %span 日
+                -#     .select-wrap.day
+                -#       %select.select-default
+                -#         %option{value: ""} --
+                -#       %i.fas.fa-angle-down
+                -#     %span 日
 
                 %p.info-text#ash
                   ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -134,15 +136,15 @@
                     %a.link-blue(href="#")<> 利用規約
                     に同意したものとみなします
 
-                = f.submit "次へ進む", class: 'btn-red btn-befault'
+                = f.submit "次へ進む", class: 'btn-red btn-default'
 
-                = link_to "次へ進む(仮)" ,new_smse_path, class: "btn-red btn-befault"
+                = link_to "次へ進む(仮)" , new_smse_path, class: "btn-red btn-default"
 
                 .form__group
                   %p.text-right.link-blue
-                    = link_to new_user_registration_path, class: "link-blue" do
+                    = link_to user_session_path, class: "link-blue" do
                       本人情報の登録について
                     %i.fas.fa-angle-right
 
-      = render partial: 'footer'
+      = render 'layouts/signup-footer'
 

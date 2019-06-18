@@ -1,32 +1,57 @@
 class ProductsController < ApplicationController
-  def new
-    @product = Product.new
-  end
+  before_action :set_product, only: [:show, :edit, :update]
 
   def new
     @product = Product.new
+    @parent = Category.order("id ASC").limit(13)
+  end
+
+  def index
+
+    @ladies = Category.bring(1)
+    @mens = Category.bring(2)
+    @kids = Category.bring(3)
+    @cosmetics = Category.bring(7)
+
+    @chanels = Product.where(bland: "CHANEL")
+    @vuittons = Product.where(bland: "LOUIS VUITTON")
+    @supremes = Product.where(bland: "Supreme")
+    @nikes = Product.where(bland: "NIKE")
+  end
+
+  def search
+    if params[:cat]
+      @categories = Category.find(params[:cat]).children
+    else
+      @childCategories = Category.find(params[:childCat]).children
+    end
   end
 
   def show
+    category_id = @product.category_id
+    @products = Category.find(category_id).products
   end
 
   def create
     @product = Product.create(product_params)
+    redirect_to products_path
   end
 
-  def buy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "index"
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+  def edit
+    @parent = Category.order("id ASC").limit(13)
+  end
+
+  def update
+    @product.update(product_params)
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
-    params.require(:product).permit(:name, :description, :condition, :shipping_cost, :shipping_method, :source_area, :shipping_days, :status, :price, :images)
+    params.require(:product).permit(:name, :description, :category_id, :condition, :size, :bland, :shipping_cost, :shipping_method, :source_area, :shipping_day, :status, :buyer_id, :price, images: []).merge(seller_id: current_user.id)
   end
 end

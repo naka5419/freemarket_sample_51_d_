@@ -1,0 +1,36 @@
+%body
+  .user-login
+    .signup-wrapper
+      %header.signup-header
+        %h1
+          = link_to root_path do
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3160895340', alt: 'mercari', height: '', width: '', class: 'signup-header-img'
+      .login-main
+        .login-panel
+          .no-account
+            %p アカウントをお持ちでない方はこちら
+            = link_to "新規会員登録" , new_user_path, class: 'new-account'
+          .login-sns
+            = link_to user_facebook_omniauth_authorize_path, class: 'btn-default btn-sns btn-sns-facebook' do
+              Facebookでログイン
+              .i.fab.fa-facebook-square.fa-2x
+            = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn-default btn-sns btn-sns-google' do
+              Googleでログイン
+              .i.fab.fa-google.fa-2x
+          .login-mail
+            = form_with(model: resource, url: session_path(resource_name), local: true) do |f|
+              .form
+                .form__group#mail
+                  = devise_error_messages!
+                  = f.email_field :email, autofocus: true,autocomplete: "email", class: 'field-input', placeholder: "メールアドレス"
+                .form__group
+                  = f.password_field :password, autocomplete: "off", class: 'field-input', placeholder: "パスワード"
+                .form__group
+                  .g-recaptcha.signup-recaptcha{ data: { sitekey: "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}}
+                    %div
+                      %iframe{frameborder: "0", height: "78", name: "a-38r8qy4bksn8", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1558333958099&size=normal&cb=do3zentao7q1", width: "304"}
+                    %textarea#g-recaptcha-response.g-recaptcha-response{name: "g-recaptcha-response", style: "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+                = f.submit "ログイン" , class: 'btn-default login-submit btn-red'
+                = link_to "パスワードをお忘れの方" , new_user_registration_path, class: ''
+
+= render 'layouts/signup-footer'

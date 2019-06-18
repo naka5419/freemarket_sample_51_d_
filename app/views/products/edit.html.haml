@@ -1,0 +1,129 @@
+.new-product
+  .new-product__header
+    .single-header
+      =link_to "/" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3856598694", alt: "mercari"
+  .new-product__main
+  = form_with model: @product, local: true do |f|
+    .new-product__main__contents
+      .new-product__main__contents__head
+        %h 商品の情報を入力
+      .sell-form__image
+        .sell-form__image__field
+          %label
+            出品画像
+            %span 必須
+        .sell-form__image__text 最大10枚までアップロードできます
+        #image_field
+          - if @product.images.length == 0
+            = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
+          - else
+            .images_view
+              - @product.images.each do |image|
+                = image_tag image.variant(resize: "116x116")
+              .images_view__btn
+                = link_to "削除", product_image_path, method: :delete, class: "images_view__btn__delete"
+                = link_to "編集", "", class: "images_view__btn__edit"
+            = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, id: "upload_field"
+    .new-product__sell-form
+      .sell-form__container
+        .sell-form__container__name
+          %label
+            商品名
+            %span 必須
+          = f.text_field :name, class: "sell-form__container__name__title", placeholder: "商品名（必須 40文字まで)"
+        .sell-form__container__description
+          %label
+            商品の説明
+            %span 必須
+          = f.text_area :description, class: "sell-form__container__description__form", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .sell-form__detail
+        .sell-form__detail__name
+          %h3 商品の詳細
+          .sell-form__detail__select-box
+            .sell-form__detail__select-box__category
+              %label
+                カテゴリー
+                %span 必須
+              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
+            .sell-form__detail__select-box__size
+              %label
+                サイズ
+                %span 必須
+              .sell-form__size
+                = f.select :size, Product.sizes.keys, prompt: "---"
+            .sell-form__detail__select-box__bland
+              %label
+                ブランド
+                %span 任意
+              .bland-serect 
+                = f.select :bland, ['',  'CHANEL', 'LOUIS VUITTON', 'Supreme', 'NIKE']
+            .sell-form__detail__select-box__condition
+              %label 
+                商品の状態
+                %span 必須
+              .sell-form__condition
+                = f.select :condition, Product.conditions.keys, prompt: "---"
+      .sell-form__shipping
+        .sell-form__shipping__name
+          %h3
+            配送について
+            = link_to "?", "/", class: "help"
+          .sell-form__shipping__select-box
+            .sell-form__shipping__select-box__fee
+              %label
+                配送料の負担
+                %span 必須
+              .sell-form__fee
+                = f.select :shipping_cost, Product.shipping_costs.keys, prompt: "---"
+            .sell-form__shipping__select-box__method
+              %label
+                配送の方法
+                %span 必須
+              .sell-form__method
+                = f.select :shipping_method, Product.shipping_methods.keys, prompt: "---"
+            .sell-form__shipping__select-box__area
+              %label
+                発送元の地域
+                %span 必須
+              .sell-form__area
+                = f.select :source_area, Product.source_areas.keys, prompt: "---"
+            .sell-form__shipping__select-box__day
+              %label
+                発送までの日数
+                %span 必須
+              .sell-form__day
+                = f.select :shipping_day, Product.shipping_days.keys, prompt: "---"
+      .sell-form__price
+        %h3
+          販売価格(300〜9,999,999)
+          = link_to "?", "/", class: "help"
+        .sell-form__price__box
+          .sell-form__price__box__input
+            %label.sell-form__price__box__input__left
+              価格
+              %span 必須
+            .sell-form__price__box__input__right
+              %div
+                = f.text_field :price, class: "input-price", placeholder: "例）300"
+          .sell-form__price__box__charge
+            .sell-form__price__box__charge__left
+              %p 販売手数料 (10%)
+            .sell-form__price__box__charge__right -
+          .sell-form__price__box__profit
+            .sell-form__price__box__profit__left
+              %p 販売利益
+            .sell-form__price__box__profit__right -
+      .status-form{ hidden: "" }
+        = f.select :status, Product.statuses.keys
+      .buyer-form{ hidden: "" }
+        = f.text_field :buyer_id
+      .sell-form__submit
+        %p 禁止されている出品、行為を必ずご確認ください。
+        %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+        %p また、出品をもちまして加盟店規約に同意したことになります。
+        .sell-form__submit__button
+          = f.submit "変更する", class: "sell-form__submit__button__btn", type: "submit"
+        = link_to "もどる", "/", class: "sell-form__submit__back"
+
+      = render "sub-footer"

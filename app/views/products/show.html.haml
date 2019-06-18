@@ -1,82 +1,80 @@
 .wrapper-products
+  - breadcrumb :show_product, @product
   = render 'layouts/header'
   .show-products
     .product-contents
-      %h1 値下げ！新品 セーター
+      %h1
+        = @product.name
       .product-contents__main-content
         .product-contents__main-content--photos-flame
           .gallery
-            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo")
-            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo")
-            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo")
-            = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo")
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                = image_tag image, class:"photo photo-#{i}"
           .owl-dots
-            .owl-dot
-              %span
-              .owl-dot-inner
-                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_1.jpg?1541732119", class: "photo-1")
-            .owl-dot
-              %span
-              .owl-dot-inner
-                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_2.jpg?1541732119", class: "photo-2")
-            .owl-dot
-              %span
-              .owl-dot-inner
-                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_3.jpg?1541732119", class: "photo-3")
-            .owl-dot
-              %span
-              .owl-dot-inner
-                = image_tag("https://static.mercdn.net/item/detail/orig/photos/m60487975709_4.jpg?1541732119", class: "photo-4")
-
+            - if @product.images.attached?
+              - @product.images.each_with_index do |image, i|
+                .owl-dot
+                  = image_tag image, class:"photo photo-#{i}"
         %table.product-contents__main-content--table{:cellspacing => "0"}
           %tr
             %th.border-top 出品者
-            %td.border-top *
+            %td.border-top
+              = @product.seller.nickname
           %tr
             %th カテゴリー
-            %td *
+            %td
+              - if @product.category.present?
+                .name
+                = @product.category.name
           %tr
             %th ブランド
-            %td *
+            %td
+              - if @product.bland.present?
+                = @product.bland
           %tr
             %th 商品の状態
-            %td *
-
+            %td
+              = @product.condition
           %tr
             %th 商品のサイズ
-            %td *
+            %td
+              - if @product.size.present?
+                = @product.size
           %tr
             %th 配送料の負担
-            %td *
+            %td
+              = @product.shipping_cost
           %tr
             %th 配送の方法
-            %td *
+            %td
+              = @product.shipping_method
           %tr
             %th 配送元地域
-            %td *
+            %td
+              = @product.source_area
           %tr
             %th 発送日の目安
-            %td *
+            %td
+              = @product.shipping_day
       .product-contents__price-box
         .product-contents__price-box--number
           .product-price
-            ¥1,000円
+            ¥
+            = @product.price
           .product-tax
             (税込)
           .product-shipping-fee
             送料込み
-      .product-contents__buy-button
-        購入画面に進む
-      .product-contents__sold-button
-        売り切れました
+      - if @product.buyer.nil?
+        .product-contents__buy-button
+          = link_to('購入画面に進む', purchase_path)
+      - if @product.buyer.present?
+        .product-contents__sold-button
+          売り切れました
       .product-contents__description
         .product-contents__description--inner
-          数回着用してますが、目立った傷や汚れはありません。<br>
-          前後で長さが違います。<br>
-
-          シンプルなので、何にでも合わせられると思います。<br>
-
-          自宅保管ですので神経質な方はご遠慮ください。
+          = @product.description
       .product-contents__left-button
         %button.product-contents__left-button--like
           %i.far.fa-heart いいね! ０
@@ -89,7 +87,7 @@
     .product-messages
       %figure.user-image
         = image_tag("//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "profile-image", width:"45px", height: "45px")
-      .user-name 
+      .user-name
         ユーザーネーム
       .message-body
         .message-text
@@ -99,10 +97,12 @@
         #p.alert 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         %p
         %textarea.comment{:cols => "100", :name => "comment", :rows => "10"}
-        %button.message-submit
-          %span 売り切れのためコメントできません
-        %button.message-submit
-          %span コメントする
+        - if @product.buyer.present?
+          %button.message-submit
+            %span 売り切れのためコメントできません
+        - if @product.buyer.nil?
+          %button.message-submit
+            %span コメントする
     .product-media
       = link_to "#" do
         .i.fab.fa-facebook-square.fa-3x.product-media__facebook
@@ -113,42 +113,21 @@
     .product-other-contents
       = link_to "#" do
         %h2 関連するカテゴリーその他の商品
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
-      .product-other-contents__box
-        %figure
-          = image_tag("https://static.mercdn.net/thumb/photos/m58341297544_1.jpg?1559194146", class: "photo")
-        %h2 デニムジャケット　Gジャン
-        .price-box ¥ 11,000
-        .price-box-tax (税込)
+      - @products.each do |product|
+        - if product.id == @product.id
+        - else
+          .product-other-contents__box
+            %figure
+              - if product.images.attached?
+                - product.images.each_with_index do |image, i|
+                  - if i == 0
+                    = image_tag image, class:"photo photo-#{i}"
+            %h2
+              = product.name
+            .price-box
+              ¥
+              = product.price
+            .price-box-tax (税込)
   = render 'layouts/aside'
   = render 'layouts/footer'
 

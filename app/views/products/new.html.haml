@@ -13,14 +13,9 @@
           %label
             出品画像
             %span 必須
-        .sell-form__image__text 最大5枚までアップロードできます
-        #image_field{:onclick => "$('#upload_field').click()"}
-          %pre
-            :preserve
-              ドラッグアンドドロップ
-              またはクリックしてファイルをアップロード
-       
-          = f.file_field :images, class: "sell-form__image__upload", accept: ".jpg, .jpeg, .png", id: "upload_field"
+        .sell-form__image__text 最大10枚までアップロードできます
+        #image_field
+          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -41,19 +36,19 @@
               %label
                 カテゴリー
                 %span 必須
-              = render "product-categories"
+              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
             .sell-form__detail__select-box__size
-              %label 
+              %label
                 サイズ
                 %span 必須
               .sell-form__size
-                = f.select :size, Size.sizes.keys, prompt: "---"
+                = f.select :size, Product.sizes.keys, prompt: "---"
             .sell-form__detail__select-box__bland
               %label
                 ブランド
                 %span 任意
               .bland-serect 
-                = f.text_field :bland, placeholder: "例）シャネル"
+                = f.select :bland, ['',  'CHANEL', 'LOUIS VUITTON', 'Supreme', 'NIKE']
             .sell-form__detail__select-box__condition
               %label 
                 商品の状態
@@ -89,7 +84,7 @@
                 発送までの日数
                 %span 必須
               .sell-form__day
-                = f.select :shipping_days, Product.shipping_days.keys, prompt: "---"
+                = f.select :shipping_day, Product.shipping_days.keys, prompt: "---"
       .sell-form__price
         %h3
           販売価格(300〜9,999,999)
@@ -100,7 +95,7 @@
               価格
               %span 必須
             .sell-form__price__box__input__right
-              %div 
+              %div
                 = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left
@@ -112,6 +107,8 @@
             .sell-form__price__box__profit__right -
       .status-form{ hidden: "" }
         = f.select :status, Product.statuses.keys
+      .buyer-form{ hidden: "" }
+        = f.text_field :buyer_id
       .sell-form__submit
         %p 禁止されている出品、行為を必ずご確認ください。
         %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
