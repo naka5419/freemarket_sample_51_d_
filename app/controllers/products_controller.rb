@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.new
@@ -47,7 +47,6 @@ class ProductsController < ApplicationController
 
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.destroy
       redirect_to root_path
     else

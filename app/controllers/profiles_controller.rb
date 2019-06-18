@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @products = User.find(current_user.id).selling_products
+    @products = current_user.selling_products
   end
 
 end
