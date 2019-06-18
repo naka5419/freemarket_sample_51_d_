@@ -6,12 +6,10 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @user = User.find(current_user.id)
   end
 
   def show
-    @user = User.find(current_user.id)
-    @products = @user.selling_products
+    @products = User.find(current_user.id).selling_products
   end
 
 end

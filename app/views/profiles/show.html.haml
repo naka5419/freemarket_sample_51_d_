@@ -20,7 +20,7 @@
                   = product.name
                   .show-item-body__descript
                   = product.description
-                  = link_to "商品編集削除", "/productitems/#{product.id}", class: "show-item-btn"
+                  = link_to "商品編集削除", productitem_path(product.id), class: "show-item-btn"
 
   = render 'layouts/l-side'
 = render 'layouts/aside'
