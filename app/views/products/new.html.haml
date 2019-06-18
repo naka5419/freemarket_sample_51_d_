@@ -36,7 +36,10 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
+              %select#product_category_id{:class => "“subcategory-form”",selected: @product.category_id}
+                %option ---
+                - @parent.each do |category|
+                  %option{ id: category.id}= category.name
             .sell-form__detail__select-box__size
               %label
                 サイズ
