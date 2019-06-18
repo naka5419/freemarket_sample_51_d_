@@ -20,13 +20,14 @@ Rails.application.routes.draw do
   resources :closes, only: :new
 
 
-  resources :users, only: [:new, :index, :show, :edit, :destroy] do
-    resources :profiles do
-      collection do
-        get 'edit_address'
-      end
+  resources :users, only: [:new, :index, :show, :edit, :destroy]
+
+  resources :profiles, only: [:index, :show, :edit] do
+    collection do
+      get 'edit_address'
     end
   end
+
 
   resources :cards, only: [:index, :new, :show] do
     collection do
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :productitems
+  resources :productitems, only: [:show]
 
   root 'products#index'
 
