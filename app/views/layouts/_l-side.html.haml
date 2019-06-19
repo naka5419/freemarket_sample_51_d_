@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to "/users/id/profiles", class: "mypage-nav-list-item" do
+        = link_to profiles_path, class: "mypage-nav-list-item" do
           マイページ
           %i.fas.fa-chevron-right
       %li
@@ -22,7 +22,7 @@
           出品する
           %i.fas.fa-chevron-right
       %li
-        = link_to "", class: "mypage-nav-list-item" do
+        = link_to profile_path(current_user), class: "mypage-nav-list-item" do
           出品した商品 - 出品中
           %i.fas.fa-chevron-right
       %li

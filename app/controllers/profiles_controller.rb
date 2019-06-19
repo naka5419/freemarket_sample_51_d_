@@ -8,4 +8,8 @@ class ProfilesController < ApplicationController
   def index
   end
 
+  def show
+    @products = current_user.selling_products
+  end
+
 end

@@ -2,7 +2,7 @@ $(function() {
 
 
   function appendSelect() {
-        var html = `<select class=“subcategory-form” name=“product[category_id]“ id = "select_id">
+        var html = `<select class=“subcategory-form” id = "select_id">
                       <option value=“”>---</option>
                     </select>`
 
@@ -10,7 +10,7 @@ $(function() {
   }
 
   function appendChildSelect() {
-    var html = `<select class=“subcategory-form” name=“product[category_id]“ id = "child_id">
+    var html = `<select class=“subcategory-form” name=product[category_id] id = "child_id">
                   <option value=“”>---</option>
                 </select>`
 
@@ -20,7 +20,7 @@ $(function() {
   $("#product_category_id").change(function(e) {
     e.preventDefault();
     $("#select_id, #child_id").remove();
-    var category_id = $(this).val();
+    var category_id = $("#product_category_id option:selected").attr("id");
     $.ajax({
       url: "/products/search",
       type: "GET",

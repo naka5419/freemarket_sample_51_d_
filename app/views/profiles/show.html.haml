@@ -1,0 +1,27 @@
+= render "layouts/header"
+
+%main.l-container
+  .l-content
+    %section.mypage-show-tab
+      %h2.show-tab-head 出品した商品
+      %ul.show-tab
+        %li.show-tab__label
+          %h3#mypage-transaction-now
+            出品中
+      .show-content
+        %ul#mypage-tab-transaction-now.show-content__pane
+          - @products.each do |product|
+            %li
+              .show-item
+                %figure
+                  = image_tag product.images.first
+                .show-item-body
+                  .show-item-body__text
+                  = product.name
+                  .show-item-body__descript
+                  = product.description
+                  = link_to "商品編集削除", productitem_path(product.id), class: "show-item-btn"
+
+  = render 'layouts/l-side'
+= render 'layouts/aside'
+= render 'layouts/footer'
