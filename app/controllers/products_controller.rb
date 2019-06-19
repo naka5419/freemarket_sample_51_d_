@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @parent = Category.order("id ASC").limit(1000)
+    @parent = Category.order("id ASC").limit(13)
   end
 
   def index
