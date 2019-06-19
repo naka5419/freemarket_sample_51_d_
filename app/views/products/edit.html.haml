@@ -14,18 +14,22 @@
             出品画像
             %span 必須
         .sell-form__image__text 最大10枚までアップロードできます
-        #image_field
+        #image_field_edit
           = f.label :images, for: "upload_field" do
-            - if @product.images.length == 0
-              = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
-            - else
-              .images_view
-                - @product.images.each do |image|
-                  = image_tag image.variant(resize: "116x116")
-                .images_view__btn
-                  = link_to "削除", product_image_path, method: :delete, class: "images_view__btn__delete"
-                  = link_to "編集", "", class: "images_view__btn__edit"
-              = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, style: "display: none", id: "upload_field"
+            .upload_field__text
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+          - if @product.images.length == 0
+            = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
+          - else
+            .preview
+              - @product.images.each do |image|
+                = image_tag image.variant(resize: "116x116"), class: "preview__image"
+                .preview__btn
+                  = link_to "削除", product_image_path, method: :delete, class: "preview__btn__delete"
+                  = link_to "編集", "", class: "preview__btn__edit"
+            = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, style: "display: none", id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -46,7 +50,9 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
+              = f.collection_select :category_id, @parent, :id, :name, class: "category-form"
+              = f.collection_select :category_id, @parent, :id, :name, class: "subcategory-form", id: "select_id"
+              = f.collection_select :category_id, @parent, :id, :name, class: "subcategory-form", id: "child_id"
             .sell-form__detail__select-box__size
               %label
                 サイズ

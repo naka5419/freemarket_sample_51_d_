@@ -20,7 +20,7 @@
               ドラッグアンドドロップ
               %br
               またはクリックしてファイルをアップロード
-            = f.file_field :image_url, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
+            = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
           .preview
     .new-product__sell-form
       .sell-form__container
@@ -101,8 +101,7 @@
               価格
               %span 必須
             .sell-form__price__box__input__right
-              %div
-                = f.text_field :price, class: "input-price", placeholder: "例）300"
+              = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left
               %p 販売手数料 (10%)
