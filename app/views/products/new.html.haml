@@ -15,7 +15,13 @@
             %span 必須
         .sell-form__image__text 最大10枚までアップロードできます
         #image_field
-          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
+          = f.label :images, for: "upload_field" do
+            .upload_field__text
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+            = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
+          .preview
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -36,7 +42,7 @@
               %label
                 カテゴリー
                 %span 必須
-              %select#product_category_id{:class => "“subcategory-form”",selected: @product.category_id}
+              %select#product_category_id
                 %option ---
                 - @parent.each do |category|
                   %option{ id: category.id}= category.name
@@ -98,8 +104,7 @@
               価格
               %span 必須
             .sell-form__price__box__input__right
-              %div
-                = f.text_field :price, class: "input-price", placeholder: "例）300"
+              = f.text_field :price, class: "input-price", placeholder: "例）300"
           .sell-form__price__box__charge
             .sell-form__price__box__charge__left
               %p 販売手数料 (10%)

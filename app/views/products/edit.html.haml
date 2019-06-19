@@ -14,17 +14,29 @@
             出品画像
             %span 必須
         .sell-form__image__text 最大10枚までアップロードできます
-        #image_field
-          - if @product.images.length == 0
-            = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
-          - else
-            .images_view
+        - if @product.images.length == 0
+          #image_field
+            = f.label :images, for: "upload_field" do
+              .upload_field__text
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+              = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
+            .preview
+        - else
+          #image_field_edit
+            = f.label :images, for: "upload_field" do
+              .upload_field__text
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+            .preview
               - @product.images.each do |image|
-                = image_tag image.variant(resize: "116x116")
-              .images_view__btn
-                = link_to "削除", product_image_path, method: :delete, class: "images_view__btn__delete"
-                = link_to "編集", "", class: "images_view__btn__edit"
-            = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, id: "upload_field"
+                = image_tag image.variant(resize: "116x116"), class: "preview__image"
+                .preview__btn
+                  = link_to "削除", product_image_path, method: :delete, class: "preview__btn__delete"
+                  = link_to "編集", "", class: "preview__btn__edit"
+              = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, style: "display: none", id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
@@ -45,7 +57,16 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, @parent, :id, :name, {prompt: "---"}, class: "category-form"
+              %select#product_category_id
+                %option= @product.category.root.name
+                - @parent.each do |category|
+                  %option{ id: category.id}= category.name
+              %select#select_id
+                %option 
+                  = @product.category.parent.name
+              %select#child_id
+                %option 
+                  = @product.category.name
             .sell-form__detail__select-box__size
               %label
                 サイズ
