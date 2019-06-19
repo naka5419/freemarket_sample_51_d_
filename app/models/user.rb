@@ -9,18 +9,18 @@ class User < ApplicationRecord
   has_many :selling_products, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Product"
   has_many :sold_products, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Product"
 
-  # VALID_NAMEKANZI_REGEX = /\A[一-龥]+\z/
-  # validates :firstname, format: { with: VALID_NAMEKANZI_REGEX }
-  # validates :lastname, format: { with: VALID_NAMEKANZI_REGEX }
-  # VALID_NAMEKANA_REGEX = /\A[ァ-ヶー－]+\z/
-  # validates :firstname_kana, format: { with: VALID_NAMEKANA_REGEX }
-  # validates :lastname_kana, format: { with: VALID_NAMEKANA_REGEX }
+  VALID_NAMEKANZI_REGEX = /\A[一-龥]+\z/
+  validates :firstname, format: { with: VALID_NAMEKANZI_REGEX }
+  validates :lastname, format: { with: VALID_NAMEKANZI_REGEX }
+  VALID_NAMEKANA_REGEX = /\A[ァ-ヶー－]+\z/
+  validates :firstname_kana, format: { with: VALID_NAMEKANA_REGEX }
+  validates :lastname_kana, format: { with: VALID_NAMEKANA_REGEX }
 
   # # 空ではないこと
-  # validates :firstname, presence: true
-  # validates :lastname, presence: true
-  # validates :firstname_kana, presence: true
-  # validates :lastname_kana, presence: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :firstname_kana, presence: true
+  validates :lastname_kana, presence: true
   # validates :birthday, presence: true
 
   # 都道府県
@@ -33,20 +33,17 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    # binding.pry
 
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
         user = User.new(
           # snsの情報
-          # binding.pry => auth.infoとかで確認
           nickname: auth.info.name,
           email: auth.info.email
         )
       end
       sns = snscredential
-      #binding.pry
 
     else #sns登録 未
       user = User.where(email: auth.info.email).first
@@ -61,15 +58,12 @@ class User < ApplicationRecord
           nickname: auth.info.name,
           email: auth.info.email
         )
-        # binding.pry
         sns = SnsCredential.create(
           uid: uid,
           provider: provider
         )
-        # binding.pry
       end
     end
-    # binding.pry
     # hashでsnsのidを返り値として保持しておく
     return { user: user , sns_id: sns.id }
   end
