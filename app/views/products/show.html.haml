@@ -26,6 +26,12 @@
             %td
               - if @product.category.present?
                 .name
+                = @product.category.root.name
+                .name
+                >
+                = @product.category.parent.name
+                .name
+                >
                 = @product.category.name
           %tr
             %th ブランド
