@@ -21,7 +21,6 @@ $(function() {
     e.preventDefault();
     $("#select_id, #child_id").remove();
     var category_id = $("#product_category_id option:selected").attr("id");
-    debugger
     $.ajax({
       url: "/products/search",
       type: "GET",
