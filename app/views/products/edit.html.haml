@@ -50,9 +50,16 @@
               %label
                 カテゴリー
                 %span 必須
-              = f.collection_select :category_id, @parent, :id, :name, class: "category-form"
-              = f.collection_select :category_id, @parent, :id, :name, class: "subcategory-form", id: "select_id"
-              = f.collection_select :category_id, @parent, :id, :name, class: "subcategory-form", id: "child_id"
+              %select#product_category_id
+                %option= @product.category.root.name
+                - @parent.each do |category|
+                  %option{ id: category.id}= category.name
+              %select#select_id
+                %option 
+                  = @product.category.parent.name
+              %select#child_id
+                %option 
+                  = @product.category.name
             .sell-form__detail__select-box__size
               %label
                 サイズ

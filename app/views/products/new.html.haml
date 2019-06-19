@@ -42,7 +42,7 @@
               %label
                 カテゴリー
                 %span 必須
-              %select#product_category_id{:class => "“subcategory-form”",selected: @product.category_id}
+              %select#product_category_id
                 %option ---
                 - @parent.each do |category|
                   %option{ id: category.id}= category.name
