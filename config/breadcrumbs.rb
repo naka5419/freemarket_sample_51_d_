@@ -23,7 +23,7 @@ crumb :show_product do |product|
 end
 
 crumb :index_profile do
-  link "マイページ", "/users/#{current_user.id}/profiles"
+  link "マイページ", "/profiles"
   parent :root
 end
 

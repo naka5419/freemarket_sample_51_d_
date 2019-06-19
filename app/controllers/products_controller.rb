@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
     @product = Product.new
@@ -43,6 +43,16 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
+  end
+
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      flash[:notice] = "削除に失敗しました。"
+      redirect_to productitem_path(@product)
+    end
   end
 
   private

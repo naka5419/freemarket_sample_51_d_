@@ -236,7 +236,7 @@ body {
         font-size: 16px;
         line-height: 72px;
       }
-      .bottom-tab {
+      .bottom-tab{
         height: 74px;
         border: 0;
         background: #eee;
@@ -267,6 +267,90 @@ body {
           display: none;
           position: relative;
           list-style: none;
+
+          .tab-item-link{
+            position: relative;
+            display: list-item;
+            text-align: -webkit-match-parent; 
+            border-bottom: 1px solid #eee;
+            display: block;
+            box-sizing: border-box;
+            min-height: 80px;
+            padding: 16px;
+            color: #333;
+            text-decoration: none;
+            figure {
+              position: relative;
+              overflow: hidden;
+              float: left;
+              width: 48px;
+              height: 48px;
+              img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                vertical-align: middle;
+              }
+              .lazyloaded {
+                opacity: 1;
+                transition: opacity .3s;
+              }
+            }
+            .tab-item-body {
+              margin: 0 40px 0 68px;
+              &__text {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+                max-height: 4.4em;
+                text-overflow: ellipsis;
+                line-height: 1.5;
+              }
+              time {
+                display: inline-block;
+                color: #888;
+                .fal.fa-clock{
+                  margin: 0 8px 0 0;
+                  display: inline-block;
+                  font-family: 'icon-font';
+                  speak: none;
+                  font-style: normal;
+                  font-weight: 400;
+                  font-variant: normal;
+                  text-transform: none;
+                  line-height: 1;
+                  -webkit-font-smoothing: antialiased;
+                  font-size: 16px;
+                  vertical-align: middle;
+                  ::before{
+                    border-width: 0;
+                    text-decoration: inherit;
+                    vertical-align: inherit;
+                  }
+                }
+                span{
+                  vertical-align: middle;
+                }
+              }
+            }
+            .fas.fa-chevron-right{
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              color: #ccc;
+              transform: translate(0, -50%);
+              ::before{
+                content: '\e005';
+              }
+            }
+          }
+
           .tab-item-not-found{
             height: 236px;
             width: 700px;

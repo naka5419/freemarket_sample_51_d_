@@ -21,13 +21,14 @@ Rails.application.routes.draw do
 
   resources :product_images, only: :destroy
 
-  resources :users, only: [:new, :index, :show, :edit, :destroy] do
-    resources :profiles do
-      collection do
-        get 'edit_address'
-      end
+  resources :users, only: [:new, :index, :show, :edit, :destroy]
+
+  resources :profiles, only: [:index, :show, :edit] do
+    collection do
+      get 'edit_address'
     end
   end
+
 
   resources :cards, only: [:index, :new, :show] do
     collection do
@@ -36,12 +37,16 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :products, only: [:index, :show, :new, :create, :edit, :update] do
+
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'buy'
       get 'search'
     end
   end
+
+  resources :productitems, only: [:show]
+
   root 'products#index'
 
 end
