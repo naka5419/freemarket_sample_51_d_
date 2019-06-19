@@ -15,7 +15,12 @@
             %span 必須
         .sell-form__image__text 最大10枚までアップロードできます
         #image_field
-          = f.file_field :images, class: "sell-form__image__upload", multiple: true, id: "upload_field"
+          = f.label :images, for: "upload_field" do
+            .upload_field__text
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+            = f.file_field :image_url, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
           .preview
     .new-product__sell-form
       .sell-form__container

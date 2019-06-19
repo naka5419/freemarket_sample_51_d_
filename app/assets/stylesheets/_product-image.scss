@@ -46,7 +46,7 @@
         }
       }
     }
-    .sell-form__image__upload {
+    label {
       border: dashed 1px #cccccc;
       cursor: pointer;
       width: 620px;
@@ -54,6 +54,12 @@
       background-color: #F5F5F5;
       margin: 16px 40px 0 0;
       float: right;
+      .upload_field__text {
+        text-align: center;
+        font-size: 15px;
+        line-height: 1.5;
+        padding-top: 55px;
+      }
     }
     .sell-form__image__upload__edit {
       border: dashed 1px #cccccc;
