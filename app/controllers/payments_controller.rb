@@ -5,6 +5,8 @@ class PaymentsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product[:buyer_id] = current_user.id
+    @product.save
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "purchase/show"
