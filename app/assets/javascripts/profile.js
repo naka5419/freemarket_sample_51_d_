@@ -1,4 +1,9 @@
 $(function() {
+  $(".upper-tab__label").eq(0).addClass("active");
+  $(".upper-content__pane").eq(0).addClass("active");
+  $(".bottom-tab__label").eq(0).addClass("active");
+  $(".bottom-content__pane").eq(0).addClass("active");
+
   $(".upper-tab__label").on("click",function(){
     var $th = $(this).index();
     $(".upper-tab__label").removeClass("active");
