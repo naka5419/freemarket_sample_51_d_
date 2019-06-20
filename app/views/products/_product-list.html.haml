@@ -1,6 +1,6 @@
 .main__list__item-box
   - if products.present?
-    -  products.last(4).each do |product|
+    -  products.last(4).reverse_each do |product|
       .item-boxs
         = link_to("products/#{product.id}") do
           %figure
