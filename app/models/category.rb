@@ -19,7 +19,8 @@ class Category < ApplicationRecord
         category << product
       }
     }
-    products = category.sort_by{ |a| a[:created_at] }
+    selling_products = category.reject{|e| e[:buyer_id] != nil}
+    products = selling_products.sort_by{ |a| a[:created_at] }
     return products
   end
 
