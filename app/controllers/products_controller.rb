@@ -13,10 +13,10 @@ class ProductsController < ApplicationController
     @kids = Category.bring(3)
     @cosmetics = Category.bring(7)
 
-    @chanels = Product.where(bland: "CHANEL")
-    @vuittons = Product.where(bland: "LOUIS VUITTON")
-    @supremes = Product.where(bland: "Supreme")
-    @nikes = Product.where(bland: "NIKE")
+    @chanels = Product.where(bland: "CHANEL").reject{|e| e[:buyer_id] != nil}
+    @vuittons = Product.where(bland: "LOUIS VUITTON").reject{|e| e[:buyer_id] != nil}
+    @supremes = Product.where(bland: "Supreme").reject{|e| e[:buyer_id] != nil}
+    @nikes = Product.where(bland: "NIKE").reject{|e| e[:buyer_id] != nil}
   end
 
   def search
