@@ -6,7 +6,8 @@
       = link_to "" do
         %figure
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: '60x60'
-          %h2.bold username
+          %h2.bold 
+            = current_user.nickname
           .mypage-number
             %div
               評価
