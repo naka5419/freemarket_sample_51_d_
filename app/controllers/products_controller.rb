@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 
   def show
     category_id = @product.category_id
-    @products = Category.find(category_id).products
+    @products = Category.find(category_id).products.reject{|e| e[:buyer_id] != nil}
   end
 
   def create
