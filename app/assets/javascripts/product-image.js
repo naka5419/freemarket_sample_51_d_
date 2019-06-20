@@ -1,4 +1,5 @@
 $(function(){
+  var images = [];
   $(".sell-form__image__upload").change(function(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
@@ -13,7 +14,21 @@ $(function(){
       })
     });
     reader.readAsDataURL(file);
+    images.push(file);
+    if(images.length < 5){
+      
+      $("label").css({
+        'width': `calc(88% - (18% * ${images.length}))`
+      })
+    }
 
-    $("label").width(490);
+  });
+
+  //商品編集時の処理
+  $(".edit__btn").on('click', function(e) {
+    if(images.length == 0) {
+      e.preventDefault();
+      $("html,body").scrollTop(0);
+    }
   });
 });
