@@ -73,8 +73,9 @@
           .product-shipping-fee
             送料込み
       - if @product.buyer.nil? && @product.seller_id != current_user.id
-        .product-contents__buy-button
-          = link_to('購入画面に進む', purchase_path)
+        = link_to(purchase_path) do
+          .product-contents__buy-button
+            購入画面に進む
       - if @product.buyer.present?
         .product-contents__sold-button
           売り切れました
