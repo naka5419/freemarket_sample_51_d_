@@ -5,7 +5,7 @@
     %section.profile-main
       %h2.profile-head プロフィール
 
-      = form_with url: edit_user_profile_path, method: :get, local: true do |f|
+      = form_with url: edit_profile_path, method: :get, local: true do |f|
         = f.hidden_field :"__csrf_value", class: "input-area", value: "cb20626d90c758f32ae2223b26035374a231ef258cf505e5b443eead6d7e22d297f7067933d1fc71389d7ac8dd12e8e3c6fe1a86f11cdbfa5618d8e29a9f5b26a"
 
         .setting-profile-icon
