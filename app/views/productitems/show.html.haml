@@ -76,7 +76,7 @@
     .destroy-main
       %h2.destroy-head
       .setting-destroy
-        = link_to "商品の編集", edit_product_path, method: :edit, class: "btn-edit-red"
+        = link_to "商品の編集", edit_product_path, method: :GET, class: "btn-edit-red"
         %p or
         = link_to "出品を一旦停止する", "", data: { confirm: "現在、対応処理が出来ませんません。"}, class: "btn-delete-gray"
         = link_to "この商品を削除する", product_path(@product), method: :delete, data: { confirm: "この商品を削除します。本当によろしいですか？"}, class: "btn-delete-gray"
