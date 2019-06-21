@@ -3,9 +3,7 @@ $(function(){
   $(".preview__image").each(function(index, element) {
     images.push(index);
   });
-  console.log(images);
   $(".sell-form__image__upload").change(function(e) {
-    console.log(images);
     var file = e.target.files[0];
     var reader = new FileReader();
     var preview = $(".preview");
@@ -25,7 +23,6 @@ $(function(){
         'width': `calc(88% - (18% * ${images.length}))`
       })
     }
-    console.log(images);
   });
 
   //商品編集時の処理
