@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:new, :edit, :update]
 
-  resources :payments, only: [:new, :show]
+  resources :payments, only: [:new, :show] do
+    collection do
+      post 'pay', to: 'payments#pay'
+    end
+  end
 
   resources :closes, only: :new
 
