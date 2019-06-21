@@ -32,13 +32,13 @@ Things you may want to cover:
 |lastname|string|null: false|
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
-|birthday|integer|null: false|
-|postalcode|integer|null: false|
-|prefecture|string|null: false|
-|city_name|string|null: false|
-|address_number|string|null: false|
+|birthday|integer|
+|postalcode|integer|
+|prefecture|string|
+|city_name|string|
+|address_number|string|
 |building_name|string|
-|phone_number|integer|unique: true, null: false|
+|phone_number|integer|unique: true|
 |user_image|string|
 |profile|text|
 

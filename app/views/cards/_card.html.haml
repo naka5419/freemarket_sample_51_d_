@@ -2,7 +2,7 @@
   .new-card-main__content
     .content__area
       %h2.content__area__head 支払い方法
-      = form_with(url: pay_cards_path, local: true, method: :post, id: 'charge-form', class: 'content__area__info') do |f|
+      = form_with(url: pay_payments_path, local: true, method: :post, id: 'charge-form', class: 'content__area__info') do |f|
         .form
           .form__group
             = f.label :カード番号
@@ -65,5 +65,5 @@
               .signup__seqcode__text
                 %span.form__question ?
                 カード裏面の番号とは？
-          = f.submit "次へ進む", id: "token_submit", class: "btn__default btn--red none"
-          = link_to "次へ進む" ,new_close_path, class: "btn__default btn--red"
+          = f.submit "次へ進む", id: "token_submit", class: "btn__default btn--red", url: new_close_path #, class: "none"
+          -# = link_to "次へ進む" ,new_close_path, class: "btn__default btn--red"
