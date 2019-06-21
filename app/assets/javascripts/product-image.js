@@ -1,5 +1,8 @@
 $(function(){
   var images = [];
+  $(".preview__image").each(function(index) {
+    images.push(index);
+  });
   $(".sell-form__image__upload").change(function(e) {
     var file = e.target.files[0];
     var reader = new FileReader();
@@ -16,12 +19,10 @@ $(function(){
     reader.readAsDataURL(file);
     images.push(file);
     if(images.length < 5){
-      
       $("label").css({
         'width': `calc(88% - (18% * ${images.length}))`
       })
     }
-
   });
 
   //商品編集時の処理
