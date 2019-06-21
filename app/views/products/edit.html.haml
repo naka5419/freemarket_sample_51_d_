@@ -36,7 +36,7 @@
                 .preview__btn
                   = link_to "削除", product_image_path, method: :delete, class: "preview__btn__delete"
                   = link_to "編集", "", class: "preview__btn__edit"
-              = f.file_field :images, class: "sell-form__image__upload__edit", multiple: true, style: "display: none", id: "upload_field"
+              = f.file_field :images, class: "sell-form__image__upload", multiple: true, style: "display: none", id: "upload_field"
     .new-product__sell-form
       .sell-form__container
         .sell-form__container__name
