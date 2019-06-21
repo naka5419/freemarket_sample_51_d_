@@ -1,6 +1,6 @@
 $(function(){
   var images = [];
-  $(".preview__image").each(function(index, element) {
+  $(".preview__image").each(function(index) {
     images.push(index);
   });
   $(".sell-form__image__upload").change(function(e) {
