@@ -1,0 +1,12 @@
+.flash {
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: rgb(13, 144, 219);
+  }
+  height: 40px;
+}
